@@ -43,9 +43,9 @@ Partial Class Form2
         Me.Label2.Location = New System.Drawing.Point(573, 286)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 15)
+        Me.Label2.Size = New System.Drawing.Size(43, 15)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Help"
+        Me.Label2.Text = "aaaaaa"
         '
         'Form2
         '
@@ -57,7 +57,7 @@ Partial Class Form2
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Text = "aaaaaa"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
