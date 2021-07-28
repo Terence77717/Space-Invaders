@@ -22,49 +22,174 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.control = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TabControl1.SuspendLayout()
+        Me.control.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.control)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1200, 800)
+        Me.TabControl1.TabIndex = 2
+        '
+        'control
+        '
+        Me.control.BackgroundImage = CType(resources.GetObject("control.BackgroundImage"), System.Drawing.Image)
+        Me.control.Controls.Add(Me.Label7)
+        Me.control.Controls.Add(Me.Button1)
+        Me.control.Controls.Add(Me.Label6)
+        Me.control.Controls.Add(Me.Label5)
+        Me.control.Controls.Add(Me.Label4)
+        Me.control.Controls.Add(Me.Label3)
+        Me.control.Controls.Add(Me.Label2)
+        Me.control.Controls.Add(Me.Label1)
+        Me.control.Location = New System.Drawing.Point(4, 34)
+        Me.control.Name = "control"
+        Me.control.Padding = New System.Windows.Forms.Padding(3)
+        Me.control.Size = New System.Drawing.Size(1192, 762)
+        Me.control.TabIndex = 0
+        Me.control.Text = "Controls"
+        Me.control.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1192, 762)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(377, 248)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(390, 69)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Help"
+        Me.Label1.Size = New System.Drawing.Size(425, 54)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Default Game Controls"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(573, 286)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(319, 407)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 15)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "aaaaaa"
+        Me.Label2.Size = New System.Drawing.Size(437, 54)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Esc: Open pause screen"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(319, 254)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(612, 54)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "D: Move right across the baseline"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.ForeColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(319, 176)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(583, 54)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "A: Move left across the baseline"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(319, 490)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(317, 54)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "X: Use power-up"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(319, 330)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(496, 54)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "Space bar: Shoot projectile"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1037, 40)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 83)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Home (gonna get icon)"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(720, 506)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(374, 25)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "Maybe delete cuz keybinds already in settings"
         '
         'Form2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 800)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Form2"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "aaaaaa"
+        Me.TabControl1.ResumeLayout(False)
+        Me.control.ResumeLayout(False)
+        Me.control.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents control As TabPage
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label7 As Label
 End Class
