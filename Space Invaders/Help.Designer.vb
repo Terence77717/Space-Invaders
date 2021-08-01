@@ -25,15 +25,15 @@ Partial Class Form2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.control = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.scoring = New System.Windows.Forms.TabPage()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.control.SuspendLayout()
         Me.SuspendLayout()
@@ -41,7 +41,8 @@ Partial Class Form2
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.control)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.scoring)
+        Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
@@ -52,7 +53,6 @@ Partial Class Form2
         'control
         '
         Me.control.BackgroundImage = CType(resources.GetObject("control.BackgroundImage"), System.Drawing.Image)
-        Me.control.Controls.Add(Me.Label7)
         Me.control.Controls.Add(Me.Button1)
         Me.control.Controls.Add(Me.Label6)
         Me.control.Controls.Add(Me.Label5)
@@ -68,70 +68,14 @@ Partial Class Form2
         Me.control.Text = "Controls"
         Me.control.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'Button1
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1192, 762)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(390, 69)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(425, 54)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Default Game Controls"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(319, 407)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(437, 54)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Esc: Open pause screen"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(319, 254)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(612, 54)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "D: Move right across the baseline"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.ForeColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(319, 176)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(583, 54)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "A: Move left across the baseline"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(319, 490)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(317, 54)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "X: Use power-up"
+        Me.Button1.Location = New System.Drawing.Point(1037, 40)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 83)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Home"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -144,24 +88,79 @@ Partial Class Form2
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Space bar: Shoot projectile"
         '
-        'Button1
+        'Label5
         '
-        Me.Button1.Location = New System.Drawing.Point(1037, 40)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 83)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Home (gonna get icon)"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(319, 490)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(317, 54)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "X: Use power-up"
         '
-        'Label7
+        'Label4
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(720, 506)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(374, 25)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "Maybe delete cuz keybinds already in settings"
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.ForeColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(319, 176)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(583, 54)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "A: Move left across the baseline"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(319, 254)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(612, 54)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "D: Move right across the baseline"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(319, 407)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(437, 54)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Esc: Open pause screen"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(390, 69)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(425, 54)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Default Game Controls"
+        '
+        'scoring
+        '
+        Me.scoring.Location = New System.Drawing.Point(4, 34)
+        Me.scoring.Name = "scoring"
+        Me.scoring.Padding = New System.Windows.Forms.Padding(3)
+        Me.scoring.Size = New System.Drawing.Size(1192, 762)
+        Me.scoring.TabIndex = 1
+        Me.scoring.Text = "Scoring"
+        Me.scoring.UseVisualStyleBackColor = True
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1192, 762)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "How Game Works"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Form2
         '
@@ -189,7 +188,7 @@ Partial Class Form2
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents scoring As TabPage
     Friend WithEvents Button1 As Button
-    Friend WithEvents Label7 As Label
+    Friend WithEvents TabPage1 As TabPage
 End Class
