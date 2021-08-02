@@ -33,7 +33,7 @@ Partial Class Form2
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.scoring = New System.Windows.Forms.TabPage()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.basics = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.control.SuspendLayout()
         Me.SuspendLayout()
@@ -41,9 +41,8 @@ Partial Class Form2
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.control)
+        Me.TabControl1.Controls.Add(Me.basics)
         Me.TabControl1.Controls.Add(Me.scoring)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -153,14 +152,14 @@ Partial Class Form2
         Me.scoring.Text = "Scoring"
         Me.scoring.UseVisualStyleBackColor = True
         '
-        'TabPage1
+        'basics
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(1192, 762)
-        Me.TabPage1.TabIndex = 2
-        Me.TabPage1.Text = "How Game Works"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.basics.Location = New System.Drawing.Point(4, 34)
+        Me.basics.Name = "basics"
+        Me.basics.Size = New System.Drawing.Size(1192, 762)
+        Me.basics.TabIndex = 2
+        Me.basics.Text = "Basics"
+        Me.basics.UseVisualStyleBackColor = True
         '
         'Form2
         '
@@ -190,5 +189,5 @@ Partial Class Form2
     Friend WithEvents Label1 As Label
     Friend WithEvents scoring As TabPage
     Friend WithEvents Button1 As Button
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents basics As TabPage
 End Class
