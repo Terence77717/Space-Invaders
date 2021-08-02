@@ -25,7 +25,6 @@ Partial Class Form2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.control = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -53,7 +52,6 @@ Partial Class Form2
         'control
         '
         Me.control.BackgroundImage = CType(resources.GetObject("control.BackgroundImage"), System.Drawing.Image)
-        Me.control.Controls.Add(Me.Button1)
         Me.control.Controls.Add(Me.Label6)
         Me.control.Controls.Add(Me.Label5)
         Me.control.Controls.Add(Me.Label4)
@@ -71,13 +69,6 @@ Partial Class Form2
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(726, 24)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(78, 50)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Home"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label6
         '

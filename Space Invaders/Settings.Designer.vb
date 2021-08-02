@@ -46,30 +46,29 @@ Partial Class Settings
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(716, 55)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(477, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(418, 81)
+        Me.Label1.Size = New System.Drawing.Size(280, 54)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Game Settings"
         '
         'MasterSoundScroll
         '
-        Me.MasterSoundScroll.Location = New System.Drawing.Point(219, 332)
+        Me.MasterSoundScroll.Location = New System.Drawing.Point(146, 221)
         Me.MasterSoundScroll.Maximum = 108
         Me.MasterSoundScroll.Minimum = 1
         Me.MasterSoundScroll.Name = "MasterSoundScroll"
-        Me.MasterSoundScroll.Size = New System.Drawing.Size(1286, 25)
+        Me.MasterSoundScroll.Size = New System.Drawing.Size(857, 25)
         Me.MasterSoundScroll.TabIndex = 1
         Me.MasterSoundScroll.Value = 1
         '
         'SFXScroll
         '
-        Me.SFXScroll.Location = New System.Drawing.Point(219, 518)
+        Me.SFXScroll.Location = New System.Drawing.Point(146, 345)
         Me.SFXScroll.Maximum = 108
         Me.SFXScroll.Minimum = 1
         Me.SFXScroll.Name = "SFXScroll"
-        Me.SFXScroll.Size = New System.Drawing.Size(1286, 25)
+        Me.SFXScroll.Size = New System.Drawing.Size(857, 25)
         Me.SFXScroll.TabIndex = 2
         Me.SFXScroll.Value = 1
         '
@@ -79,10 +78,9 @@ Partial Class Settings
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label2.Location = New System.Drawing.Point(219, 265)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(146, 177)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(218, 41)
+        Me.Label2.Size = New System.Drawing.Size(143, 28)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Master Volume"
         '
@@ -92,10 +90,9 @@ Partial Class Settings
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label3.Location = New System.Drawing.Point(219, 457)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(146, 305)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(176, 41)
+        Me.Label3.Size = New System.Drawing.Size(116, 28)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "SFX Volume"
         '
@@ -105,10 +102,9 @@ Partial Class Settings
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label4.Location = New System.Drawing.Point(219, 718)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(146, 479)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(240, 67)
+        Me.Label4.Size = New System.Drawing.Size(163, 46)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Key Binds"
         '
@@ -118,10 +114,9 @@ Partial Class Settings
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label5.Location = New System.Drawing.Point(341, 857)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(227, 571)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(67, 41)
+        Me.Label5.Size = New System.Drawing.Size(44, 28)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Left"
         '
@@ -131,10 +126,9 @@ Partial Class Settings
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label6.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label6.Location = New System.Drawing.Point(634, 857)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(423, 571)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(88, 41)
+        Me.Label6.Size = New System.Drawing.Size(59, 28)
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "Right"
         '
@@ -144,10 +138,9 @@ Partial Class Settings
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label7.ForeColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(910, 857)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(607, 571)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(193, 41)
+        Me.Label7.Size = New System.Drawing.Size(125, 28)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Use Powerup"
         '
@@ -157,49 +150,44 @@ Partial Class Settings
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label8.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label8.Location = New System.Drawing.Point(1203, 857)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(802, 571)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(228, 41)
+        Me.Label8.Size = New System.Drawing.Size(152, 28)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "Shoot projectile"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(300, 928)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox1.Location = New System.Drawing.Point(200, 619)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(141, 31)
+        Me.TextBox1.Size = New System.Drawing.Size(95, 23)
         Me.TextBox1.TabIndex = 10
         Me.TextBox1.Text = "A"
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(606, 928)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox2.Location = New System.Drawing.Point(404, 619)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(141, 31)
+        Me.TextBox2.Size = New System.Drawing.Size(95, 23)
         Me.TextBox2.TabIndex = 11
         Me.TextBox2.Text = "S"
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(933, 928)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox3.Location = New System.Drawing.Point(622, 619)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(141, 31)
+        Me.TextBox3.Size = New System.Drawing.Size(95, 23)
         Me.TextBox3.TabIndex = 12
         Me.TextBox3.Text = "X"
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(1241, 928)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox4.Location = New System.Drawing.Point(827, 619)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(141, 31)
+        Me.TextBox4.Size = New System.Drawing.Size(95, 23)
         Me.TextBox4.TabIndex = 13
         Me.TextBox4.Text = "SPACE BAR"
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -207,17 +195,16 @@ Partial Class Settings
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1590, 20)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Location = New System.Drawing.Point(1060, 13)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(107, 80)
+        Me.Button1.Size = New System.Drawing.Size(71, 53)
         Me.Button1.TabIndex = 14
         Me.Button1.Text = "Back"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Settings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(144.0!, 144.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -238,7 +225,6 @@ Partial Class Settings
         Me.Controls.Add(Me.MasterSoundScroll)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Settings"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
