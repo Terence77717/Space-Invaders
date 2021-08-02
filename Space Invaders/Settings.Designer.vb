@@ -46,12 +46,8 @@ Partial Class Settings
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-<<<<<<< HEAD
         Me.Label1.Location = New System.Drawing.Point(716, 55)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-=======
-        Me.Label1.Location = New System.Drawing.Point(491, 33)
->>>>>>> 92008bd18b688a26bb1277917c41966da101168c
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(418, 81)
         Me.Label1.TabIndex = 0
@@ -221,16 +217,11 @@ Partial Class Settings
         '
         'Settings
         '
-<<<<<<< HEAD
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-=======
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(144.0!, 144.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
->>>>>>> 92008bd18b688a26bb1277917c41966da101168c
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1714, 1333)
+        Me.ClientSize = New System.Drawing.Size(1200, 800)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox3)
