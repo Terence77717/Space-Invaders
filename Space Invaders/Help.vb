@@ -10,6 +10,7 @@
 
     End Sub
 
+<<<<<<< HEAD
     Private Sub scoring_Click(sender As Object, e As EventArgs) Handles scoring.Click
 
     End Sub
@@ -23,6 +24,9 @@
     End Sub
 
     Private Sub control_Click(sender As Object, e As EventArgs) Handles control.Click
+=======
+    Private Sub TabControl1_SelectedIndexChanged_1(sender As Object, e As EventArgs)
+>>>>>>> 92008bd18b688a26bb1277917c41966da101168c
 
     End Sub
 End Class
