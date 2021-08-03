@@ -195,7 +195,7 @@ Partial Class Settings
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1060, 13)
+        Me.Button1.Location = New System.Drawing.Point(1117, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(71, 53)
         Me.Button1.TabIndex = 14
