@@ -23,34 +23,34 @@ Partial Class Settings
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Title = New System.Windows.Forms.Label()
         Me.MasterSoundScroll = New System.Windows.Forms.HScrollBar()
         Me.SFXScroll = New System.Windows.Forms.HScrollBar()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.MasterLabel = New System.Windows.Forms.Label()
+        Me.SFXLabel = New System.Windows.Forms.Label()
+        Me.KeyBindLabel = New System.Windows.Forms.Label()
+        Me.LeftTitle = New System.Windows.Forms.Label()
+        Me.RightLabel = New System.Windows.Forms.Label()
+        Me.PowerupLabel = New System.Windows.Forms.Label()
+        Me.ShootLabel = New System.Windows.Forms.Label()
+        Me.LeftInput = New System.Windows.Forms.TextBox()
+        Me.RightInput = New System.Windows.Forms.TextBox()
+        Me.PowerupInput = New System.Windows.Forms.TextBox()
+        Me.ShootInput = New System.Windows.Forms.TextBox()
+        Me.Back = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Label1
+        'Title
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(477, 37)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(280, 54)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Game Settings"
+        Me.Title.AutoSize = True
+        Me.Title.BackColor = System.Drawing.Color.Transparent
+        Me.Title.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Title.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Title.Location = New System.Drawing.Point(477, 37)
+        Me.Title.Name = "Title"
+        Me.Title.Size = New System.Drawing.Size(280, 54)
+        Me.Title.TabIndex = 0
+        Me.Title.Text = "Game Settings"
         '
         'MasterSoundScroll
         '
@@ -72,135 +72,135 @@ Partial Class Settings
         Me.SFXScroll.TabIndex = 2
         Me.SFXScroll.Value = 1
         '
-        'Label2
+        'MasterLabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label2.Location = New System.Drawing.Point(146, 177)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(143, 28)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Master Volume"
+        Me.MasterLabel.AutoSize = True
+        Me.MasterLabel.BackColor = System.Drawing.Color.Transparent
+        Me.MasterLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.MasterLabel.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.MasterLabel.Location = New System.Drawing.Point(146, 177)
+        Me.MasterLabel.Name = "MasterLabel"
+        Me.MasterLabel.Size = New System.Drawing.Size(143, 28)
+        Me.MasterLabel.TabIndex = 3
+        Me.MasterLabel.Text = "Master Volume"
         '
-        'Label3
+        'SFXLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label3.Location = New System.Drawing.Point(146, 305)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 28)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "SFX Volume"
+        Me.SFXLabel.AutoSize = True
+        Me.SFXLabel.BackColor = System.Drawing.Color.Transparent
+        Me.SFXLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.SFXLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.SFXLabel.Location = New System.Drawing.Point(146, 305)
+        Me.SFXLabel.Name = "SFXLabel"
+        Me.SFXLabel.Size = New System.Drawing.Size(116, 28)
+        Me.SFXLabel.TabIndex = 4
+        Me.SFXLabel.Text = "SFX Volume"
         '
-        'Label4
+        'KeyBindLabel
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label4.Location = New System.Drawing.Point(146, 479)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(163, 46)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Key Binds"
+        Me.KeyBindLabel.AutoSize = True
+        Me.KeyBindLabel.BackColor = System.Drawing.Color.Transparent
+        Me.KeyBindLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.KeyBindLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.KeyBindLabel.Location = New System.Drawing.Point(146, 479)
+        Me.KeyBindLabel.Name = "KeyBindLabel"
+        Me.KeyBindLabel.Size = New System.Drawing.Size(163, 46)
+        Me.KeyBindLabel.TabIndex = 5
+        Me.KeyBindLabel.Text = "Key Binds"
         '
-        'Label5
+        'LeftTitle
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label5.Location = New System.Drawing.Point(227, 571)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(44, 28)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Left"
+        Me.LeftTitle.AutoSize = True
+        Me.LeftTitle.BackColor = System.Drawing.Color.Transparent
+        Me.LeftTitle.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.LeftTitle.ForeColor = System.Drawing.SystemColors.Control
+        Me.LeftTitle.Location = New System.Drawing.Point(227, 571)
+        Me.LeftTitle.Name = "LeftTitle"
+        Me.LeftTitle.Size = New System.Drawing.Size(44, 28)
+        Me.LeftTitle.TabIndex = 6
+        Me.LeftTitle.Text = "Left"
         '
-        'Label6
+        'RightLabel
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label6.Location = New System.Drawing.Point(423, 571)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(59, 28)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Right"
+        Me.RightLabel.AutoSize = True
+        Me.RightLabel.BackColor = System.Drawing.Color.Transparent
+        Me.RightLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.RightLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.RightLabel.Location = New System.Drawing.Point(423, 571)
+        Me.RightLabel.Name = "RightLabel"
+        Me.RightLabel.Size = New System.Drawing.Size(59, 28)
+        Me.RightLabel.TabIndex = 7
+        Me.RightLabel.Text = "Right"
         '
-        'Label7
+        'PowerupLabel
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.ForeColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(607, 571)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(125, 28)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "Use Powerup"
+        Me.PowerupLabel.AutoSize = True
+        Me.PowerupLabel.BackColor = System.Drawing.Color.Transparent
+        Me.PowerupLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.PowerupLabel.ForeColor = System.Drawing.Color.Transparent
+        Me.PowerupLabel.Location = New System.Drawing.Point(607, 571)
+        Me.PowerupLabel.Name = "PowerupLabel"
+        Me.PowerupLabel.Size = New System.Drawing.Size(125, 28)
+        Me.PowerupLabel.TabIndex = 8
+        Me.PowerupLabel.Text = "Use Powerup"
         '
-        'Label8
+        'ShootLabel
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label8.Location = New System.Drawing.Point(802, 571)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(152, 28)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "Shoot projectile"
+        Me.ShootLabel.AutoSize = True
+        Me.ShootLabel.BackColor = System.Drawing.Color.Transparent
+        Me.ShootLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ShootLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.ShootLabel.Location = New System.Drawing.Point(802, 571)
+        Me.ShootLabel.Name = "ShootLabel"
+        Me.ShootLabel.Size = New System.Drawing.Size(152, 28)
+        Me.ShootLabel.TabIndex = 9
+        Me.ShootLabel.Text = "Shoot projectile"
         '
-        'TextBox1
+        'LeftInput
         '
-        Me.TextBox1.Location = New System.Drawing.Point(200, 619)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(95, 23)
-        Me.TextBox1.TabIndex = 10
-        Me.TextBox1.Text = "A"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.LeftInput.Location = New System.Drawing.Point(200, 619)
+        Me.LeftInput.Name = "LeftInput"
+        Me.LeftInput.Size = New System.Drawing.Size(95, 23)
+        Me.LeftInput.TabIndex = 10
+        Me.LeftInput.Text = "A"
+        Me.LeftInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'RightInput
         '
-        Me.TextBox2.Location = New System.Drawing.Point(404, 619)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(95, 23)
-        Me.TextBox2.TabIndex = 11
-        Me.TextBox2.Text = "S"
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.RightInput.Location = New System.Drawing.Point(404, 619)
+        Me.RightInput.Name = "RightInput"
+        Me.RightInput.Size = New System.Drawing.Size(95, 23)
+        Me.RightInput.TabIndex = 11
+        Me.RightInput.Text = "S"
+        Me.RightInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox3
+        'PowerupInput
         '
-        Me.TextBox3.Location = New System.Drawing.Point(622, 619)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(95, 23)
-        Me.TextBox3.TabIndex = 12
-        Me.TextBox3.Text = "X"
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PowerupInput.Location = New System.Drawing.Point(622, 619)
+        Me.PowerupInput.Name = "PowerupInput"
+        Me.PowerupInput.Size = New System.Drawing.Size(95, 23)
+        Me.PowerupInput.TabIndex = 12
+        Me.PowerupInput.Text = "X"
+        Me.PowerupInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox4
+        'ShootInput
         '
-        Me.TextBox4.Location = New System.Drawing.Point(827, 619)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(95, 23)
-        Me.TextBox4.TabIndex = 13
-        Me.TextBox4.Text = "SPACE BAR"
-        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ShootInput.Location = New System.Drawing.Point(827, 619)
+        Me.ShootInput.Name = "ShootInput"
+        Me.ShootInput.Size = New System.Drawing.Size(95, 23)
+        Me.ShootInput.TabIndex = 13
+        Me.ShootInput.Text = "SPACE BAR"
+        Me.ShootInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Button1
+        'Back
         '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1117, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(71, 53)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.Back.BackColor = System.Drawing.Color.Transparent
+        Me.Back.Location = New System.Drawing.Point(1117, 12)
+        Me.Back.Name = "Back"
+        Me.Back.Size = New System.Drawing.Size(71, 53)
+        Me.Back.TabIndex = 14
+        Me.Back.Text = "Back"
+        Me.Back.UseVisualStyleBackColor = False
         '
         'Settings
         '
@@ -209,21 +209,21 @@ Partial Class Settings
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1200, 800)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Back)
+        Me.Controls.Add(Me.ShootInput)
+        Me.Controls.Add(Me.PowerupInput)
+        Me.Controls.Add(Me.RightInput)
+        Me.Controls.Add(Me.LeftInput)
+        Me.Controls.Add(Me.ShootLabel)
+        Me.Controls.Add(Me.PowerupLabel)
+        Me.Controls.Add(Me.RightLabel)
+        Me.Controls.Add(Me.LeftTitle)
+        Me.Controls.Add(Me.KeyBindLabel)
+        Me.Controls.Add(Me.SFXLabel)
+        Me.Controls.Add(Me.MasterLabel)
         Me.Controls.Add(Me.SFXScroll)
         Me.Controls.Add(Me.MasterSoundScroll)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Title)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Settings"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
@@ -234,19 +234,19 @@ Partial Class Settings
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Title As Label
     Friend WithEvents MasterSoundScroll As HScrollBar
     Friend WithEvents SFXScroll As HScrollBar
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents MasterLabel As Label
+    Friend WithEvents SFXLabel As Label
+    Friend WithEvents KeyBindLabel As Label
+    Friend WithEvents LeftTitle As Label
+    Friend WithEvents RightLabel As Label
+    Friend WithEvents PowerupLabel As Label
+    Friend WithEvents ShootLabel As Label
+    Friend WithEvents LeftInput As TextBox
+    Friend WithEvents RightInput As TextBox
+    Friend WithEvents PowerupInput As TextBox
+    Friend WithEvents ShootInput As TextBox
+    Friend WithEvents Back As Button
 End Class
