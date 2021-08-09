@@ -78,6 +78,7 @@ Partial Class confirmexit
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "confirmexit"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "confirm"
         Me.ResumeLayout(False)
         Me.PerformLayout()
