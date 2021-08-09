@@ -61,7 +61,7 @@ Partial Class Settings
         Me.MasterSoundScroll.Name = "MasterSoundScroll"
         Me.MasterSoundScroll.Size = New System.Drawing.Size(1286, 25)
         Me.MasterSoundScroll.TabIndex = 1
-        Me.MasterSoundScroll.Value = 1
+        Me.MasterSoundScroll.Value = 108
         '
         'SFXScroll
         '
@@ -71,7 +71,7 @@ Partial Class Settings
         Me.SFXScroll.Name = "SFXScroll"
         Me.SFXScroll.Size = New System.Drawing.Size(1286, 25)
         Me.SFXScroll.TabIndex = 2
-        Me.SFXScroll.Value = 1
+        Me.SFXScroll.Value = 108
         '
         'MasterLabel
         '
