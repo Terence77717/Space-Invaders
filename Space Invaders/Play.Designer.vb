@@ -35,7 +35,7 @@ Partial Class Form2
         'player
         '
         Me.player.Image = CType(resources.GetObject("player.Image"), System.Drawing.Image)
-        Me.player.Location = New System.Drawing.Point(440, 455)
+        Me.player.Location = New System.Drawing.Point(365, 455)
         Me.player.Name = "player"
         Me.player.Size = New System.Drawing.Size(164, 97)
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
