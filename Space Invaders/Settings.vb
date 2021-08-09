@@ -6,7 +6,7 @@ Public Class Settings
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
         Me.Hide()
-        Form1.Show()
+        home.Show()
     End Sub
 
     Private Sub MasterSoundScroll_Scroll(sender As Object, e As ScrollEventArgs) Handles MasterSoundScroll.Scroll

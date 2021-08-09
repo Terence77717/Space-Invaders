@@ -103,6 +103,46 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property mars() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mars", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property moon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("moon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property moon1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("moon1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property moon2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("moon2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property realplayer() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("realplayer", resourceCulture)

@@ -35,18 +35,20 @@ Partial Class Form2
         'player
         '
         Me.player.Image = CType(resources.GetObject("player.Image"), System.Drawing.Image)
-        Me.player.Location = New System.Drawing.Point(365, 455)
+        Me.player.Location = New System.Drawing.Point(256, 273)
+        Me.player.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.player.Name = "player"
-        Me.player.Size = New System.Drawing.Size(164, 97)
+        Me.player.Size = New System.Drawing.Size(115, 58)
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.player.TabIndex = 0
         Me.player.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(606, 289)
+        Me.PictureBox1.Location = New System.Drawing.Point(424, 173)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(150, 75)
+        Me.PictureBox1.Size = New System.Drawing.Size(105, 45)
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
@@ -54,21 +56,24 @@ Partial Class Form2
         '
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(516, 422)
+        Me.Label1.Location = New System.Drawing.Point(361, 253)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(13, 30)
+        Me.Label1.Size = New System.Drawing.Size(9, 18)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "d"
         '
         'Form2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(1039, 594)
+        Me.ClientSize = New System.Drawing.Size(727, 356)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.player)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Form2"
         Me.Text = "Game"
         CType(Me.player, System.ComponentModel.ISupportInitialize).EndInit()
