@@ -236,7 +236,7 @@ Partial Class levels
         Me.EndlessMode.Cursor = System.Windows.Forms.Cursors.Hand
         Me.EndlessMode.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.EndlessMode.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.EndlessMode.Location = New System.Drawing.Point(482, 541)
+        Me.EndlessMode.Location = New System.Drawing.Point(481, 541)
         Me.EndlessMode.Name = "EndlessMode"
         Me.EndlessMode.Size = New System.Drawing.Size(264, 48)
         Me.EndlessMode.TabIndex = 32
