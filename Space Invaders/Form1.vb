@@ -10,4 +10,9 @@
         Me.Hide()
         Settings.Show()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles playButton.Click
+        Me.Hide()
+        Form2.Show()
+    End Sub
 End Class
