@@ -10,6 +10,7 @@
         Else
             EndlessMode.ForeColor = Color.White
         End If
+        Me.Size = New Size(1200, 800)
     End Sub
     'Level selection
     Private Sub Levels1_Click(sender As Object, e As EventArgs) Handles Levels1.Click

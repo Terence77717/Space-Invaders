@@ -1,6 +1,7 @@
 ﻿Public Class confirmexit
     Private Sub confirmexit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
+        Me.Size = New Size(600, 300)
     End Sub
     '''Private Sub frm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
     '''    ControlPaint.DrawBorder(e.Graphics, Me.ClientRectangle, Color.Black, ButtonBorderStyle.Outset)

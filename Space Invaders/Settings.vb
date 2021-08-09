@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.DirectX.AudioVideoPlayback
 Public Class Settings
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.Size = New Size(1200, 800)
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click

@@ -46,7 +46,7 @@ Partial Class Settings
         Me.Title.BackColor = System.Drawing.Color.Transparent
         Me.Title.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Title.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Title.Location = New System.Drawing.Point(445, 21)
+        Me.Title.Location = New System.Drawing.Point(487, 12)
         Me.Title.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Title.Name = "Title"
         Me.Title.Size = New System.Drawing.Size(280, 54)
@@ -207,7 +207,7 @@ Partial Class Settings
         'Back
         '
         Me.Back.BackColor = System.Drawing.Color.Transparent
-        Me.Back.Location = New System.Drawing.Point(1160, 13)
+        Me.Back.Location = New System.Drawing.Point(1116, 13)
         Me.Back.Margin = New System.Windows.Forms.Padding(4)
         Me.Back.Name = "Back"
         Me.Back.Size = New System.Drawing.Size(71, 53)
@@ -217,10 +217,10 @@ Partial Class Settings
         '
         'Settings
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1244, 800)
+        Me.ClientSize = New System.Drawing.Size(1200, 800)
         Me.Controls.Add(Me.Back)
         Me.Controls.Add(Me.ShootInput)
         Me.Controls.Add(Me.PowerupInput)
