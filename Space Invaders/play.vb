@@ -11,20 +11,24 @@
                 player.Top += 10
         End Select
         If e.KeyCode = Keys.Space Then
+            projectile.Top -= 10
+
+
 
         End If
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles MyBase.Load
-        player.Location = New Point(440, 455)
+        player.Location = New Point(573, 703)
+        player.Size = New Size(88, 48)
+        projectile.Location = New Point(613, 680)
+        projectile.Size = New Size(7, 20)
+
 
     End Sub
-
-    Private Sub player_Click(sender As Object, e As EventArgs) Handles player.Click
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
+    Private Sub movementTimer_Tick(sender As Object, e As EventArgs) Handles movementTimer.Tick
+        Do While projectile.Top > 0
+            projectile.Top -= 5
+        Loop
     End Sub
 End Class
