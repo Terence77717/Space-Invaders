@@ -144,6 +144,7 @@ Partial Class home
         Me.playlabel.AutoSize = True
         Me.playlabel.BackColor = System.Drawing.Color.Transparent
         Me.playlabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.playlabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.playlabel.Location = New System.Drawing.Point(536, 241)

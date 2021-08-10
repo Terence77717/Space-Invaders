@@ -1,4 +1,4 @@
-﻿Public Class Form2
+﻿Public Class play
     Private Sub Form2_KeyPress(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         Select Case e.KeyCode
             Case Keys.A
