@@ -237,6 +237,7 @@ Partial Class Settings
         Me.Controls.Add(Me.MasterSoundScroll)
         Me.Controls.Add(Me.Title)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Settings"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show

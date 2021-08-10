@@ -1,7 +1,7 @@
 ﻿Public Class confirmexit
     Private Sub confirmexit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
-        Me.Size = New Size(600, 300)
+        Me.Size = New Size(800, 500)
     End Sub
     '''Private Sub frm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
     '''    ControlPaint.DrawBorder(e.Graphics, Me.ClientRectangle, Color.Black, ButtonBorderStyle.Outset)
@@ -16,6 +16,7 @@
         Label2.Text = "NO STAY"
     End Sub
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        home.Show()
         Me.Close()
     End Sub
     Private Sub Label2_Hover(sender As Object, e As EventArgs) Handles Label2.MouseHover
@@ -25,7 +26,7 @@
         Label1.Text = "YES QUIT"
     End Sub
 
-    Private Sub TITLEHOME_Click(sender As Object, e As EventArgs) Handles TITLEHOME.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

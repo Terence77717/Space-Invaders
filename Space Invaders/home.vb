@@ -2,6 +2,7 @@
     Public endlessunlocked As Boolean = False
     Public Levelselected As Integer = 0
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Hide()
         confirmexit.Show()
     End Sub
 
@@ -21,5 +22,6 @@
 
     Private Sub home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Size = New Size(1200, 800)
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 End Class

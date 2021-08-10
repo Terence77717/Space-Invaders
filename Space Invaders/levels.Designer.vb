@@ -263,6 +263,7 @@ Partial Class levels
         Me.Controls.Add(Me.Back)
         Me.Controls.Add(Me.LevelsLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "levels"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "levels"
