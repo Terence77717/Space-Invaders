@@ -24,13 +24,14 @@ Partial Class home
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.ExitButton = New System.Windows.Forms.Button()
+        Me.TITLELABEL = New System.Windows.Forms.Label()
         Me.LevelsLabel = New System.Windows.Forms.Label()
-        Me.PlayButton = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SettingsLabel = New System.Windows.Forms.Label()
+        Me.HelpLabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.playlabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,63 +48,63 @@ Partial Class home
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = False
         '
+        'TITLELABEL
+        '
+        Me.TITLELABEL.AutoSize = True
+        Me.TITLELABEL.BackColor = System.Drawing.Color.Transparent
+        Me.TITLELABEL.Font = New System.Drawing.Font("Segoe UI", 35.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TITLELABEL.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.TITLELABEL.Location = New System.Drawing.Point(407, 33)
+        Me.TITLELABEL.Name = "TITLELABEL"
+        Me.TITLELABEL.Size = New System.Drawing.Size(340, 62)
+        Me.TITLELABEL.TabIndex = 21
+        Me.TITLELABEL.Text = "Space Invaders"
+        Me.TITLELABEL.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'LevelsLabel
         '
         Me.LevelsLabel.AutoSize = True
         Me.LevelsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 35.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.LevelsLabel.Location = New System.Drawing.Point(407, 33)
+        Me.LevelsLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.LevelsLabel.Location = New System.Drawing.Point(525, 300)
+        Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(340, 62)
-        Me.LevelsLabel.TabIndex = 21
-        Me.LevelsLabel.Text = "Space Invaders"
-        Me.LevelsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LevelsLabel.Size = New System.Drawing.Size(112, 48)
+        Me.LevelsLabel.TabIndex = 22
+        Me.LevelsLabel.Text = "Levels"
         '
-        'PlayButton
+        'SettingsLabel
         '
-        Me.PlayButton.AutoSize = True
-        Me.PlayButton.BackColor = System.Drawing.Color.Transparent
-        Me.PlayButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PlayButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PlayButton.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.PlayButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.PlayButton.Location = New System.Drawing.Point(525, 300)
-        Me.PlayButton.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.PlayButton.Name = "PlayButton"
-        Me.PlayButton.Size = New System.Drawing.Size(112, 48)
-        Me.PlayButton.TabIndex = 22
-        Me.PlayButton.Text = "Levels"
+        Me.SettingsLabel.AutoSize = True
+        Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.SettingsLabel.Location = New System.Drawing.Point(511, 367)
+        Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.SettingsLabel.Name = "SettingsLabel"
+        Me.SettingsLabel.Size = New System.Drawing.Size(143, 48)
+        Me.SettingsLabel.TabIndex = 23
+        Me.SettingsLabel.Text = "Settings"
         '
-        'Label1
+        'HelpLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(511, 367)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(143, 48)
-        Me.Label1.TabIndex = 23
-        Me.Label1.Text = "Settings"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label2.Location = New System.Drawing.Point(534, 435)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 48)
-        Me.Label2.TabIndex = 24
-        Me.Label2.Text = "Help"
+        Me.HelpLabel.AutoSize = True
+        Me.HelpLabel.BackColor = System.Drawing.Color.Transparent
+        Me.HelpLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.HelpLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.HelpLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.HelpLabel.Location = New System.Drawing.Point(534, 435)
+        Me.HelpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.HelpLabel.Name = "HelpLabel"
+        Me.HelpLabel.Size = New System.Drawing.Size(92, 48)
+        Me.HelpLabel.TabIndex = 24
+        Me.HelpLabel.Text = "Help"
         '
         'PictureBox1
         '
@@ -138,15 +139,29 @@ Partial Class home
         Me.PictureBox3.TabIndex = 27
         Me.PictureBox3.TabStop = False
         '
+        'playlabel
+        '
+        Me.playlabel.AutoSize = True
+        Me.playlabel.BackColor = System.Drawing.Color.Transparent
+        Me.playlabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.playlabel.Location = New System.Drawing.Point(536, 241)
+        Me.playlabel.Name = "playlabel"
+        Me.playlabel.Size = New System.Drawing.Size(82, 48)
+        Me.playlabel.TabIndex = 28
+        Me.playlabel.Text = "Play"
+        '
         'home
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1200, 800)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PlayButton)
+        Me.Controls.Add(Me.playlabel)
+        Me.Controls.Add(Me.HelpLabel)
+        Me.Controls.Add(Me.SettingsLabel)
         Me.Controls.Add(Me.LevelsLabel)
+        Me.Controls.Add(Me.TITLELABEL)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
@@ -165,11 +180,12 @@ Partial Class home
     End Sub
 
     Friend WithEvents ExitButton As Button
+    Friend WithEvents TITLELABEL As Label
     Friend WithEvents LevelsLabel As Label
-    Friend WithEvents PlayButton As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents SettingsLabel As Label
+    Friend WithEvents HelpLabel As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents playlabel As Label
 End Class

@@ -23,7 +23,7 @@ Partial Class Settings
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
-        Me.Title = New System.Windows.Forms.Label()
+        Me.TitleLABEL = New System.Windows.Forms.Label()
         Me.MasterSoundScroll = New System.Windows.Forms.HScrollBar()
         Me.SFXScroll = New System.Windows.Forms.HScrollBar()
         Me.MasterLabel = New System.Windows.Forms.Label()
@@ -40,18 +40,18 @@ Partial Class Settings
         Me.Back = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Title
+        'TitleLABEL
         '
-        Me.Title.AutoSize = True
-        Me.Title.BackColor = System.Drawing.Color.Transparent
-        Me.Title.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Title.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Title.Location = New System.Drawing.Point(487, 12)
-        Me.Title.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Title.Name = "Title"
-        Me.Title.Size = New System.Drawing.Size(280, 54)
-        Me.Title.TabIndex = 0
-        Me.Title.Text = "Game Settings"
+        Me.TitleLABEL.AutoSize = True
+        Me.TitleLABEL.BackColor = System.Drawing.Color.Transparent
+        Me.TitleLABEL.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TitleLABEL.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TitleLABEL.Location = New System.Drawing.Point(487, 12)
+        Me.TitleLABEL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.TitleLABEL.Name = "TitleLABEL"
+        Me.TitleLABEL.Size = New System.Drawing.Size(280, 54)
+        Me.TitleLABEL.TabIndex = 0
+        Me.TitleLABEL.Text = "Game Settings"
         '
         'MasterSoundScroll
         '
@@ -235,7 +235,7 @@ Partial Class Settings
         Me.Controls.Add(Me.MasterLabel)
         Me.Controls.Add(Me.SFXScroll)
         Me.Controls.Add(Me.MasterSoundScroll)
-        Me.Controls.Add(Me.Title)
+        Me.Controls.Add(Me.TitleLABEL)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -248,7 +248,7 @@ Partial Class Settings
 
     End Sub
 
-    Friend WithEvents Title As Label
+    Friend WithEvents TitleLABEL As Label
     Friend WithEvents MasterSoundScroll As HScrollBar
     Friend WithEvents SFXScroll As HScrollBar
     Friend WithEvents MasterLabel As Label
