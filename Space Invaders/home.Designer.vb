@@ -39,15 +39,15 @@ Partial Class home
         '
         'ExitButton
         '
-        Me.ExitButton.BackColor = System.Drawing.Color.Lavender
+        Me.ExitButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ExitButton.BackgroundImage = CType(resources.GetObject("ExitButton.BackgroundImage"), System.Drawing.Image)
         Me.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExitButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ExitButton.Location = New System.Drawing.Point(1117, 12)
+        Me.ExitButton.Location = New System.Drawing.Point(1138, 12)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(71, 53)
+        Me.ExitButton.Size = New System.Drawing.Size(50, 50)
         Me.ExitButton.TabIndex = 20
         Me.ExitButton.UseVisualStyleBackColor = False
         '
@@ -170,6 +170,7 @@ Partial Class home
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "home"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
