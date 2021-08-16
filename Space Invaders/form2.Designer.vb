@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class Form2
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.player = New System.Windows.Forms.PictureBox()
-        Me.movementTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.projectile = New System.Windows.Forms.Label()
+        Me.tmrShoot = New System.Windows.Forms.Timer(Me.components)
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -40,18 +39,8 @@ Partial Class Form2
         Me.player.TabIndex = 0
         Me.player.TabStop = False
         '
-        'movementTimer
+        'tmrShoot
         '
-        '
-        'projectile
-        '
-        Me.projectile.BackColor = System.Drawing.Color.White
-        Me.projectile.ForeColor = System.Drawing.Color.White
-        Me.projectile.Location = New System.Drawing.Point(613, 680)
-        Me.projectile.Name = "projectile"
-        Me.projectile.Size = New System.Drawing.Size(7, 20)
-        Me.projectile.TabIndex = 2
-        Me.projectile.Visible = False
         '
         'Form2
         '
@@ -59,7 +48,6 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1255, 763)
-        Me.Controls.Add(Me.projectile)
         Me.Controls.Add(Me.player)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "Form2"
@@ -70,6 +58,5 @@ Partial Class Form2
     End Sub
 
     Friend WithEvents player As PictureBox
-    Friend WithEvents movementTimer As Timer
-    Friend WithEvents projectile As Label
+    Friend WithEvents tmrShoot As Timer
 End Class
