@@ -38,6 +38,7 @@ Partial Class Settings
         Me.PowerupInput = New System.Windows.Forms.TextBox()
         Me.ShootInput = New System.Windows.Forms.TextBox()
         Me.Back = New System.Windows.Forms.Button()
+        Me.ResetKeys = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TitleLABEL
@@ -169,6 +170,7 @@ Partial Class Settings
         Me.LeftInput.Location = New System.Drawing.Point(276, 562)
         Me.LeftInput.Margin = New System.Windows.Forms.Padding(4)
         Me.LeftInput.Name = "LeftInput"
+        Me.LeftInput.ReadOnly = True
         Me.LeftInput.Size = New System.Drawing.Size(140, 23)
         Me.LeftInput.TabIndex = 10
         Me.LeftInput.Text = "A"
@@ -179,6 +181,7 @@ Partial Class Settings
         Me.RightInput.Location = New System.Drawing.Point(458, 562)
         Me.RightInput.Margin = New System.Windows.Forms.Padding(4)
         Me.RightInput.Name = "RightInput"
+        Me.RightInput.ReadOnly = True
         Me.RightInput.Size = New System.Drawing.Size(140, 23)
         Me.RightInput.TabIndex = 11
         Me.RightInput.Text = "S"
@@ -189,6 +192,7 @@ Partial Class Settings
         Me.PowerupInput.Location = New System.Drawing.Point(658, 562)
         Me.PowerupInput.Margin = New System.Windows.Forms.Padding(4)
         Me.PowerupInput.Name = "PowerupInput"
+        Me.PowerupInput.ReadOnly = True
         Me.PowerupInput.Size = New System.Drawing.Size(140, 23)
         Me.PowerupInput.TabIndex = 12
         Me.PowerupInput.Text = "X"
@@ -199,6 +203,7 @@ Partial Class Settings
         Me.ShootInput.Location = New System.Drawing.Point(839, 562)
         Me.ShootInput.Margin = New System.Windows.Forms.Padding(4)
         Me.ShootInput.Name = "ShootInput"
+        Me.ShootInput.ReadOnly = True
         Me.ShootInput.Size = New System.Drawing.Size(140, 23)
         Me.ShootInput.TabIndex = 13
         Me.ShootInput.Text = "SPACE BAR"
@@ -207,6 +212,7 @@ Partial Class Settings
         'Back
         '
         Me.Back.BackColor = System.Drawing.Color.Transparent
+        Me.Back.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Back.Location = New System.Drawing.Point(1116, 13)
         Me.Back.Margin = New System.Windows.Forms.Padding(4)
         Me.Back.Name = "Back"
@@ -215,12 +221,28 @@ Partial Class Settings
         Me.Back.Text = "Back"
         Me.Back.UseVisualStyleBackColor = False
         '
+        'ResetKeys
+        '
+        Me.ResetKeys.AutoSize = True
+        Me.ResetKeys.BackColor = System.Drawing.Color.Transparent
+        Me.ResetKeys.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.ResetKeys.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ResetKeys.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ResetKeys.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.ResetKeys.Location = New System.Drawing.Point(839, 631)
+        Me.ResetKeys.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ResetKeys.Name = "ResetKeys"
+        Me.ResetKeys.Size = New System.Drawing.Size(149, 30)
+        Me.ResetKeys.TabIndex = 15
+        Me.ResetKeys.Text = "Reset Key Binds"
+        '
         'Settings
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1200, 800)
+        Me.Controls.Add(Me.ResetKeys)
         Me.Controls.Add(Me.Back)
         Me.Controls.Add(Me.ShootInput)
         Me.Controls.Add(Me.PowerupInput)
@@ -236,6 +258,7 @@ Partial Class Settings
         Me.Controls.Add(Me.SFXScroll)
         Me.Controls.Add(Me.MasterSoundScroll)
         Me.Controls.Add(Me.TitleLABEL)
+        Me.ForeColor = System.Drawing.SystemColors.Control
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -263,4 +286,5 @@ Partial Class Settings
     Friend WithEvents PowerupInput As TextBox
     Friend WithEvents ShootInput As TextBox
     Friend WithEvents Back As Button
+    Friend WithEvents ResetKeys As Label
 End Class

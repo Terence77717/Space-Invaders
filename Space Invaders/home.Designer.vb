@@ -39,13 +39,16 @@ Partial Class home
         '
         'ExitButton
         '
-        Me.ExitButton.BackColor = System.Drawing.Color.Transparent
+        Me.ExitButton.BackColor = System.Drawing.Color.Lavender
+        Me.ExitButton.BackgroundImage = CType(resources.GetObject("ExitButton.BackgroundImage"), System.Drawing.Image)
+        Me.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExitButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ExitButton.Location = New System.Drawing.Point(1117, 12)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(71, 53)
         Me.ExitButton.TabIndex = 20
-        Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = False
         '
         'TITLELABEL
@@ -65,14 +68,13 @@ Partial Class home
         '
         Me.LevelsLabel.AutoSize = True
         Me.LevelsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.LevelsLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.LevelsLabel.Location = New System.Drawing.Point(525, 300)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(112, 48)
+        Me.LevelsLabel.Size = New System.Drawing.Size(110, 46)
         Me.LevelsLabel.TabIndex = 22
         Me.LevelsLabel.Text = "Levels"
         '
@@ -80,14 +82,13 @@ Partial Class home
         '
         Me.SettingsLabel.AutoSize = True
         Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SettingsLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.SettingsLabel.Location = New System.Drawing.Point(511, 367)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(143, 48)
+        Me.SettingsLabel.Size = New System.Drawing.Size(141, 46)
         Me.SettingsLabel.TabIndex = 23
         Me.SettingsLabel.Text = "Settings"
         '
@@ -95,14 +96,13 @@ Partial Class home
         '
         Me.HelpLabel.AutoSize = True
         Me.HelpLabel.BackColor = System.Drawing.Color.Transparent
-        Me.HelpLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.HelpLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.HelpLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.HelpLabel.Location = New System.Drawing.Point(534, 435)
         Me.HelpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.HelpLabel.Name = "HelpLabel"
-        Me.HelpLabel.Size = New System.Drawing.Size(92, 48)
+        Me.HelpLabel.Size = New System.Drawing.Size(90, 46)
         Me.HelpLabel.TabIndex = 24
         Me.HelpLabel.Text = "Help"
         '
@@ -143,12 +143,13 @@ Partial Class home
         '
         Me.playlabel.AutoSize = True
         Me.playlabel.BackColor = System.Drawing.Color.Transparent
-        Me.playlabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.playlabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.playlabel.Location = New System.Drawing.Point(536, 241)
         Me.playlabel.Name = "playlabel"
-        Me.playlabel.Size = New System.Drawing.Size(82, 48)
+        Me.playlabel.Size = New System.Drawing.Size(80, 46)
         Me.playlabel.TabIndex = 28
         Me.playlabel.Text = "Play"
         '
