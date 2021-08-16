@@ -34,4 +34,7 @@
         Leave.Text = "YES QUIT"
     End Sub
 
+    Private Sub TITLEHOME_Click(sender As Object, e As EventArgs) Handles TITLEHOME.Click
+
+    End Sub
 End Class
