@@ -26,6 +26,7 @@ Partial Class Form2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.player = New System.Windows.Forms.PictureBox()
         Me.tmrShoot = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrMove = New System.Windows.Forms.Timer(Me.components)
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -40,6 +41,9 @@ Partial Class Form2
         Me.player.TabStop = False
         '
         'tmrShoot
+        '
+        '
+        'tmrMove
         '
         '
         'Form2
@@ -59,4 +63,5 @@ Partial Class Form2
 
     Friend WithEvents player As PictureBox
     Friend WithEvents tmrShoot As Timer
+    Friend WithEvents tmrMove As Timer
 End Class
