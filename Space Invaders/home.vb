@@ -45,6 +45,6 @@
 
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
         Me.Hide()
-        Form2.Show()
+        play.Show()
     End Sub
 End Class
