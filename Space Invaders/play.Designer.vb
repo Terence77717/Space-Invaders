@@ -34,7 +34,7 @@ Partial Class Form2
         '
         Me.player.Image = CType(resources.GetObject("player.Image"), System.Drawing.Image)
         Me.player.Location = New System.Drawing.Point(401, 422)
-        Me.player.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.player.Margin = New System.Windows.Forms.Padding(2)
         Me.player.Name = "player"
         Me.player.Size = New System.Drawing.Size(62, 29)
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -42,6 +42,9 @@ Partial Class Form2
         Me.player.TabStop = False
         '
         'tmrShoot
+        '
+        '
+        'tmrmove
         '
         '
         'Form2
@@ -52,8 +55,9 @@ Partial Class Form2
         Me.ClientSize = New System.Drawing.Size(878, 458)
         Me.Controls.Add(Me.player)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form2"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Game"
         CType(Me.player, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

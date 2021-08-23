@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="freezepowerup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\freezepowerup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="moon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\moon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,8 +133,8 @@
   <data name="doublepowerup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doublepowerup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="music1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Space Invaders v2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="mothership" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mothership.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="help background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,14 +142,11 @@
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Laser_Cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Laser_Cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BACK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BACK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,19 +157,22 @@
   <data name="alien" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alien.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mothership" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mothership.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fullheart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fullheart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Laser_Cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Laser_Cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="music1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Space Invaders v2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="mars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="freezepowerup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\freezepowerup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="emptyheart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emptyheart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

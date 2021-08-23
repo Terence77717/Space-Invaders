@@ -40,6 +40,8 @@ Public Class Form2
                 playerRight = True
             Case Settings.KeyPowerUp 'powerup
                 numofshots = 3
+            Case Keys.Escape
+                pause.Show()
             Case Settings.KeyShoot 'shooting
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
@@ -72,7 +74,7 @@ Public Class Form2
 
     End Sub
     'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
-    Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick
+    Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick 'lags a decent bit so far
         tmrShoot.Interval = 40
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
