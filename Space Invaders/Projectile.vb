@@ -7,7 +7,6 @@
             .Size = New Size(20, 40)
             .Top = Form2.player.Top
             .Left = Form2.player.Left + (Form2.player.Width / 2) - (.Width / 2)
-            .BackgroundImage = My.Resources.bullet
 
         End With
     End Sub

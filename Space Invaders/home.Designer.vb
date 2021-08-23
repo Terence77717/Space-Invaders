@@ -74,9 +74,9 @@ Partial Class home
         Me.LevelsLabel.Location = New System.Drawing.Point(525, 300)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(110, 46)
+        Me.LevelsLabel.Size = New System.Drawing.Size(125, 46)
         Me.LevelsLabel.TabIndex = 22
-        Me.LevelsLabel.Text = "Levels"
+        Me.LevelsLabel.Text = "LEVELS"
         '
         'SettingsLabel
         '
@@ -88,9 +88,9 @@ Partial Class home
         Me.SettingsLabel.Location = New System.Drawing.Point(511, 367)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(141, 46)
+        Me.SettingsLabel.Size = New System.Drawing.Size(167, 46)
         Me.SettingsLabel.TabIndex = 23
-        Me.SettingsLabel.Text = "Settings"
+        Me.SettingsLabel.Text = "SETTINGS"
         '
         'HelpLabel
         '
@@ -102,9 +102,9 @@ Partial Class home
         Me.HelpLabel.Location = New System.Drawing.Point(534, 435)
         Me.HelpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.HelpLabel.Name = "HelpLabel"
-        Me.HelpLabel.Size = New System.Drawing.Size(90, 46)
+        Me.HelpLabel.Size = New System.Drawing.Size(96, 46)
         Me.HelpLabel.TabIndex = 24
-        Me.HelpLabel.Text = "Help"
+        Me.HelpLabel.Text = "HELP"
         '
         'PictureBox1
         '
@@ -149,9 +149,9 @@ Partial Class home
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.playlabel.Location = New System.Drawing.Point(536, 241)
         Me.playlabel.Name = "playlabel"
-        Me.playlabel.Size = New System.Drawing.Size(80, 46)
+        Me.playlabel.Size = New System.Drawing.Size(95, 46)
         Me.playlabel.TabIndex = 28
-        Me.playlabel.Text = "Play"
+        Me.playlabel.Text = "PLAY"
         '
         'home
         '

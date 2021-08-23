@@ -1,9 +1,10 @@
 ﻿
 Public Class Form2
-    Dim numshots As Integer = 5
-    Dim projArray(numshots) As PictureBox
+    'variable setting
+    Dim numofshots As Integer = 5
+    Dim projArray(numofshots) As PictureBox 'an array of bullets (5 picture boxes)
     Dim projNum As Integer = 0
-    Dim projOnScreen(numshots) As Boolean
+    Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
 
@@ -18,58 +19,62 @@ Public Class Form2
     End Function
     Public Sub CreateProj(number)
         For i = 0 To number - 1
-            Dim projectile As New PictureBox
+            Dim projectile As New PictureBox 'create projectile
             projectile.Size = New Size(7, 20)
             projectile.BackColor = Color.White
             projectile.BringToFront()
-            Me.Controls.Add(projectile)
-            projArray(i) = projectile
+            Me.Controls.Add(projectile) 'adds picture to form, prevents crashes
+            projArray(i) = projectile  'adds projectile to array
             projArray(i).Visible = False
             projOnScreen(projNum) = False
         Next
     End Sub
+
+    'controls, starts the movement and controls
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Dim count As Integer = 1
         Select Case e.KeyCode
-            Case Settings.KeyLeft
+            Case Settings.KeyLeft 'move left
                 playerLeft = True
-            Case Settings.KeyRight
+            Case Settings.KeyRight 'move right
                 playerRight = True
-            Case Keys.X
-                numshots = 3
-            Case Settings.KeyShoot
-                For i = 0 To numshots - 1
+            Case Settings.KeyPowerUp 'powerup
+                numofshots = 3
+            Case Settings.KeyShoot 'shooting
+                For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
                         count += 1
                     End If
                 Next
-                If count <= numshots Then
+                If count <= numofshots Then 'caps the total bullets shot to 5, adjustable in top of this code
                     projOnScreen(projNum) = True
                     projArray(projNum).Visible = True
                     projArray(projNum).Top = player.Top
-                    projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2)
+                    projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2) 'projectile comes out of the middle of player
                     projNum += 1
-                    If projNum = numshots Then
+                    If projNum = numofshots Then
                         projNum = 0
                     End If
                 End If
         End Select
     End Sub
 
+    'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Size = New Size(1277, 819)
         tmrShoot.Enabled = True
-        tmrMove.Enabled = True
+        tmrmove.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
-        CreateProj(numshots)
+        CreateProj(numofshots)
 
 
     End Sub
+    'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
     Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick
         tmrShoot.Interval = 40
-        For i = 0 To numshots - 1
+        For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
                 projArray(i).Top -= 15
             End If
@@ -79,17 +84,19 @@ Public Class Form2
         Next
     End Sub
 
+    'Movement controls, stops the movement when key is lifted
     Private Sub Form2_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         Select Case e.KeyCode
-            Case Keys.A
+            Case Settings.KeyLeft
                 playerLeft = False
-            Case Keys.S
+            Case Settings.KeyRight
                 playerRight = False
         End Select
     End Sub
 
-    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrMove.Tick
-        tmrMove.Interval = 1
+    'Movement, for each tick, moves 5 units 
+    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrmove.Tick
+        tmrmove.Interval = 1
         If playerRight = True And insideBoundary() Then
             player.Left += 5
         ElseIf playerLeft = True And insideBoundary() Then
