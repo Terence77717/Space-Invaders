@@ -6,8 +6,8 @@ Public Class Settings
     Public KeyPowerUp As Integer = 88 'System.Text.Encoding.ASCII.GetBytes(ShootInput.Text)
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Size = New Size(1200, 800)
-        Back.Location = New Size(1117, 12)
-        Back.Size = New Size(71, 53)
+        Back.Location = New Size(1144, 12)
+        Back.Size = New Size(46, 46)
         TitleLABEL.Location = New Size(487, 12)
         TitleLABEL.Font = New Font("Segoe UI", 30.0, FontStyle.Regular)
         MasterLabel.Location = New Size(229, 311)
@@ -64,7 +64,7 @@ Public Class Settings
     'End Sub
     Private Sub leftinput_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles LeftInput.KeyDown
         Select Case e.KeyCode
-            Case KeyLeft
+            Case 37
                 LeftInput.Text = "Left Key"
             Case 38
                 LeftInput.Text = "Up Key"

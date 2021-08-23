@@ -11,10 +11,14 @@
             EndlessMode.ForeColor = Color.White
         End If
         Me.Size = New Size(1200, 800)
+        Back.Location = New Size(1144, 12)
+        Back.Size = New Size(46, 46)
     End Sub
     'Level selection
     Private Sub Levels1_Click(sender As Object, e As EventArgs) Handles Levels1.Click
-        home.levelselected = 1
+        home.Levelselected = 1
+        Me.Hide()
+        Betaaliens.Show()
     End Sub
 
     Private Sub Levels2_Click(sender As Object, e As EventArgs) Handles Levels2.Click

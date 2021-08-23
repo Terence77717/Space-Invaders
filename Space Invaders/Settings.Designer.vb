@@ -211,14 +211,17 @@ Partial Class Settings
         '
         'Back
         '
-        Me.Back.BackColor = System.Drawing.Color.Transparent
+        Me.Back.BackColor = System.Drawing.Color.Black
+        Me.Back.BackgroundImage = CType(resources.GetObject("Back.BackgroundImage"), System.Drawing.Image)
+        Me.Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Back.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Back.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Back.Location = New System.Drawing.Point(1116, 13)
+        Me.Back.Location = New System.Drawing.Point(1143, 13)
         Me.Back.Margin = New System.Windows.Forms.Padding(4)
         Me.Back.Name = "Back"
-        Me.Back.Size = New System.Drawing.Size(71, 53)
+        Me.Back.Size = New System.Drawing.Size(46, 46)
         Me.Back.TabIndex = 14
-        Me.Back.Text = "Back"
         Me.Back.UseVisualStyleBackColor = False
         '
         'ResetKeys
