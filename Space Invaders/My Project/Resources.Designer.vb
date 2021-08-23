@@ -103,6 +103,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property doublepowerup() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("doublepowerup", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property exit1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("exit1", resourceCulture)
@@ -123,9 +133,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property freezepowerup() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("freezepowerup", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property fullheart() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("fullheart", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property healpowerup() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("healpowerup", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
