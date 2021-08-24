@@ -7,6 +7,9 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
+    Dim maxEnemyNum As Integer = 5
+    Dim enemyArray(maxEnemyNum) As PictureBox
+    Dim enemyOnScreen(maxEnemyNum) As Boolean
 
     Public Function insideBoundary()
         If player.Left = 0 Then
@@ -17,7 +20,7 @@ Public Class Form2
             Return True
         End If
     End Function
-    Public Sub CreateProj(number)
+    Public Sub createProj(number)
         For i = 0 To number - 1
             Dim projectile As New PictureBox 'create projectile
             projectile.Size = New Size(7, 20)
@@ -26,11 +29,24 @@ Public Class Form2
             Me.Controls.Add(projectile) 'adds picture to form, prevents crashes
             projArray(i) = projectile  'adds projectile to array
             projArray(i).Visible = False
-            projOnScreen(projNum) = False
+            projOnScreen(i) = False
         Next
     End Sub
+    Public Sub createEnemy(number)
+        For i = 0 To number - 1
+            Dim enemy As New PictureBox
+            enemy.Size = New Size(20, 20)
+            enemy.BackColor = Color.Red
+            enemy.Top = 50
+            enemy.Left = i * 50
+            enemy.BringToFront()
+            Me.Controls.Add(enemy)
+            enemyArray(i) = enemy
+            enemyArray(i).Visible = True
+            enemyOnScreen(i) = True
 
-    'controls, starts the movement and controls
+        Next
+    End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Dim count As Integer = 1
         Select Case e.KeyCode
@@ -67,9 +83,9 @@ Public Class Form2
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
-        CreateProj(numofshots)
-
-
+        createProj(numofshots)
+        createEnemy(maxEnemyNum)
+        createProj(numofshots)
     End Sub
     'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
     Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick
@@ -104,7 +120,4 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub player_Click(sender As Object, e As EventArgs) Handles player.Click
-
-    End Sub
 End Class
