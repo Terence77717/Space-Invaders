@@ -69,12 +69,12 @@ Partial Class home
         Me.LevelsLabel.AutoSize = True
         Me.LevelsLabel.BackColor = System.Drawing.Color.Transparent
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.LevelsLabel.Location = New System.Drawing.Point(525, 300)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(125, 46)
+        Me.LevelsLabel.Size = New System.Drawing.Size(131, 45)
         Me.LevelsLabel.TabIndex = 22
         Me.LevelsLabel.Text = "LEVELS"
         '
@@ -83,12 +83,12 @@ Partial Class home
         Me.SettingsLabel.AutoSize = True
         Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(511, 367)
+        Me.SettingsLabel.Location = New System.Drawing.Point(500, 367)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(167, 46)
+        Me.SettingsLabel.Size = New System.Drawing.Size(174, 45)
         Me.SettingsLabel.TabIndex = 23
         Me.SettingsLabel.Text = "SETTINGS"
         '
@@ -97,12 +97,12 @@ Partial Class home
         Me.HelpLabel.AutoSize = True
         Me.HelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.HelpLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.HelpLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.HelpLabel.Location = New System.Drawing.Point(534, 435)
         Me.HelpLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.HelpLabel.Name = "HelpLabel"
-        Me.HelpLabel.Size = New System.Drawing.Size(96, 46)
+        Me.HelpLabel.Size = New System.Drawing.Size(100, 45)
         Me.HelpLabel.TabIndex = 24
         Me.HelpLabel.Text = "HELP"
         '
@@ -145,11 +145,11 @@ Partial Class home
         Me.playlabel.BackColor = System.Drawing.Color.Transparent
         Me.playlabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.playlabel.Location = New System.Drawing.Point(536, 241)
         Me.playlabel.Name = "playlabel"
-        Me.playlabel.Size = New System.Drawing.Size(95, 46)
+        Me.playlabel.Size = New System.Drawing.Size(99, 45)
         Me.playlabel.TabIndex = 28
         Me.playlabel.Text = "PLAY"
         '

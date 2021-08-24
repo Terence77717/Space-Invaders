@@ -139,6 +139,7 @@ Partial Class pause
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 39
         Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
         '
         'PictureBox3
         '
@@ -159,6 +160,7 @@ Partial Class pause
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox4.TabIndex = 41
         Me.PictureBox4.TabStop = False
+        Me.PictureBox4.Visible = False
         '
         'PictureBox1
         '
@@ -169,6 +171,7 @@ Partial Class pause
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 42
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'PictureBox5
         '
@@ -179,6 +182,7 @@ Partial Class pause
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox5.TabIndex = 43
         Me.PictureBox5.TabStop = False
+        Me.PictureBox5.Visible = False
         '
         'PictureBox6
         '
@@ -189,6 +193,7 @@ Partial Class pause
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox6.TabIndex = 44
         Me.PictureBox6.TabStop = False
+        Me.PictureBox6.Visible = False
         '
         'PictureBox7
         '
@@ -199,6 +204,7 @@ Partial Class pause
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox7.TabIndex = 45
         Me.PictureBox7.TabStop = False
+        Me.PictureBox7.Visible = False
         '
         'PictureBox8
         '
@@ -209,6 +215,7 @@ Partial Class pause
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox8.TabIndex = 46
         Me.PictureBox8.TabStop = False
+        Me.PictureBox8.Visible = False
         '
         'PictureBox9
         '
@@ -219,6 +226,7 @@ Partial Class pause
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox9.TabIndex = 47
         Me.PictureBox9.TabStop = False
+        Me.PictureBox9.Visible = False
         '
         'PictureBox10
         '
@@ -229,6 +237,7 @@ Partial Class pause
         Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox10.TabIndex = 48
         Me.PictureBox10.TabStop = False
+        Me.PictureBox10.Visible = False
         '
         'PictureBox11
         '
@@ -239,6 +248,7 @@ Partial Class pause
         Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox11.TabIndex = 49
         Me.PictureBox11.TabStop = False
+        Me.PictureBox11.Visible = False
         '
         'PictureBox12
         '
@@ -249,6 +259,7 @@ Partial Class pause
         Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox12.TabIndex = 50
         Me.PictureBox12.TabStop = False
+        Me.PictureBox12.Visible = False
         '
         'PictureBox13
         '
@@ -259,6 +270,7 @@ Partial Class pause
         Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox13.TabIndex = 51
         Me.PictureBox13.TabStop = False
+        Me.PictureBox13.Visible = False
         '
         'PictureBox14
         '
@@ -269,6 +281,7 @@ Partial Class pause
         Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox14.TabIndex = 52
         Me.PictureBox14.TabStop = False
+        Me.PictureBox14.Visible = False
         '
         'PictureBox15
         '

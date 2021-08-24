@@ -7,11 +7,41 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
+    'variables for health
+    Dim hearts As Integer = 3
+    'variables for getting hit
+    Dim playerhit As Boolean = False
+    Dim Gameover As Boolean = False
+
+    Public Function checkhearts() 'add sound effect for getting hit
+        If hearts = 3 Then ' if there is 3 heart left
+            Heart3.Image = My.Resources.emptyheart
+            hearts = hearts - 1
+            playerhit = False
+        ElseIf hearts = 2 Then ' if there is 2 heart left
+            Heart2.Image = My.Resources.emptyheart
+            hearts = hearts - 1
+            playerhit = False
+        Else ' 1 heart left and the player got hit so game over
+            Heart1.Image = My.Resources.emptyheart
+            hearts = hearts - 1
+            Gameover = True
+            'run gamer over screen, or display text and lock actions
+        End If
+    End Function
+
+
+    Public Function hit()
+        playerhit = True
+        checkhearts()
+    End Function
 
     Public Function insideBoundary()
-        If player.Left = 0 Then
+        If player.Left < 0 Then
+            player.Left = 1 ' keep within form
             Return False
-        ElseIf player.Left = Me.Width - player.Width Then
+        ElseIf player.Left > 1188 Then ' form width - player size = 1188
+            player.Left = 1187
             Return False
         Else
             Return True
@@ -64,11 +94,15 @@ Public Class Form2
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Size = New Size(1277, 819)
+        Me.CenterToScreen()
         tmrShoot.Enabled = True
         tmrmove.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
+        Heart1.Location = New Size(1100, 20)
+        Heart2.Location = New Size(1137, 20)
+        Heart3.Location = New Size(1174, 20)
         CreateProj(numofshots)
 
 
@@ -99,14 +133,11 @@ Public Class Form2
     'Movement, for each tick, moves 5 units 
     Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrmove.Tick
         tmrmove.Interval = 1
-        If playerRight = True And insideBoundary() Then
+        If playerRight = True And insideBoundary() = True Then
             player.Left += 5
-        ElseIf playerLeft = True And insideBoundary() Then
+        ElseIf playerLeft = True And insideBoundary() = true Then
             player.Left -= 5
         End If
     End Sub
 
-    Private Sub player_Click(sender As Object, e As EventArgs) Handles player.Click
-
-    End Sub
 End Class
