@@ -109,9 +109,9 @@ Public Class Form2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Heart1.Location = New Size(1100, 12)
-        Heart2.Location = New Size(1137, 12)
-        Heart3.Location = New Size(1174, 12)
+        Heart1.Location = New Point(1100, 12)
+        Heart2.Location = New Point(1137, 12)
+        Heart3.Location = New Point(1174, 12)
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
