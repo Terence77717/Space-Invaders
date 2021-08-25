@@ -7,6 +7,14 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
+    Dim maxEnemyNum As Integer = 5
+    Dim enemyArray(maxEnemyNum) As PictureBox
+    Dim enemyOnScreen(maxEnemyNum) As Boolean
+
+    'heart and game over
+    Dim hearts As Integer = 3
+    Dim playerhit As Boolean = False
+    Dim gameover As Boolean = False
 
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
@@ -101,6 +109,9 @@ Public Class Form2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Heart1.Location = New Size(1100, 12)
+        Heart2.Location = New Size(1137, 12)
+        Heart3.Location = New Size(1174, 12)
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
