@@ -16,6 +16,51 @@ Public Class Form2
     Dim playerhit As Boolean = False
     Dim gameover As Boolean = False
 
+    'powerups | attack powerups last 10 seconds
+    Dim normalattack As Boolean = True
+    Dim doubleattack As Boolean = False
+    Dim freezeattack As Boolean = False
+    Dim healheart As Boolean = False
+    Dim backuppowerup As String = ""
+
+    'powerup random generation
+    Dim MyValue As Integer
+    'MyValue = Int((6 * Rnd) + 1)  
+
+    Public Function checkpowerup()
+        If normalattack = True Then ' no powerups
+            'return like a out of ammo sound effect
+        ElseIf doubleattack = True Then
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
+                doubleattack = False
+            End While
+        ElseIf freezeattack = True Then
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
+                freezeattack = False
+            End While
+
+        ElseIf healheart = True Then
+            hearts = hearts + 1
+            If hearts = 3 Then ' if there is 3 heart left
+                Heart3.Image = My.Resources.fullheart
+
+            ElseIf hearts = 2 Then ' if there is 2 heart left
+                Heart2.Image = My.Resources.fullheart
+            Else ' 1 heart left and the player got hit so game over
+                Heart1.Image = My.Resources.fullheart
+            End If
+        End If
+    End Function
+
+
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
             Heart3.Image = My.Resources.emptyheart
@@ -32,7 +77,6 @@ Public Class Form2
             'run gamer over screen, or display text and lock actions
         End If
     End Function
-
 
     Public Function hit()
         playerhit = True

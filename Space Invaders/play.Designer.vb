@@ -30,6 +30,7 @@ Partial Class Form2
         Me.Heart2 = New System.Windows.Forms.PictureBox()
         Me.Heart3 = New System.Windows.Forms.PictureBox()
         Me.Heart1 = New System.Windows.Forms.PictureBox()
+        Me.tmrpowerup = New System.Windows.Forms.Timer(Me.components)
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,4 +115,5 @@ Partial Class Form2
     Friend WithEvents Heart2 As PictureBox
     Friend WithEvents Heart3 As PictureBox
     Friend WithEvents Heart1 As PictureBox
+    Friend WithEvents tmrpowerup As Timer
 End Class
