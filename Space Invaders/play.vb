@@ -1,4 +1,5 @@
 ﻿
+Imports System.Drawing.Text
 Public Class Form2
     'variable setting
     Dim numofshots As Integer = 5
@@ -152,6 +153,9 @@ Public Class Form2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Dim pfc As New PrivateFontCollection()
+        'pfc.AddFontFile("C:\Path To\PALETX3.ttf")
+        'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
@@ -168,6 +172,11 @@ Public Class Form2
         Heart1.Size = New Size(40, 40)
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
+
+        LIVESLB.Location = New Point(1010, 17)
+        ScoreLB.Location = New Point(100, 17)
+        LIVESLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
 
 
         createProj(numofshots)
@@ -206,4 +215,7 @@ Public Class Form2
         End If
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
+
+    End Sub
 End Class

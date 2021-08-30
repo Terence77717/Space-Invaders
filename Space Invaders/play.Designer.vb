@@ -31,6 +31,8 @@ Partial Class Form2
         Me.Heart3 = New System.Windows.Forms.PictureBox()
         Me.Heart1 = New System.Windows.Forms.PictureBox()
         Me.tmrpowerup = New System.Windows.Forms.Timer(Me.components)
+        Me.LIVESLB = New System.Windows.Forms.Label()
+        Me.ScoreLB = New System.Windows.Forms.Label()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,16 +86,44 @@ Partial Class Form2
         Me.Heart1.TabIndex = 30
         Me.Heart1.TabStop = False
         '
+        'LIVESLB
+        '
+        Me.LIVESLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
+        Me.LIVESLB.AutoSize = True
+        Me.LIVESLB.BackColor = System.Drawing.Color.Black
+        Me.LIVESLB.ForeColor = System.Drawing.Color.White
+        Me.LIVESLB.Location = New System.Drawing.Point(671, 37)
+        Me.LIVESLB.Name = "LIVESLB"
+        Me.LIVESLB.Size = New System.Drawing.Size(35, 15)
+        Me.LIVESLB.TabIndex = 33
+        Me.LIVESLB.Text = "LIVES"
+        '
+        'ScoreLB
+        '
+        Me.ScoreLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
+        Me.ScoreLB.AutoSize = True
+        Me.ScoreLB.BackColor = System.Drawing.Color.Black
+        Me.ScoreLB.ForeColor = System.Drawing.Color.White
+        Me.ScoreLB.Location = New System.Drawing.Point(46, 37)
+        Me.ScoreLB.Name = "ScoreLB"
+        Me.ScoreLB.Size = New System.Drawing.Size(82, 15)
+        Me.ScoreLB.TabIndex = 34
+        Me.ScoreLB.Text = "SCORE     0000"
+        '
         'Form2
         '
+        Me.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.Controls.Add(Me.ScoreLB)
+        Me.Controls.Add(Me.LIVESLB)
         Me.Controls.Add(Me.Heart2)
         Me.Controls.Add(Me.Heart3)
         Me.Controls.Add(Me.Heart1)
         Me.Controls.Add(Me.player)
+        Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
@@ -106,6 +136,7 @@ Partial Class Form2
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Heart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -116,4 +147,6 @@ Partial Class Form2
     Friend WithEvents Heart3 As PictureBox
     Friend WithEvents Heart1 As PictureBox
     Friend WithEvents tmrpowerup As Timer
+    Friend WithEvents LIVESLB As Label
+    Friend WithEvents ScoreLB As Label
 End Class
