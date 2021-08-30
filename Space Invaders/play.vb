@@ -32,19 +32,19 @@ Public Class Form2
         If normalattack = True Then ' no powerups
             'return like a out of ammo sound effect
         ElseIf doubleattack = True Then
-            tmrpowerup.Enabled = True
-            tmrpowerup.Start()
-            While tmrpowerup.Interval > 10000
-                tmrpowerup.Stop()
-                tmrpowerup.Enabled = False
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
                 doubleattack = False
             End While
         ElseIf freezeattack = True Then
-            tmrpowerup.Enabled = True
-            tmrpowerup.Start()
-            While tmrpowerup.Interval > 10000
-                tmrpowerup.Stop()
-                tmrpowerup.Enabled = False
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
                 freezeattack = False
             End While
 
@@ -110,10 +110,11 @@ Public Class Form2
     Public Sub createEnemy(number)
         For i = 0 To number - 1
             Dim enemy As New PictureBox
-            enemy.Size = New Size(20, 20)
-            enemy.BackColor = Color.Red
-            enemy.Top = 50
-            enemy.Left = i * 50
+            enemy.Size = New Size(50, 50)
+            enemy.BackgroundImageLayout = ImageLayout.Stretch
+            enemy.BackgroundImage = My.Resources.alien
+            enemy.Top = 100
+            enemy.Left = i * 70 + 50
             enemy.BringToFront()
             Me.Controls.Add(enemy)
             enemyArray(i) = enemy
@@ -159,7 +160,7 @@ Public Class Form2
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
-        tmrmove.Enabled = True
+        tmrMove.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
@@ -206,13 +207,18 @@ Public Class Form2
     End Sub
 
     'Movement, for each tick, moves 5 units 
-    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrmove.Tick
-        tmrmove.Interval = 1
+    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrMove.Tick
+        tmrMove.Interval = 1
         If playerRight = True And insideBoundary() = True Then
             player.Left += 5
         ElseIf playerLeft = True And insideBoundary() = True Then
             player.Left -= 5
         End If
+
+        For i = 0 To maxEnemyNum - 1
+
+        Next
+
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click

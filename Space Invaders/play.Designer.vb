@@ -26,11 +26,11 @@ Partial Class Form2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.player = New System.Windows.Forms.PictureBox()
         Me.tmrShoot = New System.Windows.Forms.Timer(Me.components)
-        Me.tmrmove = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrMove = New System.Windows.Forms.Timer(Me.components)
         Me.Heart2 = New System.Windows.Forms.PictureBox()
         Me.Heart3 = New System.Windows.Forms.PictureBox()
         Me.Heart1 = New System.Windows.Forms.PictureBox()
-        Me.tmrpowerup = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrPowerup = New System.Windows.Forms.Timer(Me.components)
         Me.LIVESLB = New System.Windows.Forms.Label()
         Me.ScoreLB = New System.Windows.Forms.Label()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,10 +42,9 @@ Partial Class Form2
         'player
         '
         Me.player.Image = CType(resources.GetObject("player.Image"), System.Drawing.Image)
-        Me.player.Location = New System.Drawing.Point(401, 422)
-        Me.player.Margin = New System.Windows.Forms.Padding(2)
+        Me.player.Location = New System.Drawing.Point(573, 703)
         Me.player.Name = "player"
-        Me.player.Size = New System.Drawing.Size(62, 29)
+        Me.player.Size = New System.Drawing.Size(89, 48)
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.player.TabIndex = 0
         Me.player.TabStop = False
@@ -53,15 +52,16 @@ Partial Class Form2
         'tmrShoot
         '
         '
-        'tmrmove
+        'tmrMove
         '
         '
         'Heart2
         '
         Me.Heart2.Image = CType(resources.GetObject("Heart2.Image"), System.Drawing.Image)
-        Me.Heart2.Location = New System.Drawing.Point(795, 12)
+        Me.Heart2.Location = New System.Drawing.Point(1136, 20)
+        Me.Heart2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart2.Name = "Heart2"
-        Me.Heart2.Size = New System.Drawing.Size(40, 40)
+        Me.Heart2.Size = New System.Drawing.Size(57, 67)
         Me.Heart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart2.TabIndex = 32
         Me.Heart2.TabStop = False
@@ -69,9 +69,10 @@ Partial Class Form2
         'Heart3
         '
         Me.Heart3.Image = CType(resources.GetObject("Heart3.Image"), System.Drawing.Image)
-        Me.Heart3.Location = New System.Drawing.Point(830, 12)
+        Me.Heart3.Location = New System.Drawing.Point(1186, 20)
+        Me.Heart3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart3.Name = "Heart3"
-        Me.Heart3.Size = New System.Drawing.Size(40, 40)
+        Me.Heart3.Size = New System.Drawing.Size(57, 67)
         Me.Heart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart3.TabIndex = 31
         Me.Heart3.TabStop = False
@@ -79,9 +80,10 @@ Partial Class Form2
         'Heart1
         '
         Me.Heart1.Image = CType(resources.GetObject("Heart1.Image"), System.Drawing.Image)
-        Me.Heart1.Location = New System.Drawing.Point(758, 12)
+        Me.Heart1.Location = New System.Drawing.Point(1083, 20)
+        Me.Heart1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart1.Name = "Heart1"
-        Me.Heart1.Size = New System.Drawing.Size(40, 40)
+        Me.Heart1.Size = New System.Drawing.Size(57, 67)
         Me.Heart1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart1.TabIndex = 30
         Me.Heart1.TabStop = False
@@ -92,9 +94,10 @@ Partial Class Form2
         Me.LIVESLB.AutoSize = True
         Me.LIVESLB.BackColor = System.Drawing.Color.Black
         Me.LIVESLB.ForeColor = System.Drawing.Color.White
-        Me.LIVESLB.Location = New System.Drawing.Point(671, 37)
+        Me.LIVESLB.Location = New System.Drawing.Point(959, 62)
+        Me.LIVESLB.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LIVESLB.Name = "LIVESLB"
-        Me.LIVESLB.Size = New System.Drawing.Size(35, 15)
+        Me.LIVESLB.Size = New System.Drawing.Size(55, 25)
         Me.LIVESLB.TabIndex = 33
         Me.LIVESLB.Text = "LIVES"
         '
@@ -104,19 +107,20 @@ Partial Class Form2
         Me.ScoreLB.AutoSize = True
         Me.ScoreLB.BackColor = System.Drawing.Color.Black
         Me.ScoreLB.ForeColor = System.Drawing.Color.White
-        Me.ScoreLB.Location = New System.Drawing.Point(46, 37)
+        Me.ScoreLB.Location = New System.Drawing.Point(66, 62)
+        Me.ScoreLB.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ScoreLB.Name = "ScoreLB"
-        Me.ScoreLB.Size = New System.Drawing.Size(82, 15)
+        Me.ScoreLB.Size = New System.Drawing.Size(132, 25)
         Me.ScoreLB.TabIndex = 34
         Me.ScoreLB.Text = "SCORE     0000"
         '
         'Form2
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.ClientSize = New System.Drawing.Size(1254, 763)
         Me.Controls.Add(Me.ScoreLB)
         Me.Controls.Add(Me.LIVESLB)
         Me.Controls.Add(Me.Heart2)
@@ -126,7 +130,6 @@ Partial Class Form2
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form2"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -142,11 +145,11 @@ Partial Class Form2
 
     Friend WithEvents player As PictureBox
     Friend WithEvents tmrShoot As Timer
-    Friend WithEvents tmrmove As Timer
+    Friend WithEvents tmrMove As Timer
     Friend WithEvents Heart2 As PictureBox
     Friend WithEvents Heart3 As PictureBox
     Friend WithEvents Heart1 As PictureBox
-    Friend WithEvents tmrpowerup As Timer
+    Friend WithEvents tmrPowerup As Timer
     Friend WithEvents LIVESLB As Label
     Friend WithEvents ScoreLB As Label
 End Class
