@@ -12,6 +12,7 @@ Public Class Form2
     Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyOnScreen(maxEnemyNum) As Boolean
     Dim shooting As Boolean = False
+    Dim enemyMoveRight As Boolean = True
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -179,6 +180,7 @@ Public Class Form2
         Me.CenterToScreen()
         tmrShoot.Enabled = True
         tmrMove.Enabled = True
+        tmrEnemy.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
@@ -234,14 +236,20 @@ Public Class Form2
         ElseIf playerLeft = True And insideBoundary() = True Then
             player.Left -= 5
         End If
-
-        For i = 0 To maxEnemyNum - 1
-
-        Next
-
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
+
+    End Sub
+
+    Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrEnemy.Tick
+        tmrEnemy.Interval = 1000
+        For i = 0 To maxEnemyNum - 1
+            If enemyMoveRight = True Then
+                enemyArray(i).Left += 20
+            End If
+
+        Next
 
     End Sub
 End Class
