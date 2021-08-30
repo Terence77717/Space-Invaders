@@ -11,6 +11,7 @@ Public Class Form2
     Dim maxEnemyNum As Integer = 5
     Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyOnScreen(maxEnemyNum) As Boolean
+    Dim shooting As Boolean = False
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -52,7 +53,6 @@ Public Class Form2
             hearts = hearts + 1
             If hearts = 3 Then ' if there is 3 heart left
                 Heart3.Image = My.Resources.fullheart
-
             ElseIf hearts = 2 Then ' if there is 2 heart left
                 Heart2.Image = My.Resources.fullheart
             Else ' 1 heart left and the player got hit so game over
@@ -133,6 +133,7 @@ Public Class Form2
             Case Keys.Escape
                 pause.Show()
             Case Settings.KeyShoot 'shooting
+                shooting = True
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
                         count += 1
@@ -149,12 +150,29 @@ Public Class Form2
                     End If
                 End If
         End Select
+        If shooting = True Then
+            For i = 0 To numofshots - 1
+                If projOnScreen(i) = True Then
+                    count += 1
+                End If
+            Next
+            If count <= numofshots Then 'caps the total bullets shot to 5, adjustable in top of this code
+                projOnScreen(projNum) = True
+                projArray(projNum).Visible = True
+                projArray(projNum).Top = player.Top
+                projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2) 'projectile comes out of the middle of player
+                projNum += 1
+                If projNum = numofshots Then
+                    projNum = 0
+                End If
+            End If
+        End If
     End Sub
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Dim pfc As New PrivateFontCollection()
-        'pfc.AddFontFile("C:\Path To\PALETX3.ttf")
+        'Apfc.AddFontFile("C:\Path To\PALETX3.ttf")
         'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
@@ -202,6 +220,8 @@ Public Class Form2
                 playerLeft = False
             Case Settings.KeyRight
                 playerRight = False
+            Case Settings.KeyShoot
+                shooting = False
         End Select
     End Sub
 
