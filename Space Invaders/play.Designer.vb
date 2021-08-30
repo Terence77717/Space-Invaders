@@ -33,6 +33,7 @@ Partial Class Form2
         Me.tmrpowerup = New System.Windows.Forms.Timer(Me.components)
         Me.LIVESLB = New System.Windows.Forms.Label()
         Me.ScoreLB = New System.Windows.Forms.Label()
+        Me.tmrrandomiser = New System.Windows.Forms.Timer(Me.components)
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,6 +111,11 @@ Partial Class Form2
         Me.ScoreLB.TabIndex = 34
         Me.ScoreLB.Text = "SCORE     0000"
         '
+        'tmrrandomiser
+        '
+        Me.tmrrandomiser.Enabled = True
+        Me.tmrrandomiser.Interval = 10
+        '
         'Form2
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
@@ -149,4 +155,5 @@ Partial Class Form2
     Friend WithEvents tmrpowerup As Timer
     Friend WithEvents LIVESLB As Label
     Friend WithEvents ScoreLB As Label
+    Friend WithEvents tmrrandomiser As Timer
 End Class

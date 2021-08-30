@@ -19,15 +19,16 @@ Public Class Form2
     Dim Gameover As Boolean = False
 
     'powerups | attack powerups last 10 seconds
-    Dim normalattack As Boolean = True
-    Dim doubleattack As Boolean = False
-    Dim freezeattack As Boolean = False
-    Dim healheart As Boolean = False
-    Dim backuppowerup As String = ""
+    Dim normalAttack As Boolean = True
+    Dim doubleAttack As Boolean = False
+    Dim freezeAttack As Boolean = False
+    Dim healHeart As Boolean = False
+    Dim backupPowerup As String = ""
 
     'powerup random generation
     Dim poweruprandom As Integer
-    'poweruprandom = Int((6 * Rnd) + 1)  
+    Dim randomcount As Integer = 0
+    Dim randomselect As Integer = 0
 
     Public Function checkpowerup()
         If normalattack = True Then ' no powerups
@@ -40,7 +41,7 @@ Public Class Form2
                 tmrpowerup.Enabled = False
                 doubleattack = False
             End While
-        ElseIf freezeattack = True Then
+        ElseIf freezeattack = True Then ' or freeze tmr for alien for about 2 seconds
             tmrpowerup.Enabled = True
             tmrpowerup.Start()
             While tmrpowerup.Interval > 10000
@@ -235,7 +236,33 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
+    Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
+        tmrmove.Interval = 10
+        Randomize()
+        poweruprandom = Int((6 * Rnd()) + 1)
+        ScoreLB.Text = Str(poweruprandom)
+        If poweruprandom = 6 Then
+            randomcount += 1
+        End If
 
+        If randomcount = 200 Then
+            randomselect = Int((6 * Rnd()) + 1)
+            Select Case randomselect
+                Case 1
+                    doubleAttack = True
+                Case 2
+                    freezeAttack = True
+                Case 3
+                    healHeart = True
+                Case 4
+                    doubleAttack = True
+                Case 5
+                    freezeAttack = True
+                Case 6
+                    healHeart = True
+            End Select
+            LIVESLB.Text = randomselect
+            randomcount = 0
+        End If
     End Sub
 End Class
