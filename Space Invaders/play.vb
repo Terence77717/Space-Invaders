@@ -24,8 +24,8 @@ Public Class Form2
     Dim backuppowerup As String = ""
 
     'powerup random generation
-    Dim MyValue As Integer
-    'MyValue = Int((6 * Rnd) + 1)  
+    Dim poweruprandom As Integer
+    'poweruprandom = Int((6 * Rnd) + 1)  
 
     Public Function checkpowerup()
         If normalattack = True Then ' no powerups
@@ -118,7 +118,6 @@ Public Class Form2
             enemyArray(i) = enemy
             enemyArray(i).Visible = True
             enemyOnScreen(i) = True
-
         Next
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
@@ -166,9 +165,9 @@ Public Class Form2
         Heart1.Location = New Point(1100, 20)
         Heart2.Location = New Point(1137, 20)
         Heart3.Location = New Point(1174, 20)
-        Heart1.Size = New Size(40, 20)
-        Heart2.Size = New Size(40, 20)
-        Heart3.Size = New Size(40, 20)
+        Heart1.Size = New Size(40, 40)
+        Heart2.Size = New Size(40, 40)
+        Heart3.Size = New Size(40, 40)
 
 
         createProj(numofshots)
