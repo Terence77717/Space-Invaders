@@ -1,4 +1,5 @@
 ﻿
+Imports System.Drawing.Text
 Public Class Form2
     'variable setting
     Dim numofshots As Integer = 5
@@ -7,13 +8,59 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
-    Dim maxEnemyNum As Integer = 15
-    'heart and game over
-    Dim hearts As Integer = 3
-    Dim playerhit As Boolean = False
-    Dim gameover As Boolean = False
+    Dim maxEnemyNum As Integer = 5
     Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyOnScreen(maxEnemyNum) As Boolean
+    'variables for health
+    Dim hearts As Integer = 3
+    'variables for getting hit
+    Dim playerhit As Boolean = False
+    Dim Gameover As Boolean = False
+
+    'powerups | attack powerups last 10 seconds
+    Dim normalattack As Boolean = True
+    Dim doubleattack As Boolean = False
+    Dim freezeattack As Boolean = False
+    Dim healheart As Boolean = False
+    Dim backuppowerup As String = ""
+
+    'powerup random generation
+    Dim poweruprandom As Integer
+    'poweruprandom = Int((6 * Rnd) + 1)  
+
+    Public Function checkpowerup()
+        If normalattack = True Then ' no powerups
+            'return like a out of ammo sound effect
+        ElseIf doubleattack = True Then
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
+                doubleattack = False
+            End While
+        ElseIf freezeattack = True Then
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
+                freezeattack = False
+            End While
+
+        ElseIf healheart = True Then
+            hearts = hearts + 1
+            If hearts = 3 Then ' if there is 3 heart left
+                Heart3.Image = My.Resources.fullheart
+
+            ElseIf hearts = 2 Then ' if there is 2 heart left
+                Heart2.Image = My.Resources.fullheart
+            Else ' 1 heart left and the player got hit so game over
+                Heart1.Image = My.Resources.fullheart
+            End If
+        End If
+    End Function
+
 
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
@@ -27,11 +74,10 @@ Public Class Form2
         Else ' 1 heart left and the player got hit so game over
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
-            Return gameover = True
+            Return Gameover = True
             'run gamer over screen, or display text and lock actions
         End If
     End Function
-
 
     Public Function hit()
         playerhit = True
@@ -64,17 +110,15 @@ Public Class Form2
     Public Sub createEnemy(number)
         For i = 0 To number - 1
             Dim enemy As New PictureBox
-            enemy.Size = New Size(40, 40)
-            enemy.Image = My.Resources.alien
-            enemy.SizeMode = PictureBoxSizeMode.StretchImage
-            enemy.Top = 0
+            enemy.Size = New Size(20, 20)
+            enemy.BackColor = Color.Red
+            enemy.Top = 50
             enemy.Left = i * 50
             enemy.BringToFront()
             Me.Controls.Add(enemy)
             enemyArray(i) = enemy
             enemyArray(i).Visible = True
             enemyOnScreen(i) = True
-
         Next
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
@@ -109,15 +153,15 @@ Public Class Form2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Heart1.Location = New Point(1100, 12)
-        Heart2.Location = New Point(1137, 12)
-        Heart3.Location = New Point(1174, 12)
-        Me.Size = New Size(1254, 763)
+        Dim pfc As New PrivateFontCollection()
+        'pfc.AddFontFile("C:\Path To\PALETX3.ttf")
+        'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
+        Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
         tmrmove.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
-        player.Top = Me.Height - player.Height
+        player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
         createProj(numofshots)
         createEnemy(maxEnemyNum)
@@ -128,6 +172,11 @@ Public Class Form2
         Heart1.Size = New Size(40, 40)
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
+
+        LIVESLB.Location = New Point(1010, 17)
+        ScoreLB.Location = New Point(100, 17)
+        LIVESLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
 
 
         createProj(numofshots)
@@ -166,4 +215,7 @@ Public Class Form2
         End If
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
+
+    End Sub
 End Class
