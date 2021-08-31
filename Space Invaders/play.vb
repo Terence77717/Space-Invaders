@@ -8,50 +8,59 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
+    'enemies
     Dim maxEnemyNum As Integer = 5
     Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyOnScreen(maxEnemyNum) As Boolean
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
-    Dim enemyMoveCount As Integer = 1
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
     Dim playerhit As Boolean = False
-    Dim Gameover As Boolean = False
+    Dim Gameoverboolean As Boolean = False
 
     'powerups | attack powerups last 10 seconds
-    Dim normalattack As Boolean = True
-    Dim doubleattack As Boolean = False
-    Dim freezeattack As Boolean = False
-    Dim healheart As Boolean = False
-    Dim backuppowerup As String = ""
+    Dim normalAttack As Boolean = True
+    Dim doubleAttack As Boolean = False
+    Dim freezeAttack As Boolean = False
+    Dim healHeart As Boolean = False
+    Dim backupPowerup As String = ""
 
     'powerup random generation
     Dim poweruprandom As Integer
-    'poweruprandom = Int((6 * Rnd) + 1)  
+    Dim randomcount As Integer = 0
+    Dim randomselect As Integer = 0
 
-    Private Sub checkpowerup()
-        If normalattack = True Then ' no powerups
+    Public Function checkpowerup()
+        If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
-        ElseIf doubleattack = True Then
+        ElseIf doubleAttack = True Then
             tmrPowerup.Enabled = True
             tmrPowerup.Start()
             While tmrPowerup.Interval > 10000
                 tmrPowerup.Stop()
                 tmrPowerup.Enabled = False
-                doubleattack = False
-            End While
-        ElseIf freezeattack = True Then
-            tmrPowerup.Enabled = True
-            tmrPowerup.Start()
-            While tmrPowerup.Interval > 10000
-                tmrPowerup.Stop()
-                tmrPowerup.Enabled = False
-                freezeattack = False
+                doubleAttack = False
             End While
 
-        ElseIf healheart = True Then
+        ElseIf freezeAttack = True Then ' or freeze tmr for alien for about 2 seconds
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
+            End While
+        ElseIf freezeAttack = True Then
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
+                freezeAttack = False
+            End While
+
+        ElseIf healHeart = True Then
             hearts = hearts + 1
             If hearts = 3 Then ' if there is 3 heart left
                 Heart3.Image = My.Resources.fullheart
@@ -61,7 +70,7 @@ Public Class Form2
                 Heart1.Image = My.Resources.fullheart
             End If
         End If
-    End Sub
+        End Sub
 
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
@@ -75,7 +84,13 @@ Public Class Form2
         Else ' 1 heart left and the player got hit so game over
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
-            Return Gameover = True
+            tmrenemy.Stop()
+            tmrMove.Stop()
+            tmrShoot.Stop()
+            tmrPowerup.Stop()
+            tmrrandomiser.Stop()
+            gameover.Show()
+            Return Gameoverboolean = True
             'run gamer over screen, or display text and lock actions
         End If
     End Function
@@ -94,6 +109,13 @@ Public Class Form2
             Return False
         Else
             Return True
+        End If
+    End Function
+    Public Function insideAlien(k)
+        If enemyArray(k).Left < 0 Then
+            enemygoingright = True
+        ElseIf enemyArray(k).Left > 1220 Then
+            enemygoingright = False
         End If
     End Function
     Public Sub createProj(number)
@@ -132,7 +154,13 @@ Public Class Form2
                 playerRight = True
             Case Settings.KeyPowerUp 'powerup
                 numofshots = 3
+                checkhearts()
             Case Keys.Escape
+                tmrenemy.Stop()
+                tmrMove.Stop()
+                tmrShoot.Stop()
+                tmrPowerup.Stop()
+                tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
                 shooting = True
@@ -208,6 +236,19 @@ Public Class Form2
         tmrShoot.Interval = 40
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
+                For j = 0 To maxEnemyNum - 1
+                    If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then
+                        LIVESLB.Text = "passs single"
+                        'enemyArray = enemyArray.Skip(j).ToArray
+                        maxEnemyNum = maxEnemyNum - 1
+                        score = score + 20
+                        ScoreLB.Text = "Score " + Str(score)
+                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        projOnScreen(i) = False
+                        's
+                        Exit For
+                    End If
+                Next
                 projArray(i).Top -= 15
             End If
             If projArray(i).Top <= -15 Then
@@ -238,8 +279,33 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
+    Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
+        tmrMove.Interval = 10
+        Randomize()
+        poweruprandom = Int((6 * Rnd()) + 1)
+        If poweruprandom = 6 Then
+            randomcount += 1
+        End If
 
+        If randomcount = 40 Then 'set 200
+            randomselect = Int((6 * Rnd()) + 1)
+            Select Case randomselect
+                Case 1
+                    powerupscreen.Image = My.Resources.doublepowerup
+                Case 2
+                    powerupscreen.Image = My.Resources.freezepowerup
+                Case 3
+                    powerupscreen.Image = My.Resources.healpowerup
+                Case 4
+                    powerupscreen.Image = My.Resources.doublepowerup
+                Case 5
+                    powerupscreen.Image = My.Resources.freezepowerup
+                Case 6
+                    powerupscreen.Image = My.Resources.healpowerup
+            End Select
+            LIVESLB.Text = randomselect
+            randomcount = 0
+        End If
     End Sub
     Private Sub enemyMoveDirection(enemyNum)
         If enemyArray(maxEnemyNum - 1).Left >= Me.Width - 50 Then
@@ -252,13 +318,11 @@ Public Class Form2
     End Sub
 
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrEnemy.Tick
-        tmrEnemy.Interval = 500
+        tmrEnemy.Interval = 1000
         For i = 0 To maxEnemyNum - 1
             enemyMoveDirection(i)
             If enemyMoveRight = True Then
-                enemyArray(i).Left += 25
-            Else
-                enemyArray(i).Left -= 25
+                enemyArray(i).Left += 20
             End If
         Next
 
