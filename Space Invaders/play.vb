@@ -17,7 +17,7 @@ Public Class Form2
     Dim hearts As Integer = 3
     'variables for getting hit
     Dim playerhit As Boolean = False
-    Dim Gameover As Boolean = False
+    Dim Gameoverboolean As Boolean = False
 
     'powerups | attack powerups last 10 seconds
     Dim normalAttack As Boolean = True
@@ -31,6 +31,10 @@ Public Class Form2
     Dim randomcount As Integer = 0
     Dim randomselect As Integer = 0
 
+
+    'score
+    Public score As Integer = 0
+
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -41,14 +45,23 @@ Public Class Form2
                 tmrPowerup.Stop()
                 tmrPowerup.Enabled = False
                 doubleAttack = False
-                ElseIf freezeAttack = True Then ' or freeze tmr for alien for about 2 seconds
-                tmrpowerup.Enabled = True
-                tmrpowerup.Start()
-                While tmrpowerup.Interval > 10000
-                    tmrpowerup.Stop()
-                    tmrpowerup.Enabled = False
-                    freezeAttack = False
-                End While
+            End While
+
+        ElseIf freezeAttack = True Then ' or freeze tmr for alien for about 2 seconds
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
+            End While
+        ElseIf freezeattack = True Then
+            tmrPowerup.Enabled = True
+            tmrPowerup.Start()
+            While tmrPowerup.Interval > 10000
+                tmrPowerup.Stop()
+                tmrPowerup.Enabled = False
+                freezeAttack = False
+            End While
 
         ElseIf healHeart = True Then
             hearts = hearts + 1
@@ -75,7 +88,13 @@ Public Class Form2
         Else ' 1 heart left and the player got hit so game over
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
-            Return Gameover = True
+            tmrenemy.Stop()
+            tmrMove.Stop()
+            tmrShoot.Stop()
+            tmrPowerup.Stop()
+            tmrrandomiser.Stop()
+            gameover.Show()
+            Return Gameoverboolean = True
             'run gamer over screen, or display text and lock actions
         End If
     End Function
@@ -132,7 +151,13 @@ Public Class Form2
                 playerRight = True
             Case Settings.KeyPowerUp 'powerup
                 numofshots = 3
+                checkhearts()
             Case Keys.Escape
+                tmrenemy.Stop()
+                tmrMove.Stop()
+                tmrShoot.Stop()
+                tmrPowerup.Stop()
+                tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
                 shooting = True
@@ -208,6 +233,19 @@ Public Class Form2
         tmrShoot.Interval = 40
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
+                For j = 0 To maxEnemyNum - 1
+                    If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then
+                        LIVESLB.Text = "passs single"
+                        'enemyArray = enemyArray.Skip(j).ToArray
+                        maxEnemyNum = maxEnemyNum - 1
+                        score = score + 20
+                        ScoreLB.Text = "Score " + Str(score)
+                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        projOnScreen(i) = False
+                        's
+                        Exit For
+                    End If
+                Next
                 projArray(i).Top -= 15
             End If
             If projArray(i).Top <= -15 Then
@@ -239,29 +277,28 @@ Public Class Form2
     End Sub
 
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
-        tmrmove.Interval = 10
+        tmrMove.Interval = 10
         Randomize()
         poweruprandom = Int((6 * Rnd()) + 1)
-        ScoreLB.Text = Str(poweruprandom)
         If poweruprandom = 6 Then
             randomcount += 1
         End If
 
-        If randomcount = 200 Then
+        If randomcount = 40 Then 'set 200
             randomselect = Int((6 * Rnd()) + 1)
             Select Case randomselect
                 Case 1
-                    doubleAttack = True
+                    powerupscreen.Image = My.Resources.doublepowerup
                 Case 2
-                    freezeAttack = True
+                    powerupscreen.Image = My.Resources.freezepowerup
                 Case 3
-                    healHeart = True
+                    powerupscreen.Image = My.Resources.healpowerup
                 Case 4
-                    doubleAttack = True
+                    powerupscreen.Image = My.Resources.doublepowerup
                 Case 5
-                    freezeAttack = True
+                    powerupscreen.Image = My.Resources.freezepowerup
                 Case 6
-                    healHeart = True
+                    powerupscreen.Image = My.Resources.healpowerup
             End Select
             LIVESLB.Text = randomselect
             randomcount = 0
