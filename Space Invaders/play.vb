@@ -13,6 +13,7 @@ Public Class Form2
     Dim enemyOnScreen(maxEnemyNum) As Boolean
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
+    Dim enemyMoveCount As Integer = 1
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -30,7 +31,7 @@ Public Class Form2
     Dim poweruprandom As Integer
     'poweruprandom = Int((6 * Rnd) + 1)  
 
-    Public Function checkpowerup()
+    Private Sub checkpowerup()
         If normalattack = True Then ' no powerups
             'return like a out of ammo sound effect
         ElseIf doubleattack = True Then
@@ -60,8 +61,7 @@ Public Class Form2
                 Heart1.Image = My.Resources.fullheart
             End If
         End If
-    End Function
-
+    End Sub
 
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
@@ -80,10 +80,10 @@ Public Class Form2
         End If
     End Function
 
-    Public Function hit()
+    Private Sub hit()
         playerhit = True
         checkhearts()
-    End Function
+    End Sub
 
     Public Function insideBoundary()
         If player.Left < 0 Then
@@ -241,14 +241,25 @@ Public Class Form2
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LIVESLB.Click
 
     End Sub
+    Private Sub enemyMoveDirection(enemyNum)
+        If enemyArray(maxEnemyNum - 1).Left >= Me.Width - 50 Then
+            enemyMoveRight = False
+            enemyArray(enemyNum).Top += 50
+        ElseIf enemyArray(0).Left <= 0 Then
+            enemyMoveRight = True
+            enemyArray(enemyNum).Top += 50
+        End If
+    End Sub
 
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrEnemy.Tick
-        tmrEnemy.Interval = 1000
+        tmrEnemy.Interval = 500
         For i = 0 To maxEnemyNum - 1
+            enemyMoveDirection(i)
             If enemyMoveRight = True Then
-                enemyArray(i).Left += 20
+                enemyArray(i).Left += 25
+            Else
+                enemyArray(i).Left -= 25
             End If
-
         Next
 
     End Sub
