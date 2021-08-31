@@ -34,10 +34,13 @@ Partial Class Form2
         Me.LIVESLB = New System.Windows.Forms.Label()
         Me.ScoreLB = New System.Windows.Forms.Label()
         Me.tmrrandomiser = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrenemy = New System.Windows.Forms.Timer(Me.components)
+        Me.powerupscreen = New System.Windows.Forms.PictureBox()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.powerupscreen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'player
@@ -52,9 +55,6 @@ Partial Class Form2
         Me.player.TabStop = False
         '
         'tmrShoot
-        '
-        '
-        'tmrmove
         '
         '
         'Heart2
@@ -116,6 +116,14 @@ Partial Class Form2
         Me.tmrrandomiser.Enabled = True
         Me.tmrrandomiser.Interval = 10
         '
+        'powerupscreen
+        '
+        Me.powerupscreen.Location = New System.Drawing.Point(401, 155)
+        Me.powerupscreen.Name = "powerupscreen"
+        Me.powerupscreen.Size = New System.Drawing.Size(80, 80)
+        Me.powerupscreen.TabIndex = 35
+        Me.powerupscreen.TabStop = False
+        '
         'Form2
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
@@ -123,6 +131,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.Controls.Add(Me.powerupscreen)
         Me.Controls.Add(Me.ScoreLB)
         Me.Controls.Add(Me.LIVESLB)
         Me.Controls.Add(Me.Heart2)
@@ -141,6 +150,7 @@ Partial Class Form2
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Heart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.powerupscreen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -156,4 +166,6 @@ Partial Class Form2
     Friend WithEvents LIVESLB As Label
     Friend WithEvents ScoreLB As Label
     Friend WithEvents tmrrandomiser As Timer
+    Friend WithEvents tmrenemy As Timer
+    Friend WithEvents powerupscreen As PictureBox
 End Class

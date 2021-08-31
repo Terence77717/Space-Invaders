@@ -8,11 +8,13 @@ Public Class Form2
     Dim projOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
+    'enemies
     Dim maxEnemyNum As Integer = 5
     Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyOnScreen(maxEnemyNum) As Boolean
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
+    Dim enemygoingright As Boolean = True
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -113,6 +115,13 @@ Public Class Form2
             Return False
         Else
             Return True
+        End If
+    End Function
+    Public Function insideAlien(k)
+        If enemyArray(k).Left < 0 Then
+            enemygoingright = True
+        ElseIf enemyArray(k).Left > 1220 Then
+            enemygoingright = False
         End If
     End Function
     Public Sub createProj(number)
@@ -306,10 +315,16 @@ Public Class Form2
     End Sub
 
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrEnemy.Tick
-        tmrEnemy.Interval = 1000
+        tmrenemy.Interval = 100
         For i = 0 To maxEnemyNum - 1
             If enemyMoveRight = True Then
-                enemyArray(i).Left += 20
+                insideAlien(i)
+                If enemygoingright = True Then
+                    enemyArray(i).Left += 20
+                Else
+                    ' issue when colliding, the one on the right is displaced
+                    enemyArray(i).Left -= 20
+                End If
             End If
 
         Next
