@@ -301,6 +301,7 @@ Public Class Form2
 
         If randomcount = 40 Then 'set 200
             randomselect = Int((6 * Rnd()) + 1)
+            powerupscreen.Size = New Point(80, 80)
             Select Case randomselect
                 Case 1
                     powerupscreen.Image = My.Resources.doublepowerup

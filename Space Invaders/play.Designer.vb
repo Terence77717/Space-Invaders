@@ -125,9 +125,9 @@ Partial Class Form2
         'powerupscreen
         '
         Me.powerupscreen.BackColor = System.Drawing.Color.Transparent
-        Me.powerupscreen.Location = New System.Drawing.Point(183, 12)
+        Me.powerupscreen.Location = New System.Drawing.Point(411, 12)
         Me.powerupscreen.Name = "powerupscreen"
-        Me.powerupscreen.Size = New System.Drawing.Size(80, 80)
+        Me.powerupscreen.Size = New System.Drawing.Size(1, 1)
         Me.powerupscreen.TabIndex = 35
         Me.powerupscreen.TabStop = False
         '
