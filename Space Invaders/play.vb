@@ -244,7 +244,7 @@ Public Class Form2
             If projOnScreen(i) = True Then
                 For j = 0 To maxEnemyNum - 1
                     If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then
-                        LIVESLB.Text = "passs single"
+                        'LIVESLB.Text = "passs single"
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
@@ -309,7 +309,6 @@ Public Class Form2
                 Case 6
                     powerupscreen.Image = My.Resources.healpowerup
             End Select
-            LIVESLB.Text = randomselect
             randomcount = 0
         End If
     End Sub
