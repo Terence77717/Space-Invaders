@@ -14,7 +14,8 @@ Public Class Form2
     Dim enemyOnScreen(maxEnemyNum) As Boolean
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
-    Dim enemygoingright As Boolean = True
+    Dim enemyPosition As Integer = 0
+    Dim ticksOnBoundary As Integer = 0
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -36,32 +37,31 @@ Public Class Form2
 
     'score
     Public score As Integer = 0
-
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
         ElseIf doubleAttack = True Then
-            tmrPowerup.Enabled = True
-            tmrPowerup.Start()
-            While tmrPowerup.Interval > 10000
-                tmrPowerup.Stop()
-                tmrPowerup.Enabled = False
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
                 doubleAttack = False
             End While
 
         ElseIf freezeAttack = True Then ' or freeze tmr for alien for about 2 seconds
-            tmrPowerup.Enabled = True
-            tmrPowerup.Start()
-            While tmrPowerup.Interval > 10000
-                tmrPowerup.Stop()
-                tmrPowerup.Enabled = False
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
             End While
-        ElseIf freezeattack = True Then
-            tmrPowerup.Enabled = True
-            tmrPowerup.Start()
-            While tmrPowerup.Interval > 10000
-                tmrPowerup.Stop()
-                tmrPowerup.Enabled = False
+        ElseIf freezeAttack = True Then
+            tmrpowerup.Enabled = True
+            tmrpowerup.Start()
+            While tmrpowerup.Interval > 10000
+                tmrpowerup.Stop()
+                tmrpowerup.Enabled = False
                 freezeAttack = False
             End While
 
@@ -77,7 +77,6 @@ Public Class Form2
         End If
     End Function
 
-
     Public Function checkhearts() 'add sound effect for getting hit
         If hearts = 3 Then ' if there is 3 heart left
             Heart3.Image = My.Resources.emptyheart
@@ -91,9 +90,9 @@ Public Class Form2
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
             tmrenemy.Stop()
-            tmrMove.Stop()
+            tmrmove.Stop()
             tmrShoot.Stop()
-            tmrPowerup.Stop()
+            tmrpowerup.Stop()
             tmrrandomiser.Stop()
             gameover.Show()
             Return Gameoverboolean = True
@@ -101,10 +100,10 @@ Public Class Form2
         End If
     End Function
 
-    Public Function hit()
+    Private Sub hit()
         playerhit = True
         checkhearts()
-    End Function
+    End Sub
 
     Public Function insideBoundary()
         If player.Left < 0 Then
@@ -167,9 +166,9 @@ Public Class Form2
                 checkhearts()
             Case Keys.Escape
                 tmrenemy.Stop()
-                tmrMove.Stop()
+                tmrmove.Stop()
                 tmrShoot.Stop()
-                tmrPowerup.Stop()
+                tmrpowerup.Stop()
                 tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
@@ -217,8 +216,8 @@ Public Class Form2
         Me.Size = New Size(1277, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
-        tmrMove.Enabled = True
-        tmrEnemy.Enabled = True
+        tmrmove.Enabled = True
+        tmrenemy.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
@@ -255,6 +254,9 @@ Public Class Form2
                         ScoreLB.Text = "Score " + Str(score)
                         enemyOnScreen(j) = False ' add item here to delete enemy image
                         projOnScreen(i) = False
+                        enemyArray(j).Visible = False
+                        projArray(j).Visible = False
+
                         's
                         Exit For
                     End If
@@ -280,8 +282,8 @@ Public Class Form2
     End Sub
 
     'Movement, for each tick, moves 5 units 
-    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrMove.Tick
-        tmrMove.Interval = 1
+    Private Sub tmrMove_Tick(sender As Object, e As EventArgs) Handles tmrmove.Tick
+        tmrmove.Interval = 1
         If playerRight = True And insideBoundary() = True Then
             player.Left += 5
         ElseIf playerLeft = True And insideBoundary() = True Then
@@ -290,7 +292,7 @@ Public Class Form2
     End Sub
 
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
-        tmrMove.Interval = 10
+        tmrmove.Interval = 10
         Randomize()
         poweruprandom = Int((6 * Rnd()) + 1)
         If poweruprandom = 6 Then
@@ -316,21 +318,50 @@ Public Class Form2
             randomcount = 0
         End If
     End Sub
-
-    Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrEnemy.Tick
-        tmrenemy.Interval = 100
-        For i = 0 To maxEnemyNum - 1
-            If enemyMoveRight = True Then
-                insideAlien(i)
-                If enemygoingright = True Then
-                    enemyArray(i).Left += 20
-                Else
-                    ' issue when colliding, the one on the right is displaced
-                    enemyArray(i).Left -= 20
-                End If
+    Public Sub enemyMoveDirection(enemyNum)
+        If ticksOnBoundary = 0 Then
+            If enemyArray(enemyNum).Left >= Me.Width - 60 Then
+                ticksOnBoundary += 1
+                For i = 0 To maxEnemyNum - 1
+                    enemyArray(i).Top += 50 ' when one of the enemies on boundary, everything moves down
+                Next
+                enemyMoveRight = False
+            ElseIf enemyArray(enemyNum).Left <= 10 Then
+                ticksOnBoundary += 1
+                For i = 0 To maxEnemyNum - 1
+                    enemyArray(i).Top += 50 ' same reasoning as above
+                Next
+                enemyMoveRight = True
             End If
+        End If
+    End Sub
 
+    Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
+        tmrenemy.Interval = 200
+        For i = 0 To maxEnemyNum - 1
+            enemyMoveDirection(i)
+            If enemyMoveRight = True Then
+                enemyArray(i).Left += 20
+            Else
+                enemyArray(i).Left -= 20
+            End If
         Next
 
+
+        'For i = 0 To maxEnemyNum - 1
+        '    enemyPosition = enemyArray(i).Top
+        '    enemyMoveDirection(i)
+        '    Debug.WriteLine(ticksOnBoundary)
+        '    If String.Compare(Str(enemyPosition), Str(enemyArray(i).Top)) = 0 Then
+        '        If enemyMoveRight = True Then
+        '            enemyArray(i).Left += 20
+        '        Else
+        '            enemyArray(i).Left -= 20
+        '        End If
+        '    Else
+        '        Exit For
+        '    End If
+        'Next
+        'ticksOnBoundary = 0
     End Sub
 End Class
