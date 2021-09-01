@@ -119,8 +119,12 @@ Public Class Form2
     End Function
     Public Function insideAlien(k)
         If enemyArray(k).Left < 0 Then
+            'enemyArray(k).Top = enemyArray(k).Top + 15
             enemygoingright = True
         ElseIf enemyArray(k).Left > 1220 Then
+            'For m = 0 To Len(enemyArray) - 1
+            'enemyArray(m).Top = enemyArray(m).Top + 15
+            'Next
             enemygoingright = False
         End If
     End Function
