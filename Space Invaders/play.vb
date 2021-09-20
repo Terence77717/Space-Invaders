@@ -246,7 +246,7 @@ Public Class Form2
         Dim bulletgone As Boolean = False
         For i = 0 To numofshots - 1 And bulletgone = False
             If projOnScreen(i) = True Then
-                For j = 0 To maxEnemyNum - 1 And bulletgone = False 'maxEnemyNum
+                For j = 0 To maxEnemyNum - 1 And bulletgone = False 'maxEnemyNum 
                     If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then 'projArray(i).Visible = True
                         LIVESLB.Text = j
                         enemyArray = enemyArray.Skip(j).ToArray
