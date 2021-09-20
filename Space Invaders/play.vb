@@ -243,22 +243,22 @@ Public Class Form2
     'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
     Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick 'lags a decent bit so far
         tmrShoot.Interval = 40
-        For i = 0 To numofshots - 1
+        Dim bulletgone As Boolean = False
+        For i = 0 To numofshots - 1 And bulletgone = False
             If projOnScreen(i) = True Then
-                For j = 0 To maxEnemyNum - 1
-                    If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then
-                        'LIVESLB.Text = "passs single"
-                        'enemyArray = enemyArray.Skip(j).ToArray
-                        maxEnemyNum = maxEnemyNum - 1
+                For j = 0 To maxEnemyNum - 1 And bulletgone = False 'maxEnemyNum
+                    If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then 'projArray(i).Visible = True
+                        LIVESLB.Text = j
+                        enemyArray = enemyArray.Skip(j).ToArray
+                        'maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
                         ScoreLB.Text = "Score " + Str(score)
-                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        'enemyOnScreen(j) = False ' add item here to delete enemy image
                         projOnScreen(i) = False
-                        enemyArray(j).Visible = False
-                        projArray(j).Visible = False
-
+                        'enemyArray(j).Visible = False
+                        projArray(i).Visible = False
+                        bulletgone = True
                         's
-                        Exit For
                     End If
                 Next
                 projArray(i).Top -= 15
@@ -267,6 +267,7 @@ Public Class Form2
                 projOnScreen(i) = False
             End If
         Next
+        bulletgone = False
     End Sub
 
     'Movement controls, stops the movement when key is lifted
@@ -338,13 +339,13 @@ Public Class Form2
     End Sub
 
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
-        tmrenemy.Interval = 200
+        tmrenemy.Interval = 100
         For i = 0 To maxEnemyNum - 1
             enemyMoveDirection(i)
             If enemyMoveRight = True Then
-                enemyArray(i).Left += 20
+                enemyArray(i).Left += 10
             Else
-                enemyArray(i).Left -= 20
+                enemyArray(i).Left -= 10
             End If
         Next
 
