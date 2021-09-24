@@ -10,12 +10,11 @@ Public Class Form2
     Dim playerLeft As Boolean = False
     'enemies
     Dim maxEnemyNum As Integer = 5
-    Dim enemyArray(maxEnemyNum) As PictureBox
-    Dim enemyOnScreen(maxEnemyNum) As Boolean
+    'Dim enemyArray(maxEnemyNum) As PictureBox
+    Dim enemyList As New List(Of PictureBox)
+    Dim enemyOnScreen As New List(Of Boolean)
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
-    Dim enemyPosition As Integer = 0
-    Dim ticksOnBoundary As Integer = 0
     'variables for health
     Dim hearts As Integer = 3
     'variables for getting hit
@@ -117,9 +116,9 @@ Public Class Form2
         End If
     End Function
     Public Function insideAlien(k)
-        If enemyArray(k).Left < 0 Then
+        If enemyList(k).Left < 0 Then
             enemyMoveRight = True
-        ElseIf enemyArray(k).Left > 1220 Then
+        ElseIf enemyList(k).Left > 1220 Then
             enemyMoveRight = False
         End If
     End Function
@@ -145,9 +144,9 @@ Public Class Form2
             enemy.Left = i * 70 + 50
             enemy.BringToFront()
             Me.Controls.Add(enemy)
-            enemyArray(i) = enemy
-            enemyArray(i).Visible = True
-            enemyOnScreen(i) = True
+            enemyList.Add(enemy)
+            enemyList(i).Visible = True
+            enemyOnScreen.Add(True)
         Next
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
@@ -242,16 +241,17 @@ Public Class Form2
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
                 For j = 0 To maxEnemyNum - 1
-                    If projArray(i).Bounds.IntersectsWith(enemyArray(j).Bounds) Then
+                    If projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
                         'LIVESLB.Text = "passs single"
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
                         ScoreLB.Text = "Score " + Str(score)
-                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        projArray(i).Visible = False
                         projOnScreen(i) = False
-                        enemyArray(j).Visible = False
-                        projArray(j).Visible = False
+                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        enemyList(j).Visible = False
+                        enemyList.Remove(enemyList(j))
 
                         's
                         Exit For
@@ -315,33 +315,40 @@ Public Class Form2
         End If
     End Sub
     Public Sub enemyMoveDirection(enemyNum)
-        If ticksOnBoundary = 0 Then
-            If enemyArray(enemyNum).Left >= Me.Width - 60 Then
-                ticksOnBoundary += 1
-                For i = 0 To maxEnemyNum - 1
-                    enemyArray(i).Top += 50 ' when one of the enemies on boundary, everything moves down
-                Next
-                enemyMoveRight = False
-            ElseIf enemyArray(enemyNum).Left <= 10 Then
-                ticksOnBoundary += 1
-                For i = 0 To maxEnemyNum - 1
-                    enemyArray(i).Top += 50 ' same reasoning as above
-                Next
-                enemyMoveRight = True
-            End If
+        If enemyList(enemyNum).Left >= Me.Width - 50 Then
+            For i = 0 To maxEnemyNum - 1
+                enemyList(i).Top += 50
+                enemyList(i).Left -= 15
+                enemyList(enemyNum).Left += 4
+                enemyList(0).Left += 3
+                'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
+                'enemyList(enemyNum).Left = Me.Width - 50
+            Next
+            enemyMoveRight = False
+        ElseIf enemyList(enemyNum).Left <= 10 Then
+            For i = 0 To maxEnemyNum - 1
+                enemyList(i).Top += 50
+            Next
+            enemyMoveRight = True
         End If
     End Sub
-
+    Dim direction As Integer = 1
+    Dim count As Integer = 0
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
         tmrenemy.Interval = 200
         For i = 0 To maxEnemyNum - 1
             enemyMoveDirection(i)
             If enemyMoveRight = True Then
-                enemyArray(i).Left += 20
+                enemyList(maxEnemyNum - 1 - i).Left += 20
+
             Else
-                enemyArray(i).Left -= 20
+                enemyList(i).Left -= 20
             End If
         Next
+
+
+        Debug.WriteLine(count)
+
 
 
         'For i = 0 To maxEnemyNum - 1
