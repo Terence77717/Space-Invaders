@@ -57,6 +57,9 @@ Partial Class Form2
         'tmrShoot
         '
         '
+        'tmrmove
+        '
+        '
         'Heart2
         '
         Me.Heart2.Image = CType(resources.GetObject("Heart2.Image"), System.Drawing.Image)
@@ -116,11 +119,15 @@ Partial Class Form2
         Me.tmrrandomiser.Enabled = True
         Me.tmrrandomiser.Interval = 10
         '
+        'tmrenemy
+        '
+        '
         'powerupscreen
         '
-        Me.powerupscreen.Location = New System.Drawing.Point(401, 155)
+        Me.powerupscreen.BackColor = System.Drawing.Color.Transparent
+        Me.powerupscreen.Location = New System.Drawing.Point(411, 12)
         Me.powerupscreen.Name = "powerupscreen"
-        Me.powerupscreen.Size = New System.Drawing.Size(80, 80)
+        Me.powerupscreen.Size = New System.Drawing.Size(1, 1)
         Me.powerupscreen.TabIndex = 35
         Me.powerupscreen.TabStop = False
         '

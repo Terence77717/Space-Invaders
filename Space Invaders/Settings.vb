@@ -407,4 +407,5 @@ Public Class Settings
     Private Sub Label1_leave(sender As Object, e As EventArgs) Handles ResetKeys.MouseLeave
         ResetKeys.ForeColor = Color.White
     End Sub
+
 End Class
