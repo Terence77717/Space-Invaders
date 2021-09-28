@@ -10,7 +10,7 @@ Public Class Settings
         Back.Size = New Size(46, 46)
         TitleLABEL.Location = New Size(487, 12)
         TitleLABEL.Font = New Font("Segoe UI", 30.0, FontStyle.Regular)
-        MasterLabel.Location = New Size(229, 311)
+        MasterLabel.Location = New Size(229, 179)
         MasterLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
         SFXLabel.Location = New Size(229, 311)
         SFXLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
@@ -38,8 +38,6 @@ Public Class Settings
         ShootInput.Size = New Size(140, 23)
         ResetKeys.Location = New Size(839, 631)
         ResetKeys.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
-
-
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
@@ -407,5 +405,4 @@ Public Class Settings
     Private Sub Label1_leave(sender As Object, e As EventArgs) Handles ResetKeys.MouseLeave
         ResetKeys.ForeColor = Color.White
     End Sub
-
 End Class

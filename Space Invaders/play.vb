@@ -20,6 +20,7 @@ Public Class Form2
     'variables for getting hit
     Dim playerhit As Boolean = False
     Dim Gameoverboolean As Boolean = False
+    Public gamewon As String = "False" ' use "won" for win and "lost" for over
 
     'powerups | attack powerups last 10 seconds
     Dim normalAttack As Boolean = True
@@ -88,15 +89,23 @@ Public Class Form2
         Else ' 1 heart left and the player got hit so game over
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
-            tmrenemy.Stop()
-            tmrmove.Stop()
-            tmrShoot.Stop()
-            tmrpowerup.Stop()
-            tmrrandomiser.Stop()
-            gameover.Show()
-            Return Gameoverboolean = True
+            gameoverfunc()
             'run gamer over screen, or display text and lock actions
         End If
+    End Function
+
+    Public Function gameoverfunc()
+        tmrenemy.Stop()
+        tmrmove.Stop()
+        tmrShoot.Stop()
+        tmrpowerup.Stop()
+        tmrrandomiser.Stop()
+        If gamewon = "won" Then
+        End If
+        If gamewon = "lost" Then
+            gameover.Show()
+        End If
+        Return Gameoverboolean = True
     End Function
 
     Private Sub hit()
@@ -242,7 +251,7 @@ Public Class Form2
             If projOnScreen(i) = True Then
                 For j = 0 To maxEnemyNum - 1
                     If projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
-                        'LIVESLB.Text = "passs single"
+                        LIVESLB.Text = enemyList.Count
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
@@ -252,10 +261,12 @@ Public Class Form2
                         enemyOnScreen(j) = False ' add item here to delete enemy image
                         enemyList(j).Visible = False
                         enemyList.Remove(enemyList(j))
-
+                        If enemyList.Count = 0 Then
+                            gameoverfunc()
+                        End If
                         's
                         Exit For
-                    End If
+                        End If
                 Next
                 projArray(i).Top -= 15
             End If
