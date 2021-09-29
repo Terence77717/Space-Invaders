@@ -18,43 +18,62 @@
     Private Sub Levels1_Click(sender As Object, e As EventArgs) Handles Levels1.Click
         home.Levelselected = 1
         Me.Hide()
-        Betaaliens.Show()
+        Form2.Show()
+        'Betaaliens.Show()
     End Sub
 
     Private Sub Levels2_Click(sender As Object, e As EventArgs) Handles Levels2.Click
-        home.levelselected = 2
+        home.Levelselected = 2
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels3_Click(sender As Object, e As EventArgs) Handles Levels3.Click
-        home.levelselected = 3
+        home.Levelselected = 3
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels4_Click(sender As Object, e As EventArgs) Handles Levels4.Click
-        home.levelselected = 4
+        home.Levelselected = 4
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels5_Click(sender As Object, e As EventArgs) Handles Levels5.Click
-        home.levelselected = 5
+        home.Levelselected = 5
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels6_Click(sender As Object, e As EventArgs) Handles Levels6.Click
-        home.levelselected = 6
+        home.Levelselected = 6
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels7_Click(sender As Object, e As EventArgs) Handles Levels7.Click
-        home.levelselected = 7
+        home.Levelselected = 7
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels8_Click(sender As Object, e As EventArgs) Handles Levels8.Click
-        home.levelselected = 8
+        home.Levelselected = 8
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels9_Click(sender As Object, e As EventArgs) Handles Levels9.Click
-        home.levelselected = 9
+        home.Levelselected = 9
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Levels10_Click(sender As Object, e As EventArgs) Handles Levels10.Click
-        home.levelselected = 10
+        home.Levelselected = 10
+        Me.Hide()
+        Form2.Show()
     End Sub
 
     Private Sub Level_Click(sender As Object, e As EventArgs) Handles Levels10.Click, Levels1.Click, Levels2.Click, Levels3.Click, Levels4.Click, Levels5.Click, Levels6.Click, Levels7.Click, Levels8.Click, Levels9.Click

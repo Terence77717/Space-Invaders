@@ -123,12 +123,12 @@ Partial Class pause
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.LevelsLabel.Location = New System.Drawing.Point(329, 201)
+        Me.LevelsLabel.Location = New System.Drawing.Point(321, 200)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(131, 45)
+        Me.LevelsLabel.Size = New System.Drawing.Size(159, 45)
         Me.LevelsLabel.TabIndex = 34
-        Me.LevelsLabel.Text = "LEVELS"
+        Me.LevelsLabel.Text = "RESTART"
         '
         'PictureBox2
         '

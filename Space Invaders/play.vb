@@ -1,6 +1,11 @@
 ﻿
 Imports System.Drawing.Text
 Public Class Form2
+    Dim endlessunlocked As Boolean = home.endlessunlocked
+    Dim Levelselected As Integer = home.Levelselected
+    Dim levelwaves As List(Of Integer)
+    Dim levellength As Integer
+    Dim currentwave As Integer = 0
     'variable setting
     Dim numofshots As Integer = 5
     Dim projArray(numofshots) As PictureBox 'an array of bullets (5 picture boxes)
@@ -9,9 +14,10 @@ Public Class Form2
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
     'enemies
-    Dim maxEnemyNum As Integer = 5
+    Dim maxEnemyNum As Integer
     'Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyList As New List(Of PictureBox)
+    Dim enemyListPosition As New List(Of Integer)
     Dim enemyOnScreen As New List(Of Boolean)
     Dim shooting As Boolean = False
     Dim enemyMoveRight As Boolean = True
@@ -89,6 +95,7 @@ Public Class Form2
         Else ' 1 heart left and the player got hit so game over
             Heart1.Image = My.Resources.emptyheart
             hearts = hearts - 1
+            gamewon = "lost"
             gameoverfunc()
             'run gamer over screen, or display text and lock actions
         End If
@@ -101,6 +108,7 @@ Public Class Form2
         tmrpowerup.Stop()
         tmrrandomiser.Stop()
         If gamewon = "won" Then
+            gameover.Show()
         End If
         If gamewon = "lost" Then
             gameover.Show()
@@ -217,7 +225,22 @@ Public Class Form2
         Dim pfc As New PrivateFontCollection()
         'Apfc.AddFontFile("C:\Path To\PALETX3.ttf")
         'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
-        Me.Size = New Size(1277, 819)
+
+        'waves spawning
+        modulefunc.spawnlevel(Levelselected)
+        levelwaves = modulefunc.roundused
+        levellength = levelwaves.Count
+        Debug.WriteLine(levellength)
+        modulefunc.spawnround(levelwaves(0))
+
+        enemyList = modulefunc.enemywave
+        enemyListPosition = modulefunc.enemywaveposition
+        enemyOnScreen = modulefunc.enemyOnScreen
+        Debug.WriteLine(enemyList(0))
+        maxEnemyNum = enemyList.Count
+
+        ' old spawning stuff
+        Me.Size = New Size(1013, 819)
         Me.CenterToScreen()
         tmrShoot.Enabled = True
         tmrmove.Enabled = True
@@ -226,20 +249,20 @@ Public Class Form2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
         createProj(numofshots)
-        createEnemy(maxEnemyNum)
+        tmrenemy.Interval = 200
+        'createEnemy(maxEnemyNum)
 
-        Heart1.Location = New Point(1100, 20)
-        Heart2.Location = New Point(1137, 20)
-        Heart3.Location = New Point(1174, 20)
+        Heart1.Location = New Point(850, 20)
+        Heart2.Location = New Point(887, 20)
+        Heart3.Location = New Point(924, 20)
         Heart1.Size = New Size(40, 40)
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
 
-        LIVESLB.Location = New Point(1010, 17)
-        ScoreLB.Location = New Point(100, 17)
+        LIVESLB.Location = New Point(760, 17)
+        ScoreLB.Location = New Point(50, 17)
         LIVESLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
-
 
         createProj(numofshots)
 
@@ -251,7 +274,7 @@ Public Class Form2
             If projOnScreen(i) = True Then
                 For j = 0 To maxEnemyNum - 1
                     If projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
-                        LIVESLB.Text = enemyList.Count
+                        'LIVESLB.Text = enemyList.Count
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
@@ -260,13 +283,15 @@ Public Class Form2
                         projOnScreen(i) = False
                         enemyOnScreen(j) = False ' add item here to delete enemy image
                         enemyList(j).Visible = False
-                        enemyList.Remove(enemyList(j))
+                        enemyList.RemoveAt(j)
+                        enemyListPosition.RemoveAt(j)
                         If enemyList.Count = 0 Then
+                            gamewon = "won"
                             gameoverfunc()
                         End If
                         's
                         Exit For
-                        End If
+                    End If
                 Next
                 projArray(i).Top -= 15
             End If
@@ -325,13 +350,17 @@ Public Class Form2
             randomcount = 0
         End If
     End Sub
+    Dim amountchangetemporary As Integer = 20
     Public Sub enemyMoveDirection(enemyNum)
-        If enemyList(enemyNum).Left >= Me.Width - 50 Then
+        If enemyList(enemyNum).Left >= Me.Width - 60 Then
+            tmrenemy.Interval = 1
+            amountchangetemporary = 0
             For i = 0 To maxEnemyNum - 1
+                Debug.WriteLine(enemyList(i).Left)
                 enemyList(i).Top += 50
-                enemyList(i).Left -= 15
-                enemyList(enemyNum).Left += 4
-                enemyList(0).Left += 3
+                'enemyList(i).Left -= 15
+                'enemyList(enemyNum).Left += 1
+                'enemyList(0).Left += 3
                 'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
                 'enemyList(enemyNum).Left = Me.Width - 50
             Next
@@ -341,24 +370,33 @@ Public Class Form2
                 enemyList(i).Top += 50
             Next
             enemyMoveRight = True
+        Else
+            amountchangetemporary = 20
+            tmrenemy.Interval = 200
         End If
     End Sub
     Dim direction As Integer = 1
     Dim count As Integer = 0
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
-        tmrenemy.Interval = 200
-        For i = 0 To maxEnemyNum - 1
-            enemyMoveDirection(i)
-            If enemyMoveRight = True Then
-                enemyList(maxEnemyNum - 1 - i).Left += 20
+        count = enemyList(0).Left
+        If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
+            gamewon = "lost"
+            gameoverfunc()
+        Else
+            For i = 0 To maxEnemyNum - 1
+                enemyMoveDirection(i)
+                If enemyMoveRight = True Then
+                    enemyList(maxEnemyNum - 1 - i).Left += 20
 
-            Else
-                enemyList(i).Left -= 20
-            End If
-        Next
+                Else
+                    enemyList(i).Left = count + ((enemyListPosition(i) Mod 10) * 70) - amountchangetemporary
+                    'enemyList(i).Left -= 20
+                End If
+            Next
+        End If
 
 
-        Debug.WriteLine(count)
+        'Debug.WriteLine(count)
 
 
 

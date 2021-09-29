@@ -1,6 +1,7 @@
 ﻿Public Class home
     Public endlessunlocked As Boolean = False
     Public Levelselected As Integer = 0
+    Public levelwaves As List(Of Integer)
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Hide()
         confirmexit.Show()
