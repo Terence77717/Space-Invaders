@@ -351,29 +351,38 @@ Public Class Form2
         End If
     End Sub
     Dim amountchangetemporary As Integer = 20
-    Public Sub enemyMoveDirection(enemyNum)
-        If enemyList(enemyNum).Left >= Me.Width - 60 Then
-            tmrenemy.Interval = 1
-            amountchangetemporary = 0
-            For i = 0 To maxEnemyNum - 1
-                Debug.WriteLine(enemyList(i).Left)
-                enemyList(i).Top += 50
-                'enemyList(i).Left -= 15
-                'enemyList(enemyNum).Left += 1
-                'enemyList(0).Left += 3
-                'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
-                'enemyList(enemyNum).Left = Me.Width - 50
-            Next
-            enemyMoveRight = False
-        ElseIf enemyList(enemyNum).Left <= 10 Then
-            For i = 0 To maxEnemyNum - 1
-                enemyList(i).Top += 50
-            Next
-            enemyMoveRight = True
-        Else
-            amountchangetemporary = 20
-            tmrenemy.Interval = 200
-        End If
+    Dim moveddown As Boolean = False
+    Public Sub enemyMoveDirection()
+        Dim checkingvalue As Boolean = True
+        Dim enemynum As Integer
+        For enemynum = 0 To maxEnemyNum - 1 And (checkingvalue = True)
+            If (enemyList(enemynum).Left >= Me.Width - 60) And (moveddown = False) Then
+                tmrenemy.Interval = 1
+                amountchangetemporary = 0
+                For i = 0 To maxEnemyNum - 1
+                    'Debug.WriteLine(enemyList(i).Left)
+                    enemyList(i).Top += 50
+                    'enemyList(i).Left -= 15
+                    'enemyList(enemyNum).Left += 1
+                    'enemyList(0).Left += 3
+                    'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
+                    'enemyList(enemyNum).Left = Me.Width - 50
+                Next
+                enemyMoveRight = False
+                moveddown = True
+                checkingvalue = False
+            ElseIf (enemyList(enemynum).Left <= 10) And (moveddown = False) Then
+                For i = 0 To maxEnemyNum - 1
+                    enemyList(i).Top += 50
+                Next
+                enemyMoveRight = True
+                moveddown = True
+                checkingvalue = False
+            Else
+                amountchangetemporary = 20
+                tmrenemy.Interval = 200
+            End If
+        Next
     End Sub
     Dim direction As Integer = 1
     Dim count As Integer = 0
@@ -382,9 +391,10 @@ Public Class Form2
         If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
             gamewon = "lost"
             gameoverfunc()
+
         Else
+            enemyMoveDirection()
             For i = 0 To maxEnemyNum - 1
-                enemyMoveDirection(i)
                 If enemyMoveRight = True Then
                     enemyList(maxEnemyNum - 1 - i).Left += 20
 
@@ -394,7 +404,7 @@ Public Class Form2
                 End If
             Next
         End If
-
+        moveddown = False
 
         'Debug.WriteLine(count)
 
