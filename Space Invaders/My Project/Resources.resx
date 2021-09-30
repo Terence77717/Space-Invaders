@@ -166,9 +166,6 @@
   <data name="Laser_Cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Laser_Cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="music1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Space Invaders v2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="mars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,5 +177,17 @@
   </data>
   <data name="alien2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alien2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemyHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enemyHit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="music1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Space Invaders v2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="playerHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerHit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="playerShot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerShot.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
