@@ -7,7 +7,7 @@
         confirmexit.Show()
     End Sub
 
-    Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
+    Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles LeaderboardLabel.Click
         Me.Hide()
         levels.Show()
     End Sub
@@ -35,8 +35,8 @@
         SettingsLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
         HelpLabel.Location = New Size(534, 435)
         HelpLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
-        LevelsLabel.Location = New Size(525, 300)
-        LevelsLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
+        LeaderboardLabel.Location = New Size(460, 300)
+        LeaderboardLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
         ExitButton.Location = New Size(1138, 12)
         ExitButton.Size = New Size(50, 50)
         playlabel.Location = New Size(536, 241)
@@ -45,6 +45,8 @@
     End Sub
 
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
+        Levelselected = 0
+        My.Computer.Audio.Stop()
         Me.Hide()
         Form2.Show()
     End Sub

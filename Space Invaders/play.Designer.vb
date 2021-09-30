@@ -36,6 +36,7 @@ Partial Class Form2
         Me.tmrrandomiser = New System.Windows.Forms.Timer(Me.components)
         Me.tmrenemy = New System.Windows.Forms.Timer(Me.components)
         Me.powerupscreen = New System.Windows.Forms.PictureBox()
+        Me.WaveLB = New System.Windows.Forms.Label()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,9 +111,9 @@ Partial Class Form2
         Me.ScoreLB.ForeColor = System.Drawing.Color.White
         Me.ScoreLB.Location = New System.Drawing.Point(46, 37)
         Me.ScoreLB.Name = "ScoreLB"
-        Me.ScoreLB.Size = New System.Drawing.Size(82, 15)
+        Me.ScoreLB.Size = New System.Drawing.Size(74, 15)
         Me.ScoreLB.TabIndex = 34
-        Me.ScoreLB.Text = "SCORE     0000"
+        Me.ScoreLB.Text = "SCORE < 0 >"
         '
         'tmrrandomiser
         '
@@ -131,6 +132,18 @@ Partial Class Form2
         Me.powerupscreen.TabIndex = 35
         Me.powerupscreen.TabStop = False
         '
+        'WaveLB
+        '
+        Me.WaveLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
+        Me.WaveLB.AutoSize = True
+        Me.WaveLB.BackColor = System.Drawing.Color.Black
+        Me.WaveLB.ForeColor = System.Drawing.Color.White
+        Me.WaveLB.Location = New System.Drawing.Point(110, 37)
+        Me.WaveLB.Name = "WaveLB"
+        Me.WaveLB.Size = New System.Drawing.Size(69, 15)
+        Me.WaveLB.TabIndex = 36
+        Me.WaveLB.Text = "WAVE < 1 >"
+        '
         'Form2
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
@@ -138,6 +151,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.Controls.Add(Me.WaveLB)
         Me.Controls.Add(Me.powerupscreen)
         Me.Controls.Add(Me.ScoreLB)
         Me.Controls.Add(Me.LIVESLB)
@@ -175,4 +189,5 @@ Partial Class Form2
     Friend WithEvents tmrrandomiser As Timer
     Friend WithEvents tmrenemy As Timer
     Friend WithEvents powerupscreen As PictureBox
+    Friend WithEvents WaveLB As Label
 End Class

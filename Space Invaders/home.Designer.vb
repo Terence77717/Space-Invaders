@@ -25,7 +25,7 @@ Partial Class home
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.TITLELABEL = New System.Windows.Forms.Label()
-        Me.LevelsLabel = New System.Windows.Forms.Label()
+        Me.LeaderboardLabel = New System.Windows.Forms.Label()
         Me.SettingsLabel = New System.Windows.Forms.Label()
         Me.HelpLabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -64,19 +64,19 @@ Partial Class home
         Me.TITLELABEL.Text = "Space Invaders"
         Me.TITLELABEL.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'LevelsLabel
+        'LeaderboardLabel
         '
-        Me.LevelsLabel.AutoSize = True
-        Me.LevelsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.LevelsLabel.Location = New System.Drawing.Point(525, 300)
-        Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(131, 45)
-        Me.LevelsLabel.TabIndex = 22
-        Me.LevelsLabel.Text = "LEVELS"
+        Me.LeaderboardLabel.AutoSize = True
+        Me.LeaderboardLabel.BackColor = System.Drawing.Color.Transparent
+        Me.LeaderboardLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LeaderboardLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.LeaderboardLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.LeaderboardLabel.Location = New System.Drawing.Point(460, 308)
+        Me.LeaderboardLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LeaderboardLabel.Name = "LeaderboardLabel"
+        Me.LeaderboardLabel.Size = New System.Drawing.Size(257, 45)
+        Me.LeaderboardLabel.TabIndex = 22
+        Me.LeaderboardLabel.Text = "LEADERBOARD"
         '
         'SettingsLabel
         '
@@ -161,7 +161,7 @@ Partial Class home
         Me.Controls.Add(Me.playlabel)
         Me.Controls.Add(Me.HelpLabel)
         Me.Controls.Add(Me.SettingsLabel)
-        Me.Controls.Add(Me.LevelsLabel)
+        Me.Controls.Add(Me.LeaderboardLabel)
         Me.Controls.Add(Me.TITLELABEL)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.PictureBox2)
@@ -183,7 +183,7 @@ Partial Class home
 
     Friend WithEvents ExitButton As Button
     Friend WithEvents TITLELABEL As Label
-    Friend WithEvents LevelsLabel As Label
+    Friend WithEvents LeaderboardLabel As Label
     Friend WithEvents SettingsLabel As Label
     Friend WithEvents HelpLabel As Label
     Friend WithEvents PictureBox1 As PictureBox

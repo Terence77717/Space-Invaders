@@ -1,6 +1,7 @@
 ﻿
 Imports System.Drawing.Text
 Public Class Form2
+    'importing for level automatic generation
     Dim endlessunlocked As Boolean = home.endlessunlocked
     Dim Levelselected As Integer = home.Levelselected
     Dim levelwaves As List(Of Integer)
@@ -214,7 +215,7 @@ Public Class Form2
         'waves spawning
         modulefunc.spawnlevel(Levelselected)
         levelwaves = modulefunc.roundused
-        levellength = levelwaves.Count
+        levellength = levelwaves.Count - 1
         Debug.WriteLine(levellength)
         modulefunc.spawnround(levelwaves(0))
 
@@ -246,8 +247,10 @@ Public Class Form2
 
         LIVESLB.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
+        WaveLB.Location = New Point(450, 17)
         LIVESLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
 
         createProj(numofshots)
 
@@ -263,7 +266,7 @@ Public Class Form2
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
                         score = score + 20
-                        ScoreLB.Text = "Score " + Str(score)
+                        ScoreLB.Text = "SCORE <" + Str(score) + " >"
                         projArray(i).Visible = False
                         projOnScreen(i) = False
                         enemyOnScreen(j) = False ' add item here to delete enemy image
@@ -272,8 +275,22 @@ Public Class Form2
                         enemyListPosition.RemoveAt(j)
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
-                            gamewon = "won"
-                            gameoverfunc()
+                            tmrenemy.Stop()
+                            If currentwave = levellength Then
+                                gamewon = "won"
+                                gameoverfunc()
+                            Else
+                                currentwave = currentwave + 1
+                                WaveLB.Text = "WAVE <" + Str(currentwave + 1) + " >"
+                                modulefunc.spawnround(levelwaves(currentwave))
+
+                                enemyList = modulefunc.enemywave
+                                enemyListPosition = modulefunc.enemywaveposition
+                                enemyOnScreen = modulefunc.enemyOnScreen
+                                maxEnemyNum = enemyList.Count
+                                Debug.WriteLine(enemyList(0))
+                                tmrenemy.Start()
+                            End If
                         End If
                         's
                         Exit For
@@ -338,74 +355,71 @@ Public Class Form2
     End Sub
     Dim amountchangetemporary As Integer = 20
     Dim moveddown As Boolean = False
-    Dim checkingvalue As Boolean = True
     Public Sub enemyMoveDirection()
         'Dim checkingvalue As Boolean = True
         Dim enemynum As Integer
         Debug.WriteLine("Tick")
+        Dim anyoutofborder As Integer = 0 '1 for right 2 for left
         For enemynum = 0 To maxEnemyNum - 1
-            If (checkingvalue = True) Then
-                If (enemyList(enemynum).Left >= Me.Width - 60) And (moveddown = False) Then
-                    tmrenemy.Interval = 450
-                    amountchangetemporary = 0
-                    For i = 0 To maxEnemyNum - 1
-                        'Debug.WriteLine(enemyList(i).Left)
-                        enemyList(i).Top += 50
-                        'enemyList(i).Left -= 15
-                        'enemyList(enemyNum).Left += 1
-                        'enemyList(0).Left += 3
-                        'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
-                        'enemyList(enemyNum).Left = Me.Width - 50
-                    Next
-                    enemyMoveRight = False
-                    moveddown = True
-                    checkingvalue = False
-                    Debug.WriteLine("moved down")
-                    Debug.WriteLine(enemynum)
-                    Debug.WriteLine(moveddown)
-                    Debug.WriteLine(enemyMoveRight)
-                    amountchangetemporary = 20
-                ElseIf (enemyList(enemynum).Left <= 10) And (moveddown = False) Then
-                    For i = 0 To maxEnemyNum - 1
-                        enemyList(i).Top += 50
-                    Next
-                    enemyMoveRight = True
-                    moveddown = True
-                    checkingvalue = False
-                    Debug.WriteLine("moved right")
-                    Debug.WriteLine(moveddown)
-                    Debug.WriteLine(enemyMoveRight)
-                Else
-                    Debug.WriteLine("Perfectly fine")
-                    amountchangetemporary = 20
-                    tmrenemy.Interval = 300
-                End If
+            If (enemyList(enemynum).Left >= Me.Width - 60) Then
+                anyoutofborder = 1
+            End If
+            If (enemyList(enemynum).Left <= 10) Then
+                anyoutofborder = 2
             End If
         Next
-        Debug.WriteLine("loop ended now moving left")
+        If (anyoutofborder = 1) And (moveddown = False) Then
+            tmrenemy.Interval = 450
+            amountchangetemporary = 20
+            For i = 0 To maxEnemyNum - 1
+                'Debug.WriteLine(enemyList(i).Left)
+                enemyList(i).Top += 50
+                'enemyList(i).Left -= 15
+                'enemyList(enemyNum).Left += 1
+                'enemyList(0).Left += 3
+                'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
+                'enemyList(enemyNum).Left = Me.Width - 50
+            Next
+            enemyMoveRight = False
+            moveddown = True
+            Debug.WriteLine(enemynum)
+            'Debug.WriteLine(moveddown)
+            'Debug.WriteLine(enemyMoveRight)
+            amountchangetemporary = 20
+        ElseIf (anyoutofborder = 2) And (moveddown = False) Then
+            For i = 0 To maxEnemyNum - 1
+                enemyList(i).Top += 50
+            Next
+            enemyMoveRight = True
+            moveddown = True
+        Else
+            'Debug.WriteLine("Perfectly fine")
+            amountchangetemporary = 20
+            tmrenemy.Interval = 300
+        End If
+        'Debug.WriteLine("end tick")
     End Sub
     Dim direction As Integer = 1
-    Dim count As Integer = 0
+    'Dim current As Integer = 0
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
-        count = enemyList(0).Left
-        If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
-            gamewon = "lost"
-            gameoverfunc()
-        Else
-            enemyMoveDirection()
-            For i = 0 To maxEnemyNum - 1
-                If enemyMoveRight = True Then
-                    enemyList(maxEnemyNum - 1 - i).Left += 20
-
-                Else
-                    enemyList(i).Left = count + ((enemyListPosition(i) Mod 10) * 70) - amountchangetemporary
-                    'enemyList(i).Left -= 20
-                End If
-            Next
+        'current = enemyList(0).Left
+        If enemyList.Count > 0 Then
+            If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
+                gamewon = "lost"
+                gameoverfunc()
+            Else
+                enemyMoveDirection()
+                For i = 0 To maxEnemyNum - 1
+                    If enemyMoveRight = True Then
+                        enemyList(maxEnemyNum - 1 - i).Left += 20
+                    Else
+                        enemyList(i).Left = enemyList(i).Left - amountchangetemporary 'current + ((enemyListPosition(i) Mod 10) * 70)
+                        'enemyList(i).Left -= 20
+                    End If
+                Next
+            End If
         End If
-        Debug.WriteLine("new tick")
         moveddown = False
-        checkingvalue = True
 
         'Debug.WriteLine(count)
 
