@@ -184,6 +184,7 @@ Public Class Form2
                 tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
+
                 shooting = True
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
@@ -191,6 +192,7 @@ Public Class Form2
                     End If
                 Next
                 If count <= numofshots Then 'caps the total bullets shot to 5, adjustable in top of this code
+                    My.Computer.Audio.Play(My.Resources.playerShot, AudioPlayMode.Background)
                     projOnScreen(projNum) = True
                     projArray(projNum).Visible = True
                     projArray(projNum).Top = player.Top
@@ -201,24 +203,6 @@ Public Class Form2
                     End If
                 End If
         End Select
-        If shooting = True Then
-            For i = 0 To numofshots - 1
-                If projOnScreen(i) = True Then
-                    count += 1
-                End If
-            Next
-            If count <= numofshots Then 'caps the total bullets shot to 5, adjustable in top of this code
-                My.Computer.Audio.Play(My.Resources.playerShot, AudioPlayMode.Background)
-                projOnScreen(projNum) = True
-                projArray(projNum).Visible = True
-                projArray(projNum).Top = player.Top
-                projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2) 'projectile comes out of the middle of player
-                projNum += 1
-                If projNum = numofshots Then
-                    projNum = 0
-                End If
-            End If
-        End If
     End Sub
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
