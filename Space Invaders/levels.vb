@@ -79,6 +79,7 @@
 
     Private Sub Level_Click(sender As Object, e As EventArgs) Handles Levels10.Click, Levels1.Click, Levels2.Click, Levels3.Click, Levels4.Click, Levels5.Click, Levels6.Click, Levels7.Click, Levels8.Click, Levels9.Click
         Me.Close()
+        My.Computer.Audio.Stop()
     End Sub
 
     Private Sub EndlessMode_Click(sender As Object, e As EventArgs) Handles EndlessMode.Click
