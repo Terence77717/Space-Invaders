@@ -208,6 +208,7 @@ Public Class Form2
                 End If
             Next
             If count <= numofshots Then 'caps the total bullets shot to 5, adjustable in top of this code
+                My.Computer.Audio.Play(My.Resources.playerShot, AudioPlayMode.Background)
                 projOnScreen(projNum) = True
                 projArray(projNum).Visible = True
                 projArray(projNum).Top = player.Top
@@ -285,6 +286,7 @@ Public Class Form2
                         enemyList(j).Visible = False
                         enemyList.RemoveAt(j)
                         enemyListPosition.RemoveAt(j)
+                        My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
                             gamewon = "won"
                             gameoverfunc()

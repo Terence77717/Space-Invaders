@@ -131,6 +131,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property enemyHit() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("enemyHit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property exit1() As System.Drawing.Bitmap
@@ -236,6 +245,24 @@ Namespace My.Resources
         Friend ReadOnly Property music1() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("music1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property playerHit() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("playerHit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property playerShot() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("playerShot", resourceCulture)
             End Get
         End Property
         
