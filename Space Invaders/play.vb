@@ -125,8 +125,8 @@ Public Class Form2
         If player.Left < 0 Then
             player.Left = 1 ' keep within form
             Return False
-        ElseIf player.Left > 1188 Then ' form width - player size = 1188
-            player.Left = 1187
+        ElseIf player.Left > 924 Then ' form width - player size = 1188
+            player.Left = 923
             Return False
         Else
             Return True
@@ -354,37 +354,51 @@ Public Class Form2
     End Sub
     Dim amountchangetemporary As Integer = 20
     Dim moveddown As Boolean = False
+    Dim checkingvalue As Boolean = True
     Public Sub enemyMoveDirection()
-        Dim checkingvalue As Boolean = True
+        'Dim checkingvalue As Boolean = True
         Dim enemynum As Integer
-        For enemynum = 0 To maxEnemyNum - 1 And (checkingvalue = True)
-            If (enemyList(enemynum).Left >= Me.Width - 60) And (moveddown = False) Then
-                tmrenemy.Interval = 1
-                amountchangetemporary = 0
-                For i = 0 To maxEnemyNum - 1
-                    'Debug.WriteLine(enemyList(i).Left)
-                    enemyList(i).Top += 50
-                    'enemyList(i).Left -= 15
-                    'enemyList(enemyNum).Left += 1
-                    'enemyList(0).Left += 3
-                    'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
-                    'enemyList(enemyNum).Left = Me.Width - 50
-                Next
-                enemyMoveRight = False
-                moveddown = True
-                checkingvalue = False
-            ElseIf (enemyList(enemynum).Left <= 10) And (moveddown = False) Then
-                For i = 0 To maxEnemyNum - 1
-                    enemyList(i).Top += 50
-                Next
-                enemyMoveRight = True
-                moveddown = True
-                checkingvalue = False
-            Else
-                amountchangetemporary = 20
-                tmrenemy.Interval = 200
+        Debug.WriteLine("Tick")
+        For enemynum = 0 To maxEnemyNum - 1
+            If (checkingvalue = True) Then
+                If (enemyList(enemynum).Left >= Me.Width - 60) And (moveddown = False) Then
+                    tmrenemy.Interval = 450
+                    amountchangetemporary = 0
+                    For i = 0 To maxEnemyNum - 1
+                        'Debug.WriteLine(enemyList(i).Left)
+                        enemyList(i).Top += 50
+                        'enemyList(i).Left -= 15
+                        'enemyList(enemyNum).Left += 1
+                        'enemyList(0).Left += 3
+                        'enemyList(enemyNum).Location = New Point(Me.Width - 40, enemyList(enemyNum).Top)
+                        'enemyList(enemyNum).Left = Me.Width - 50
+                    Next
+                    enemyMoveRight = False
+                    moveddown = True
+                    checkingvalue = False
+                    Debug.WriteLine("moved down")
+                    Debug.WriteLine(enemynum)
+                    Debug.WriteLine(moveddown)
+                    Debug.WriteLine(enemyMoveRight)
+                    amountchangetemporary = 20
+                ElseIf (enemyList(enemynum).Left <= 10) And (moveddown = False) Then
+                    For i = 0 To maxEnemyNum - 1
+                        enemyList(i).Top += 50
+                    Next
+                    enemyMoveRight = True
+                    moveddown = True
+                    checkingvalue = False
+                    Debug.WriteLine("moved right")
+                    Debug.WriteLine(moveddown)
+                    Debug.WriteLine(enemyMoveRight)
+                Else
+                    Debug.WriteLine("Perfectly fine")
+                    amountchangetemporary = 20
+                    tmrenemy.Interval = 300
+                End If
             End If
         Next
+        Debug.WriteLine("loop ended now moving left")
     End Sub
     Dim direction As Integer = 1
     Dim count As Integer = 0
@@ -405,7 +419,9 @@ Public Class Form2
                 End If
             Next
         End If
+        Debug.WriteLine("new tick")
         moveddown = False
+        checkingvalue = True
 
         'Debug.WriteLine(count)
 
