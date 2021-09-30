@@ -28,10 +28,18 @@
                     ElseIf i < 30 Then
                         leftposition = i - 20
                         enemy.Top = 200
+                    ElseIf i < 40 Then
+                        leftposition = i - 30
+                        enemy.Top = 250
+                    ElseIf i < 50 Then
+                        leftposition = i - 40
+                        enemy.Top = 300
                     End If
                     enemy.Left = leftposition * 70 + 50
                     enemy.BringToFront()
                     Form2.Controls.Add(enemy)
+                    Endless.Controls.Add(enemy)
+                    EndlessType2.Controls.Add(enemy)
                     enemywave.Add(enemy)
                     enemywave(i).Visible = True
                     enemyOnScreen.Add(True)
@@ -57,6 +65,8 @@
                     enemy.Left = leftposition * 70 + 50
                     enemy.BringToFront()
                     Form2.Controls.Add(enemy)
+                    Endless.Controls.Add(enemy)
+                    EndlessType2.Controls.Add(enemy)
                     enemywave.Add(enemy)
                     enemywave(i).Visible = True
                     enemyOnScreen.Add(True)
@@ -82,6 +92,8 @@
                     enemy.Left = leftposition * 70 + 50
                     enemy.BringToFront()
                     Form2.Controls.Add(enemy)
+                    Endless.Controls.Add(enemy)
+                    EndlessType2.Controls.Add(enemy)
                     enemywave.Add(enemy)
                     enemywave(i).Visible = True
                     enemyOnScreen.Add(True)
@@ -92,7 +104,7 @@
         roundused = New List(Of Integer)
         Select Case level
             Case 0 ' endless mode
-                roundused.AddRange({3, 3, 3, 3, 7, 3, 3, 3, 3, 3})
+                roundused.AddRange({2, 3, 8, 9, 9, 7})
             Case 1
                 roundused.AddRange({1, 1, 7})
             Case 2
@@ -134,6 +146,10 @@
                 enemytype(2, 30)
             Case 7
                 enemytype(3, 1) 'mothership
+            Case 8
+                enemytype(1, 40)
+            Case 9
+                enemytype(1, 50)
         End Select
     End Function
 End Module

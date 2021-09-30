@@ -48,6 +48,6 @@
         Levelselected = 0
         My.Computer.Audio.Stop()
         Me.Hide()
-        Form2.Show()
+        EndlessType2.Show()
     End Sub
 End Class
