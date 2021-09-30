@@ -39,6 +39,7 @@
             Case 2 'shooting alien
                 alienhp = 1
                 For i = 0 To amount - 1
+                    enemywaveposition.Add(i)
                     Dim enemy As New PictureBox
                     enemy.Size = New Size(50, 50)
                     enemy.BackgroundImageLayout = ImageLayout.Stretch
@@ -63,8 +64,9 @@
             Case 3 'mothership
                 alienhp = 10
                 For i = 0 To amount - 1
+                    enemywaveposition.Add(i)
                     Dim enemy As New PictureBox
-                    enemy.Size = New Size(50, 50)
+                    enemy.Size = New Size(125, 50)
                     enemy.BackgroundImageLayout = ImageLayout.Stretch
                     enemy.BackgroundImage = My.Resources.mothership
                     If i < 10 Then
@@ -89,6 +91,8 @@
     Function spawnlevel(level)
         roundused = New List(Of Integer)
         Select Case level
+            Case 0 ' endless mode
+                roundused.AddRange({3, 3, 3, 3, 7, 3, 3, 3, 3, 3})
             Case 1
                 roundused.AddRange({1, 1, 7})
             Case 2
