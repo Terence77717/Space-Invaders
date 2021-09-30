@@ -184,7 +184,6 @@ Public Class Form2
                 tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
-
                 shooting = True
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
@@ -272,8 +271,10 @@ Public Class Form2
                         enemyListPosition.RemoveAt(j)
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
+                            saveScore(score)
                             gamewon = "won"
                             gameoverfunc()
+
                         End If
                         's
                         Exit For
@@ -285,6 +286,31 @@ Public Class Form2
                 projOnScreen(i) = False
             End If
         Next
+    End Sub
+    Public Sub saveScore(score)
+        FileOpen(1, "C:\scores.txt", OpenMode.Append)
+        PrintLine(1, score)
+        FileClose(1)
+
+        Dim i As Integer = 0
+        Dim topScores() As String
+        Dim scores() As String
+        Dim file = IO.File.OpenText("C:\scores.txt")
+        Do Until file.Peek = -1 ' until end of file
+            scores(i) += file.ReadLine
+            i += 1
+        Loop
+        System.Array.Sort(Int(scores))
+        For num As Integer = 0 To 9
+            topScores(num) += scores(num)
+        Next
+
+        FileOpen(1, "C:\highestscores.txt", OpenMode.Output)
+        For j As Integer = 0 To topScores.Count - 1
+            PrintLine(1, topScores(j))
+        Next
+        FileClose(1)
+
     End Sub
 
     'Movement controls, stops the movement when key is lifted
