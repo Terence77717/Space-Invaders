@@ -377,7 +377,6 @@ Public Class Form2
         If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
             gamewon = "lost"
             gameoverfunc()
-
         Else
             enemyMoveDirection()
             For i = 0 To maxEnemyNum - 1

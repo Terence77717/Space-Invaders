@@ -6,6 +6,7 @@
         Form2.tmrShoot.Start()
         Form2.tmrpowerup.Start()
         Form2.tmrrandomiser.Start()
+        My.Computer.Audio.Stop()
         Me.Close()
     End Sub
 
@@ -16,7 +17,8 @@
         Form2.tmrShoot.Start()
         Form2.tmrpowerup.Start()
         Form2.tmrrandomiser.Start()
-        Me.Hide()
+        My.Computer.Audio.Stop()
+        Me.Close()
     End Sub
     Private Sub pause_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
@@ -27,7 +29,8 @@
                 Form2.tmrShoot.Start()
                 Form2.tmrpowerup.Start()
                 Form2.tmrrandomiser.Start()
-                Me.Hide()
+                My.Computer.Audio.Stop()
+                Me.Close()
         End Select
     End Sub
     Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
@@ -35,13 +38,14 @@
         confirmexit.Show()
     End Sub
 
-    Private Sub LevelsLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
+    Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
+        My.Computer.Audio.Stop()
         Form2.Close()
         Form2.Show()
         Me.Close()
     End Sub
 
     Private Sub pause_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 End Class
