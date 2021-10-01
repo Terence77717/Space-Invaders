@@ -60,6 +60,7 @@ Public Class EndlessType2
     Public powerupmax As Integer = 0
     Public playerName As String
     Public timetaken As Integer
+    Public stpw As Stopwatch = Stopwatch.StartNew()
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -116,6 +117,7 @@ Public Class EndlessType2
         tmrShoot.Stop()
         tmrpowerup.Stop()
         tmrrandomiser.Stop()
+        stpw.Stop()
         If gamewon = "won" Then
             gameover.Show()
         End If
@@ -221,6 +223,7 @@ Public Class EndlessType2
                 tmrpowerup.Stop()
                 tmrrandomiser.Stop()
                 pause.Show()
+                stpw.stop()
             Case Settings.KeyShoot 'shooting
 
                 shooting = True
@@ -306,10 +309,13 @@ Public Class EndlessType2
         End Select
 
         createProj(numofshots)
+        stpw.Reset()
+        stpw.Start()
 
     End Sub
     'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
     Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick 'lags a decent bit so far
+        Debug.WriteLine("sTOPWATCH IS AT:" + Str(stpw.Elapsed.TotalMilliseconds))
         tmrShoot.Interval = playerShootSpeed
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
@@ -330,39 +336,39 @@ Public Class EndlessType2
                         End If
                         currentpowerupimage.Visible = True
                     ElseIf projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
-                            'LIVESLB.Text = enemyList.Count
-                            'enemyArray = enemyArray.Skip(j).ToArray
-                            maxEnemyNum = maxEnemyNum - 1
-                            score = score + 20
-                            ScoreLB.Text = "SCORE <" + Str(score) + " >"
-                            projArray(i).Visible = False
-                            projOnScreen(i) = False
-                            enemyOnScreen(j) = False ' add item here to delete enemy image
-                            enemyList(j).Visible = False
-                            enemyList.RemoveAt(j)
-                            enemyListPosition.RemoveAt(j)
-                            My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
-                            If enemyList.Count = 0 Then
-                                tmrenemy.Stop()
-                                currentwave = currentwave + 1
-                                If currentwave >= levellength Then
-                                    enemySpeed = enemySpeed * 0.9
-                                    currentwave = 0
-                                End If
-                                wavesCompleted = wavesCompleted + 1
-                                WaveLB.Text = "WAVE <" + Str(wavesCompleted + 1) + " >"
-                                modulefunc.spawnround(levelwaves(currentwave))
-
-                                enemyList = modulefunc.enemywave
-                                enemyListPosition = modulefunc.enemywaveposition
-                                enemyOnScreen = modulefunc.enemyOnScreen
-                                maxEnemyNum = enemyList.Count
-                                Debug.WriteLine(enemyList(0))
-                                tmrenemy.Start()
+                        'LIVESLB.Text = enemyList.Count
+                        'enemyArray = enemyArray.Skip(j).ToArray
+                        maxEnemyNum = maxEnemyNum - 1
+                        score = score + 20
+                        ScoreLB.Text = "SCORE <" + Str(score) + " >"
+                        projArray(i).Visible = False
+                        projOnScreen(i) = False
+                        enemyOnScreen(j) = False ' add item here to delete enemy image
+                        enemyList(j).Visible = False
+                        enemyList.RemoveAt(j)
+                        enemyListPosition.RemoveAt(j)
+                        My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
+                        If enemyList.Count = 0 Then
+                            tmrenemy.Stop()
+                            currentwave = currentwave + 1
+                            If currentwave >= levellength Then
+                                enemySpeed = enemySpeed * 0.9
+                                currentwave = 0
                             End If
-                            's
-                            Exit For
+                            wavesCompleted = wavesCompleted + 1
+                            WaveLB.Text = "WAVE <" + Str(wavesCompleted + 1) + " >"
+                            modulefunc.spawnround(levelwaves(currentwave))
+
+                            enemyList = modulefunc.enemywave
+                            enemyListPosition = modulefunc.enemywaveposition
+                            enemyOnScreen = modulefunc.enemyOnScreen
+                            maxEnemyNum = enemyList.Count
+                            Debug.WriteLine(enemyList(0))
+                            tmrenemy.Start()
                         End If
+                        's
+                        Exit For
+                    End If
                 Next
                 projArray(i).Top -= 15
             End If
