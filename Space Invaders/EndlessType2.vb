@@ -535,7 +535,6 @@ Public Class EndlessType2
                 gamewon = "lost"
                 saveScore(score)
                 gameoverfunc()
-                playerName = "Name"
                 timetaken = 50
                 updateHighScores()
 
