@@ -58,6 +58,8 @@ Public Class EndlessType2
     Public score As Integer = 0
     Public powerupLength As Integer = 0
     Public powerupmax As Integer = 0
+    Public playerName As String
+    Public timetaken As Integer
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -172,6 +174,35 @@ Public Class EndlessType2
             enemyList(i).Visible = True
             enemyOnScreen.Add(True)
         Next
+    End Sub
+    Public Sub saveScore(score)
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
+        PrintLine(1, "Name" & " " & score & " " & 50)
+        FileClose(1) ' adds score to scores.txt
+    End Sub
+
+    Public Sub updateHighScores()
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
+        Dim scores As New List(Of String())
+        While Not EOF(1) ' while not at end of file
+            Dim line As String() = LineInput(1).Split(" ")
+            Dim value As Double
+            Double.TryParse(line(1), value)
+            scores.Add({playerName, Str(value), timetaken}) ' makes list of scores
+        End While
+        FileClose(1)
+
+        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
+        scores = scores.OrderByDescending(Function(X) Int(X(1))).ToList
+
+        For i As Integer = 0 To 9
+            Try
+                PrintLine(2, "Name" & scores(i)(1) & " " & 50)
+            Catch ex As Exception
+                Exit For
+            End Try
+        Next
+        FileClose(2)
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Dim count As Integer = 1
@@ -496,12 +527,18 @@ Public Class EndlessType2
     End Sub
     Dim direction As Integer = 1
     'Dim current As Integer = 0
+
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
         'current = enemyList(0).Left
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
+                saveScore(score)
                 gameoverfunc()
+                playerName = "Name"
+                timetaken = 50
+                updateHighScores()
+
             Else
                 enemyMoveDirection()
                 For i = 0 To maxEnemyNum - 1

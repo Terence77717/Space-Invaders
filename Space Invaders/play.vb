@@ -44,8 +44,6 @@ Public Class Form2
 
     'score
     Public score As Integer = 0
-    Public topScores() As String
-    Public scores() As String
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -277,7 +275,7 @@ Public Class Form2
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
                             gamewon = "won"
-                            saveScore(score)
+                            'saveScore(score)
                             gameoverfunc()
                             tmrenemy.Stop()
                             If currentwave = levellength Then
@@ -307,33 +305,7 @@ Public Class Form2
             End If
         Next
     End Sub
-    Public Sub saveScore(score)
-        Dim scores As New List(Of Double)
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
-        PrintLine(1, score)
-        FileClose(1) ' adds score to scores.txt
 
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
-        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
-
-        While Not EOF(1) ' while not at end of file
-            Dim line As String = LineInput(1)
-            Dim value As Double
-            Double.TryParse(line.Trim, value)
-            scores.Add(value) ' makes list of scores
-        End While
-        FileClose(1)
-
-        scores.Sort(Function(value1, value2) value2.CompareTo(value1)) ' sorts from highest to lowest
-        For i As Integer = 0 To 9
-            Try
-                PrintLine(2, scores(i))
-            Catch ex As Exception
-                Exit For
-            End Try
-        Next
-        FileClose(2)
-    End Sub
 
     'Movement controls, stops the movement when key is lifted
     Private Sub Form2_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
@@ -437,7 +409,8 @@ Public Class Form2
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
-                saveScore(score)
+                'saveScore(score)
+                'updateHighScores()
                 gameoverfunc()
             Else
                 enemyMoveDirection()
