@@ -382,11 +382,13 @@ Public Class EndlessType2
 
     Dim powerupTime As Integer = 0
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
-        If powerupTime * tmrmove.Interval >= 200000 Then
+        Debug.WriteLine(powerupTime)
+        Debug.WriteLine(randomcount)
+        If powerupTime >= 2000 Then
             powerupscreen.Visible = False
             Randomize()
             poweruprandom = Int((6 * Rnd()) + 1)
-            If poweruprandom = 6 Then
+            If poweruprandom >= 5 Then
                 randomcount += 1
             End If
 
@@ -411,6 +413,9 @@ Public Class EndlessType2
                 powerupTime = 0
             End If
         Else
+            If powerupTime = 500 Then
+                powerupscreen.Visible = False
+            End If
             powerupTime = powerupTime + 1
         End If
         tmrmove.Interval = 10
@@ -443,7 +448,6 @@ Public Class EndlessType2
         If DirectionPowerUpMove < 0 Then
             DirectionPowerUpMove = 4 + DirectionPowerUpMove
         End If
-        Debug.WriteLine(DirectionPowerUpMove)
         Select Case DirectionPowerUpMove
             Case 0
                 powerupscreen.Top = powerupscreen.Top - length
