@@ -12,6 +12,7 @@ Public Class EndlessType2
     'importing for level automatic generation
     Dim endlessunlocked As Boolean = home.endlessunlocked
     Dim Levelselected As Integer = home.Levelselected
+    Dim playerColour = home.playercolour
     Dim levelwaves As List(Of Integer)
     Dim levellength As Integer
     Dim currentwave As Integer = 0
@@ -292,6 +293,17 @@ Public Class EndlessType2
         CurrentPowerup.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+
+        Select Case playerColour
+            Case "Green"
+                player.Image = My.Resources.playerGreen
+            Case "Red"
+                player.Image = My.Resources.playerRed
+            Case "Blue"
+                player.Image = My.Resources.playerBlue
+            Case "Orange"
+                player.Image = My.Resources.playerYellow
+        End Select
 
         createProj(numofshots)
 
