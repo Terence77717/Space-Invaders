@@ -44,8 +44,6 @@ Public Class Form2
 
     'score
     Public score As Integer = 0
-    Public topScores() As String
-    Public scores() As String
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -308,14 +306,16 @@ Public Class Form2
         Next
     End Sub
     Public Sub saveScore(score)
-        Dim scores As New List(Of Double)
         FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
         PrintLine(1, score)
         FileClose(1) ' adds score to scores.txt
+    End Sub
 
+    Public Sub updateHighScores()
         FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
         FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
 
+        Dim scores As New List(Of Double)
         While Not EOF(1) ' while not at end of file
             Dim line As String = LineInput(1)
             Dim value As Double
@@ -438,6 +438,7 @@ Public Class Form2
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
                 saveScore(score)
+                updateHighScores()
                 gameoverfunc()
             Else
                 enemyMoveDirection()
