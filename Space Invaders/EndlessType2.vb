@@ -285,6 +285,8 @@ Public Class EndlessType2
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
 
+        timeElapsedLB.Location = New Point(500, 17)
+        timeElapsedLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         currentpowerupimage.Location = New Point(680, 20)
         currentpowerupimage.Size = New Size(60, 60)
         powerupscreen.Image = My.Resources.doublepowerup
@@ -292,7 +294,7 @@ Public Class EndlessType2
         powerupscreen.Size = New Size(60, 60)
         CurrentPowerup.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
-        WaveLB.Location = New Point(450, 17)
+        WaveLB.Location = New Point(300, 17)
         CurrentPowerup.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
@@ -315,7 +317,6 @@ Public Class EndlessType2
     End Sub
     'Every 40 ticks, the bullet shoots (spamming keys, makes it shoot faster)
     Private Sub TimerShoot_Tick(sender As Object, e As EventArgs) Handles tmrShoot.Tick 'lags a decent bit so far
-        Debug.WriteLine("sTOPWATCH IS AT:" + Str(stpw.Elapsed.TotalMilliseconds))
         tmrShoot.Interval = playerShootSpeed
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
@@ -402,8 +403,20 @@ Public Class EndlessType2
 
     Dim powerupTime As Integer = 0
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
-        Debug.WriteLine(powerupTime)
-        Debug.WriteLine(randomcount)
+        Dim timedisplayed As String = ""
+        Dim temporaryvar As Integer
+        If (stpw.Elapsed.TotalMilliseconds / 1000) > 3600 Then
+            temporaryvar = Math.Floor((stpw.Elapsed.TotalMilliseconds / 1000) / 3600)
+            timedisplayed = timedisplayed + Str(temporaryvar) + "H"
+        End If
+        If (stpw.Elapsed.TotalMilliseconds / 1000) > 60 Then
+            temporaryvar = Math.Floor(((stpw.Elapsed.TotalMilliseconds / 1000) Mod 3600) / 60)
+            timedisplayed = timedisplayed + Str(temporaryvar) + "M"
+        End If
+        temporaryvar = Math.Floor(((stpw.Elapsed.TotalMilliseconds / 1000) Mod 60))
+        timedisplayed = timedisplayed + Str(temporaryvar) + "S"
+        timeElapsedLB.Text = timedisplayed
+
         If powerupTime >= 2000 Then
             powerupscreen.Visible = False
             Randomize()

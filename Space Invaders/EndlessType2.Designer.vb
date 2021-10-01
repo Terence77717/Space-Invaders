@@ -39,6 +39,7 @@ Partial Class EndlessType2
         Me.powerupscreen = New System.Windows.Forms.PictureBox()
         Me.tmrpowerupmove = New System.Windows.Forms.Timer(Me.components)
         Me.currentpowerupimage = New System.Windows.Forms.PictureBox()
+        Me.timeElapsedLB = New System.Windows.Forms.Label()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,12 +172,25 @@ Partial Class EndlessType2
         Me.currentpowerupimage.TabStop = False
         Me.currentpowerupimage.Visible = False
         '
+        'timeElapsedLB
+        '
+        Me.timeElapsedLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
+        Me.timeElapsedLB.AutoSize = True
+        Me.timeElapsedLB.BackColor = System.Drawing.Color.Black
+        Me.timeElapsedLB.ForeColor = System.Drawing.Color.White
+        Me.timeElapsedLB.Location = New System.Drawing.Point(276, 35)
+        Me.timeElapsedLB.Name = "timeElapsedLB"
+        Me.timeElapsedLB.Size = New System.Drawing.Size(42, 15)
+        Me.timeElapsedLB.TabIndex = 46
+        Me.timeElapsedLB.Text = "TIME 0"
+        '
         'EndlessType2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.Controls.Add(Me.timeElapsedLB)
         Me.Controls.Add(Me.currentpowerupimage)
         Me.Controls.Add(Me.player)
         Me.Controls.Add(Me.Heart2)
@@ -218,4 +232,5 @@ Partial Class EndlessType2
     Friend WithEvents powerupscreen As PictureBox
     Friend WithEvents tmrpowerupmove As Timer
     Friend WithEvents currentpowerupimage As PictureBox
+    Friend WithEvents timeElapsedLB As Label
 End Class
