@@ -44,6 +44,8 @@ Public Class Form2
 
     'score
     Public score As Integer = 0
+    Public topScores() As String
+    Public scores() As String
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
@@ -185,7 +187,6 @@ Public Class Form2
                 tmrrandomiser.Stop()
                 pause.Show()
             Case Settings.KeyShoot 'shooting
-
                 shooting = True
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
@@ -216,13 +217,13 @@ Public Class Form2
         modulefunc.spawnlevel(Levelselected)
         levelwaves = modulefunc.roundused
         levellength = levelwaves.Count - 1
-        Debug.WriteLine(levellength)
+        'Debug.WriteLine(levellength)
         modulefunc.spawnround(levelwaves(0))
 
         enemyList = modulefunc.enemywave
         enemyListPosition = modulefunc.enemywaveposition
         enemyOnScreen = modulefunc.enemyOnScreen
-        Debug.WriteLine(enemyList(0))
+        'Debug.WriteLine(enemyList(0))
         maxEnemyNum = enemyList.Count
 
         ' old spawning stuff
@@ -275,6 +276,9 @@ Public Class Form2
                         enemyListPosition.RemoveAt(j)
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
+                            gamewon = "won"
+                            saveScore(score)
+                            gameoverfunc()
                             tmrenemy.Stop()
                             If currentwave = levellength Then
                                 gamewon = "won"
@@ -288,7 +292,7 @@ Public Class Form2
                                 enemyListPosition = modulefunc.enemywaveposition
                                 enemyOnScreen = modulefunc.enemyOnScreen
                                 maxEnemyNum = enemyList.Count
-                                Debug.WriteLine(enemyList(0))
+                                'Debug.WriteLine(enemyList(0))
                                 tmrenemy.Start()
                             End If
                         End If
@@ -302,6 +306,33 @@ Public Class Form2
                 projOnScreen(i) = False
             End If
         Next
+    End Sub
+    Public Sub saveScore(score)
+        Dim scores As New List(Of Double)
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
+        PrintLine(1, score)
+        FileClose(1) ' adds score to scores.txt
+
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
+        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
+
+        While Not EOF(1) ' while not at end of file
+            Dim line As String = LineInput(1)
+            Dim value As Double
+            Double.TryParse(line.Trim, value)
+            scores.Add(value) ' makes list of scores
+        End While
+        FileClose(1)
+
+        scores.Sort(Function(value1, value2) value2.CompareTo(value1)) ' sorts from highest to lowest
+        For i As Integer = 0 To 9
+            Try
+                PrintLine(2, scores(i))
+            Catch ex As Exception
+                Exit For
+            End Try
+        Next
+        FileClose(2)
     End Sub
 
     'Movement controls, stops the movement when key is lifted
@@ -358,7 +389,7 @@ Public Class Form2
     Public Sub enemyMoveDirection()
         'Dim checkingvalue As Boolean = True
         Dim enemynum As Integer
-        Debug.WriteLine("Tick")
+        'Debug.WriteLine("Tick")
         Dim anyoutofborder As Integer = 0 '1 for right 2 for left
         For enemynum = 0 To maxEnemyNum - 1
             If (enemyList(enemynum).Left >= Me.Width - 60) Then
@@ -382,7 +413,7 @@ Public Class Form2
             Next
             enemyMoveRight = False
             moveddown = True
-            Debug.WriteLine(enemynum)
+            'Debug.WriteLine(enemynum)
             'Debug.WriteLine(moveddown)
             'Debug.WriteLine(enemyMoveRight)
             amountchangetemporary = 20
@@ -406,6 +437,7 @@ Public Class Form2
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
+                saveScore(score)
                 gameoverfunc()
             Else
                 enemyMoveDirection()

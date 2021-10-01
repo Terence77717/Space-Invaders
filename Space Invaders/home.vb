@@ -1,4 +1,5 @@
-﻿Public Class home
+﻿Imports System.IO
+Public Class home
     Public endlessunlocked As Boolean = False
     Public Levelselected As Integer = 0
     Public levelwaves As List(Of Integer)
@@ -9,7 +10,8 @@
 
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles LeaderboardLabel.Click
         Me.Hide()
-        levels.Show()
+        'levels.Show()
+        Debug.WriteLine(Form2.topScores)
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
