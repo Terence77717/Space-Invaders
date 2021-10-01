@@ -22,6 +22,9 @@
     End Sub
 
     Private Sub home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        'colFont.AddFontFile(Application.StartupPath + "space-invaders.ttf")
+        'Debug.WriteLine(Application.StartupPath)
         Me.Size = New Size(1200, 800)
         PictureBox3.Location = New Size(-43, 667)
         PictureBox1.Size = New Size(104, 123)
@@ -30,7 +33,7 @@
         PictureBox1.Location = New Size(112, 68)
         PictureBox3.Size = New Size(1317, 576)
         TITLELABEL.Location = New Size(407, 33)
-        TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
+        'TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
         SettingsLabel.Location = New Size(500, 367)
         SettingsLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
         HelpLabel.Location = New Size(534, 435)
@@ -50,4 +53,5 @@
         Me.Hide()
         EndlessType2.Show()
     End Sub
+
 End Class

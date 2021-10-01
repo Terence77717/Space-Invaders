@@ -32,16 +32,19 @@ Partial Class EndlessType2
         Me.Heart1 = New System.Windows.Forms.PictureBox()
         Me.tmrpowerup = New System.Windows.Forms.Timer(Me.components)
         Me.ScoreLB = New System.Windows.Forms.Label()
-        Me.LIVESLB = New System.Windows.Forms.Label()
+        Me.CurrentPowerup = New System.Windows.Forms.Label()
         Me.tmrrandomiser = New System.Windows.Forms.Timer(Me.components)
         Me.tmrenemy = New System.Windows.Forms.Timer(Me.components)
         Me.WaveLB = New System.Windows.Forms.Label()
         Me.powerupscreen = New System.Windows.Forms.PictureBox()
+        Me.tmrpowerupmove = New System.Windows.Forms.Timer(Me.components)
+        Me.currentpowerupimage = New System.Windows.Forms.PictureBox()
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.powerupscreen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.currentpowerupimage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'player
@@ -54,6 +57,12 @@ Partial Class EndlessType2
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.player.TabIndex = 37
         Me.player.TabStop = False
+        '
+        'tmrShoot
+        '
+        '
+        'tmrmove
+        '
         '
         'Heart2
         '
@@ -85,6 +94,10 @@ Partial Class EndlessType2
         Me.Heart1.TabIndex = 38
         Me.Heart1.TabStop = False
         '
+        'tmrpowerup
+        '
+        Me.tmrpowerup.Interval = 1000
+        '
         'ScoreLB
         '
         Me.ScoreLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
@@ -97,22 +110,25 @@ Partial Class EndlessType2
         Me.ScoreLB.TabIndex = 42
         Me.ScoreLB.Text = "SCORE < 0 >"
         '
-        'LIVESLB
+        'CurrentPowerup
         '
-        Me.LIVESLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
-        Me.LIVESLB.AutoSize = True
-        Me.LIVESLB.BackColor = System.Drawing.Color.Black
-        Me.LIVESLB.ForeColor = System.Drawing.Color.White
-        Me.LIVESLB.Location = New System.Drawing.Point(652, 35)
-        Me.LIVESLB.Name = "LIVESLB"
-        Me.LIVESLB.Size = New System.Drawing.Size(35, 15)
-        Me.LIVESLB.TabIndex = 41
-        Me.LIVESLB.Text = "LIVES"
+        Me.CurrentPowerup.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
+        Me.CurrentPowerup.AutoSize = True
+        Me.CurrentPowerup.BackColor = System.Drawing.Color.Black
+        Me.CurrentPowerup.ForeColor = System.Drawing.Color.White
+        Me.CurrentPowerup.Location = New System.Drawing.Point(652, 35)
+        Me.CurrentPowerup.Name = "CurrentPowerup"
+        Me.CurrentPowerup.Size = New System.Drawing.Size(35, 15)
+        Me.CurrentPowerup.TabIndex = 41
+        Me.CurrentPowerup.Text = "LIVES"
         '
         'tmrrandomiser
         '
         Me.tmrrandomiser.Enabled = True
         Me.tmrrandomiser.Interval = 10
+        '
+        'tmrenemy
+        '
         '
         'WaveLB
         '
@@ -120,7 +136,7 @@ Partial Class EndlessType2
         Me.WaveLB.AutoSize = True
         Me.WaveLB.BackColor = System.Drawing.Color.Black
         Me.WaveLB.ForeColor = System.Drawing.Color.White
-        Me.WaveLB.Location = New System.Drawing.Point(91, 35)
+        Me.WaveLB.Location = New System.Drawing.Point(157, 35)
         Me.WaveLB.Name = "WaveLB"
         Me.WaveLB.Size = New System.Drawing.Size(69, 15)
         Me.WaveLB.TabIndex = 44
@@ -129,11 +145,31 @@ Partial Class EndlessType2
         'powerupscreen
         '
         Me.powerupscreen.BackColor = System.Drawing.Color.Transparent
+        Me.powerupscreen.Image = CType(resources.GetObject("powerupscreen.Image"), System.Drawing.Image)
         Me.powerupscreen.Location = New System.Drawing.Point(392, 10)
         Me.powerupscreen.Name = "powerupscreen"
-        Me.powerupscreen.Size = New System.Drawing.Size(1, 1)
+        Me.powerupscreen.Size = New System.Drawing.Size(39, 40)
+        Me.powerupscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.powerupscreen.TabIndex = 43
         Me.powerupscreen.TabStop = False
+        Me.powerupscreen.Visible = False
+        '
+        'tmrpowerupmove
+        '
+        Me.tmrpowerupmove.Enabled = True
+        Me.tmrpowerupmove.Interval = 500
+        '
+        'currentpowerupimage
+        '
+        Me.currentpowerupimage.BackColor = System.Drawing.Color.Transparent
+        Me.currentpowerupimage.Image = CType(resources.GetObject("currentpowerupimage.Image"), System.Drawing.Image)
+        Me.currentpowerupimage.Location = New System.Drawing.Point(607, 12)
+        Me.currentpowerupimage.Name = "currentpowerupimage"
+        Me.currentpowerupimage.Size = New System.Drawing.Size(39, 40)
+        Me.currentpowerupimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.currentpowerupimage.TabIndex = 45
+        Me.currentpowerupimage.TabStop = False
+        Me.currentpowerupimage.Visible = False
         '
         'EndlessType2
         '
@@ -141,14 +177,16 @@ Partial Class EndlessType2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.Controls.Add(Me.currentpowerupimage)
         Me.Controls.Add(Me.player)
         Me.Controls.Add(Me.Heart2)
         Me.Controls.Add(Me.Heart3)
         Me.Controls.Add(Me.Heart1)
         Me.Controls.Add(Me.ScoreLB)
-        Me.Controls.Add(Me.LIVESLB)
+        Me.Controls.Add(Me.CurrentPowerup)
         Me.Controls.Add(Me.WaveLB)
         Me.Controls.Add(Me.powerupscreen)
+        Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -159,6 +197,7 @@ Partial Class EndlessType2
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Heart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.powerupscreen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.currentpowerupimage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -172,9 +211,11 @@ Partial Class EndlessType2
     Friend WithEvents Heart1 As PictureBox
     Friend WithEvents tmrpowerup As Timer
     Friend WithEvents ScoreLB As Label
-    Friend WithEvents LIVESLB As Label
+    Friend WithEvents CurrentPowerup As Label
     Friend WithEvents tmrrandomiser As Timer
     Friend WithEvents tmrenemy As Timer
     Friend WithEvents WaveLB As Label
     Friend WithEvents powerupscreen As PictureBox
+    Friend WithEvents tmrpowerupmove As Timer
+    Friend WithEvents currentpowerupimage As PictureBox
 End Class
