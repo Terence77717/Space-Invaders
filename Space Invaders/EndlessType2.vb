@@ -118,6 +118,7 @@ Public Class EndlessType2
         tmrpowerup.Stop()
         tmrrandomiser.Stop()
         stpw.Stop()
+        timetaken = 50
         If gamewon = "won" Then
             gameover.Show()
         End If
@@ -223,7 +224,7 @@ Public Class EndlessType2
                 tmrpowerup.Stop()
                 tmrrandomiser.Stop()
                 pause.Show()
-                stpw.stop()
+                stpw.Stop()
             Case Settings.KeyShoot 'shooting
 
                 shooting = True
@@ -542,7 +543,6 @@ Public Class EndlessType2
                 saveScore(score)
                 gameoverfunc()
                 timetaken = 50
-                updateHighScores()
 
             Else
                 enemyMoveDirection()

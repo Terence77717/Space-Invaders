@@ -35,5 +35,6 @@
         Else
             EndlessType2.playerName = "Unknown"
         End If
+        EndlessType2.updateHighScores()
     End Sub
 End Class
