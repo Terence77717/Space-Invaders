@@ -6,6 +6,7 @@
         EndlessType2.tmrShoot.Start()
         EndlessType2.tmrpowerup.Start()
         EndlessType2.tmrrandomiser.Start()
+        EndlessType2.stpw.Start()
         My.Computer.Audio.Stop()
         Me.Close()
     End Sub
@@ -17,6 +18,7 @@
         EndlessType2.tmrShoot.Start()
         EndlessType2.tmrpowerup.Start()
         EndlessType2.tmrrandomiser.Start()
+        EndlessType2.stpw.Start()
         My.Computer.Audio.Stop()
         Me.Close()
     End Sub
@@ -29,6 +31,7 @@
                 EndlessType2.tmrShoot.Start()
                 EndlessType2.tmrpowerup.Start()
                 EndlessType2.tmrrandomiser.Start()
+                EndlessType2.stpw.Start()
                 My.Computer.Audio.Stop()
                 Me.Close()
         End Select
