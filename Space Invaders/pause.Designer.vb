@@ -109,12 +109,12 @@ Partial Class pause
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(304, 247)
+        Me.SettingsLabel.Location = New System.Drawing.Point(278, 245)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(195, 45)
+        Me.SettingsLabel.Size = New System.Drawing.Size(253, 45)
         Me.SettingsLabel.TabIndex = 35
-        Me.SettingsLabel.Text = "EXIT GAME"
+        Me.SettingsLabel.Text = "HOME SCREEN"
         '
         'LevelsLabel
         '
@@ -303,9 +303,9 @@ Partial Class pause
         Me.Label1.Location = New System.Drawing.Point(292, 355)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(209, 46)
+        Me.Label1.Size = New System.Drawing.Size(155, 46)
         Me.Label1.TabIndex = 54
-        Me.Label1.Text = "SCORE: 0000"
+        Me.Label1.Text = "SCORE: 0"
         '
         'pause
         '

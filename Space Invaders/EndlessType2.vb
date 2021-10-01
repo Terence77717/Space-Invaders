@@ -1,6 +1,14 @@
 ﻿
 Imports System.Drawing.Text
+Imports System.Reflection
+Imports Math
 Public Class EndlessType2
+    Public Sub DoubleBufferedPanel(ByVal myPanel As Panel, ByVal setting As Boolean)
+        Dim panType As Type = myPanel.[GetType]()
+        Dim pi As PropertyInfo = panType.GetProperty("DoubleBuffered", BindingFlags.Instance Or BindingFlags.NonPublic)
+        pi.SetValue(myPanel, setting, Nothing)
+    End Sub
+
     'importing for level automatic generation
     Dim endlessunlocked As Boolean = home.endlessunlocked
     Dim Levelselected As Integer = home.Levelselected
@@ -47,36 +55,29 @@ Public Class EndlessType2
 
     'score
     Public score As Integer = 0
+    Public powerupLength As Integer = 0
+    Public powerupmax As Integer = 0
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
+            Debug.WriteLine("normal attack")
         ElseIf doubleAttack = True Then
             tmrpowerup.Enabled = True
             tmrpowerup.Start()
-            While tmrpowerup.Interval > 10000
-                tmrpowerup.Stop()
-                tmrpowerup.Enabled = False
-                doubleAttack = False
-            End While
-
-        ElseIf freezeAttack = True Then ' or freeze tmr for alien for about 2 seconds
-            tmrpowerup.Enabled = True
-            tmrpowerup.Start()
-            While tmrpowerup.Interval > 10000
-                tmrpowerup.Stop()
-                tmrpowerup.Enabled = False
-            End While
+            currentpowerupimage.Visible = False
+            powerupmax = 10
+            Debug.WriteLine("double attack")
         ElseIf freezeAttack = True Then
             tmrpowerup.Enabled = True
             tmrpowerup.Start()
-            While tmrpowerup.Interval > 10000
-                tmrpowerup.Stop()
-                tmrpowerup.Enabled = False
-                freezeAttack = False
-            End While
-
+            currentpowerupimage.Visible = False
+            powerupmax = 3
+            tmrenemy.Stop()
+            Debug.WriteLine("freez attack")
         ElseIf healHeart = True Then
             hearts = hearts + 1
+            currentpowerupimage.Visible = False
+            Debug.WriteLine("heal attack")
             If hearts = 3 Then ' if there is 3 heart left
                 Heart3.Image = My.Resources.fullheart
             ElseIf hearts = 2 Then ' if there is 2 heart left
@@ -85,6 +86,7 @@ Public Class EndlessType2
                 Heart1.Image = My.Resources.fullheart
             End If
         End If
+        normalAttack = True
     End Function
 
     Public Function checkhearts() 'add sound effect for getting hit
@@ -178,8 +180,8 @@ Public Class EndlessType2
             Case Settings.KeyRight 'move right
                 playerRight = True
             Case Settings.KeyPowerUp 'powerup
-                numofshots = 3
-                checkhearts()
+                normalAttack = False
+                checkpowerup()
             Case Keys.Escape
                 tmrenemy.Stop()
                 tmrmove.Stop()
@@ -238,7 +240,7 @@ Public Class EndlessType2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
         createProj(numofshots)
-        tmrenemy.Interval = enemyspeed
+        tmrenemy.Interval = enemySpeed
         'createEnemy(maxEnemyNum)
 
         Heart1.Location = New Point(850, 20)
@@ -248,10 +250,15 @@ Public Class EndlessType2
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
 
-        LIVESLB.Location = New Point(760, 17)
+        currentpowerupimage.Location = New Point(680, 20)
+        currentpowerupimage.Size = New Size(60, 60)
+        powerupscreen.Image = My.Resources.doublepowerup
+        powerupscreen.Location = New Point(450, 370)
+        powerupscreen.Size = New Size(60, 60)
+        CurrentPowerup.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
         WaveLB.Location = New Point(450, 17)
-        LIVESLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        CurrentPowerup.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
 
@@ -264,27 +271,42 @@ Public Class EndlessType2
         For i = 0 To numofshots - 1
             If projOnScreen(i) = True Then
                 For j = 0 To maxEnemyNum - 1
-                    If projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
-                        'LIVESLB.Text = enemyList.Count
-                        'enemyArray = enemyArray.Skip(j).ToArray
-                        maxEnemyNum = maxEnemyNum - 1
-                        score = score + 20
-                        ScoreLB.Text = "SCORE <" + Str(score) + " >"
+                    If projArray(i).Bounds.IntersectsWith(powerupscreen.Bounds) And powerupscreen.Visible = True Then
+                        powerupscreen.Visible = False
                         projArray(i).Visible = False
                         projOnScreen(i) = False
-                        enemyOnScreen(j) = False ' add item here to delete enemy image
-                        enemyList(j).Visible = False
-                        enemyList.RemoveAt(j)
-                        enemyListPosition.RemoveAt(j)
-                        My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
-                        If enemyList.Count = 0 Then
-                            tmrenemy.Stop()
-                            currentwave = currentwave + 1
-                            If currentwave >= levellength Then
-                                enemyspeed = enemyspeed * 0.9
-                                currentwave = 0
-                            End If
-                            wavesCompleted = wavesCompleted + 1
+                        If randomselect = 1 Or randomselect = 4 Then
+                            doubleAttack = True
+                            currentpowerupimage.Image = My.Resources.doublepowerup
+                        ElseIf randomselect = 2 Or randomselect = 5 Then
+                            freezeAttack = True
+                            currentpowerupimage.Image = My.Resources.freezepowerup
+                        Else
+                            healHeart = True
+                            currentpowerupimage.Image = My.Resources.healpowerup
+                        End If
+                        currentpowerupimage.Visible = True
+                    ElseIf projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
+                            'LIVESLB.Text = enemyList.Count
+                            'enemyArray = enemyArray.Skip(j).ToArray
+                            maxEnemyNum = maxEnemyNum - 1
+                            score = score + 20
+                            ScoreLB.Text = "SCORE <" + Str(score) + " >"
+                            projArray(i).Visible = False
+                            projOnScreen(i) = False
+                            enemyOnScreen(j) = False ' add item here to delete enemy image
+                            enemyList(j).Visible = False
+                            enemyList.RemoveAt(j)
+                            enemyListPosition.RemoveAt(j)
+                            My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
+                            If enemyList.Count = 0 Then
+                                tmrenemy.Stop()
+                                currentwave = currentwave + 1
+                                If currentwave >= levellength Then
+                                    enemySpeed = enemySpeed * 0.9
+                                    currentwave = 0
+                                End If
+                                wavesCompleted = wavesCompleted + 1
                                 WaveLB.Text = "WAVE <" + Str(wavesCompleted + 1) + " >"
                                 modulefunc.spawnround(levelwaves(currentwave))
 
@@ -293,11 +315,11 @@ Public Class EndlessType2
                                 enemyOnScreen = modulefunc.enemyOnScreen
                                 maxEnemyNum = enemyList.Count
                                 Debug.WriteLine(enemyList(0))
-                            tmrenemy.Start()
+                                tmrenemy.Start()
+                            End If
+                            's
+                            Exit For
                         End If
-                        's
-                        Exit For
-                    End If
                 Next
                 projArray(i).Top -= 15
             End If
@@ -329,31 +351,89 @@ Public Class EndlessType2
         End If
     End Sub
 
+    Dim powerupTime As Integer = 0
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
-        tmrmove.Interval = 10
-        Randomize()
-        poweruprandom = Int((6 * Rnd()) + 1)
-        If poweruprandom = 6 Then
-            randomcount += 1
-        End If
+        If powerupTime * tmrmove.Interval >= 200000 Then
+            powerupscreen.Visible = False
+            Randomize()
+            poweruprandom = Int((6 * Rnd()) + 1)
+            If poweruprandom = 6 Then
+                randomcount += 1
+            End If
 
-        If randomcount = 40 Then 'set 200
-            randomselect = Int((6 * Rnd()) + 1)
-            Select Case randomselect
-                Case 1
-                    powerupscreen.Image = My.Resources.doublepowerup
-                Case 2
-                    powerupscreen.Image = My.Resources.freezepowerup
-                Case 3
-                    powerupscreen.Image = My.Resources.healpowerup
-                Case 4
-                    powerupscreen.Image = My.Resources.doublepowerup
-                Case 5
-                    powerupscreen.Image = My.Resources.freezepowerup
-                Case 6
-                    powerupscreen.Image = My.Resources.healpowerup
-            End Select
-            randomcount = 0
+            If randomcount = 20 Then 'set 200
+                randomselect = Int((6 * Rnd()) + 1)
+                Select Case randomselect
+                    Case 1
+                        powerupscreen.Image = My.Resources.doublepowerup
+                    Case 2
+                        powerupscreen.Image = My.Resources.freezepowerup
+                    Case 3
+                        powerupscreen.Image = My.Resources.healpowerup
+                    Case 4
+                        powerupscreen.Image = My.Resources.doublepowerup
+                    Case 5
+                        powerupscreen.Image = My.Resources.freezepowerup
+                    Case 6
+                        powerupscreen.Image = My.Resources.healpowerup
+                End Select
+                powerupscreen.Visible = True
+                randomcount = 0
+                powerupTime = 0
+            End If
+        Else
+            powerupTime = powerupTime + 1
+        End If
+        tmrmove.Interval = 10
+
+    End Sub
+
+    Dim DirectionPowerUpMove As Integer = 1 '1 up 2 right 3 down 4 left
+    Dim directionOld = 0
+    Dim directionMoveAmount = 0
+    Dim directionAdd = 0
+    Private Sub tmrpowerupmove_Tick(sender As Object, e As EventArgs) Handles tmrpowerupmove.Tick
+        tmrmove.Interval = 500
+        Dim length As Integer
+        If directionMoveAmount = 0 Then
+            While directionOld = directionAdd
+                directionMoveAmount = Int(Rnd() * 3) + 2
+                directionAdd = Int(Rnd() * 2) - 1
+            End While
+            directionOld = directionAdd
+        Else
+            directionMoveAmount = directionMoveAmount - 1
+            'If directionAdd = 0 Then
+            '    directionAdd = Int(Rnd() * 1) - 1
+            'Else
+            '    directionAdd = Int(Rnd() * 2) - 1
+            'End If
+        End If
+        length = Int(Rnd() * 40) + 1
+        DirectionPowerUpMove = (DirectionPowerUpMove + directionAdd) Mod 4
+        If DirectionPowerUpMove < 0 Then
+            DirectionPowerUpMove = 4 + DirectionPowerUpMove
+        End If
+        Debug.WriteLine(DirectionPowerUpMove)
+        Select Case DirectionPowerUpMove
+            Case 0
+                powerupscreen.Top = powerupscreen.Top - length
+            Case 1
+                powerupscreen.Left = powerupscreen.Left + length
+            Case 2
+                powerupscreen.Top = powerupscreen.Top + length
+            Case 3
+                powerupscreen.Left = powerupscreen.Left - length
+        End Select
+        If powerupscreen.Left > 980 Then
+            powerupscreen.Left = powerupscreen.Left - 60
+        ElseIf powerupscreen.Left < 10 Then
+            powerupscreen.Left = powerupscreen.Left + 60
+        End If
+        If powerupscreen.Top > 780 Then
+            powerupscreen.Top = powerupscreen.Top - 60
+        ElseIf powerupscreen.Top < 10 Then
+            powerupscreen.Top = powerupscreen.Top + 60
         End If
     End Sub
     Dim amountchangetemporary As Integer = 20
@@ -361,7 +441,6 @@ Public Class EndlessType2
     Public Sub enemyMoveDirection()
         'Dim checkingvalue As Boolean = True
         Dim enemynum As Integer
-        Debug.WriteLine("Tick")
         Dim anyoutofborder As Integer = 0 '1 for right 2 for left
         For enemynum = 0 To maxEnemyNum - 1
             If (enemyList(enemynum).Left >= Me.Width - 60) Then
@@ -384,7 +463,6 @@ Public Class EndlessType2
             Next
             enemyMoveRight = False
             moveddown = True
-            Debug.WriteLine(enemynum)
             'Debug.WriteLine(moveddown)
             'Debug.WriteLine(enemyMoveRight)
             amountchangetemporary = 20
@@ -441,5 +519,15 @@ Public Class EndlessType2
         '    End If
         'Next
         'ticksOnBoundary = 0
+    End Sub
+
+    Private Sub tmrpowerup_Tick(sender As Object, e As EventArgs) Handles tmrpowerup.Tick
+        powerupLength = powerupLength + 1
+        If powerupLength >= powerupmax Then
+            powerupLength = 0
+            tmrpowerup.Stop()
+            tmrenemy.Start()
+            normalAttack = True
+        End If
     End Sub
 End Class
