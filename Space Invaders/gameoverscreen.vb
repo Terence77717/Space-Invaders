@@ -30,6 +30,10 @@
     End Sub
 
     Private Sub LeftInput_TextChanged(sender As Object, e As EventArgs) Handles LeftInput.TextChanged
-
+        If LeftInput.TextLength > 0 Then
+            EndlessType2.playerName = LeftInput.Text
+        Else
+            EndlessType2.playerName = "Unknown"
+        End If
     End Sub
 End Class
