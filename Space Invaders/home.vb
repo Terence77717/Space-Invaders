@@ -22,6 +22,7 @@ Public Class home
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles HelpLabel.Click
         Me.Hide()
+        Help.Show()
     End Sub
 
     Private Sub home_Load(sender As Object, e As EventArgs) Handles MyBase.Load

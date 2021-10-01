@@ -167,6 +167,7 @@ Partial Class Settings
         '
         'LeftInput
         '
+        Me.LeftInput.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LeftInput.Location = New System.Drawing.Point(276, 562)
         Me.LeftInput.Margin = New System.Windows.Forms.Padding(4)
         Me.LeftInput.Name = "LeftInput"
@@ -178,6 +179,7 @@ Partial Class Settings
         '
         'RightInput
         '
+        Me.RightInput.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.RightInput.Location = New System.Drawing.Point(458, 562)
         Me.RightInput.Margin = New System.Windows.Forms.Padding(4)
         Me.RightInput.Name = "RightInput"
@@ -189,6 +191,7 @@ Partial Class Settings
         '
         'PowerupInput
         '
+        Me.PowerupInput.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.PowerupInput.Location = New System.Drawing.Point(658, 562)
         Me.PowerupInput.Margin = New System.Windows.Forms.Padding(4)
         Me.PowerupInput.Name = "PowerupInput"
@@ -200,6 +203,7 @@ Partial Class Settings
         '
         'ShootInput
         '
+        Me.ShootInput.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.ShootInput.Location = New System.Drawing.Point(839, 562)
         Me.ShootInput.Margin = New System.Windows.Forms.Padding(4)
         Me.ShootInput.Name = "ShootInput"
