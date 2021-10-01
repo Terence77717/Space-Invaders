@@ -275,7 +275,7 @@ Public Class Form2
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
                             gamewon = "won"
-                            saveScore(score)
+                            'saveScore(score)
                             gameoverfunc()
                             tmrenemy.Stop()
                             If currentwave = levellength Then
@@ -305,35 +305,7 @@ Public Class Form2
             End If
         Next
     End Sub
-    Public Sub saveScore(score)
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
-        PrintLine(1, score)
-        FileClose(1) ' adds score to scores.txt
-    End Sub
 
-    Public Sub updateHighScores()
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
-        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
-
-        Dim scores As New List(Of Double)
-        While Not EOF(1) ' while not at end of file
-            Dim line As String = LineInput(1)
-            Dim value As Double
-            Double.TryParse(line.Trim, value)
-            scores.Add(value) ' makes list of scores
-        End While
-        FileClose(1)
-
-        scores.Sort(Function(value1, value2) value2.CompareTo(value1)) ' sorts from highest to lowest
-        For i As Integer = 0 To 9
-            Try
-                PrintLine(2, scores(i))
-            Catch ex As Exception
-                Exit For
-            End Try
-        Next
-        FileClose(2)
-    End Sub
 
     'Movement controls, stops the movement when key is lifted
     Private Sub Form2_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
@@ -437,8 +409,8 @@ Public Class Form2
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
-                saveScore(score)
-                updateHighScores()
+                'saveScore(score)
+                'updateHighScores()
                 gameoverfunc()
             Else
                 enemyMoveDirection()

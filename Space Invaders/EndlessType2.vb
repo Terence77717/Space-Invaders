@@ -172,6 +172,35 @@ Public Class EndlessType2
             enemyOnScreen.Add(True)
         Next
     End Sub
+    Public Sub saveScore(score)
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
+        PrintLine(1, score)
+        FileClose(1) ' adds score to scores.txt
+    End Sub
+
+    Public Sub updateHighScores()
+        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
+        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
+
+        Dim scores As New List(Of Double)
+        While Not EOF(1) ' while not at end of file
+            Dim line As String = LineInput(1)
+            Dim value As Double
+            Double.TryParse(line.Trim, value)
+            scores.Add(value) ' makes list of scores
+        End While
+        FileClose(1)
+
+        scores.Sort(Function(value1, value2) value2.CompareTo(value1)) ' sorts from highest to lowest
+        For i As Integer = 0 To 9
+            Try
+                PrintLine(2, scores(i))
+            Catch ex As Exception
+                Exit For
+            End Try
+        Next
+        FileClose(2)
+    End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Dim count As Integer = 1
         Select Case e.KeyCode
@@ -480,11 +509,14 @@ Public Class EndlessType2
     End Sub
     Dim direction As Integer = 1
     'Dim current As Integer = 0
+
     Private Sub tmrEnemy_Tick(sender As Object, e As EventArgs) Handles tmrenemy.Tick
         'current = enemyList(0).Left
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
+                saveScore(score)
+                updateHighScores()
                 gameoverfunc()
             Else
                 enemyMoveDirection()
