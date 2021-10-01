@@ -3,6 +3,7 @@ Public Class home
     Public endlessunlocked As Boolean = False
     Public Levelselected As Integer = 0
     Public levelwaves As List(Of Integer)
+    Public playercolour As String
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Hide()
         confirmexit.Show()
@@ -38,6 +39,7 @@ Public Class home
         'TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
         SettingsLabel.Location = New Size(500, 367)
         SettingsLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
+        TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
         HelpLabel.Location = New Size(534, 435)
         HelpLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
         LeaderboardLabel.Location = New Size(460, 300)
@@ -51,9 +53,9 @@ Public Class home
 
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
         Levelselected = 0
-        My.Computer.Audio.Stop()
+        'My.Computer.Audio.Stop()
         Me.Hide()
-        EndlessType2.Show()
+        presettings.Show()
     End Sub
 
 End Class

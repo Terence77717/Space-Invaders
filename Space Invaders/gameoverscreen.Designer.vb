@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class gameover
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class gameover
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gameover))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -31,6 +31,7 @@ Partial Class gameover
         Me.LevelsLabel = New System.Windows.Forms.Label()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.LEVELTITLE = New System.Windows.Forms.Label()
+        Me.LeftInput = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -42,7 +43,7 @@ Partial Class gameover
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(305, 356)
+        Me.Label1.Location = New System.Drawing.Point(307, 318)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(209, 46)
@@ -138,6 +139,18 @@ Partial Class gameover
         Me.LEVELTITLE.Text = "GAME OVER"
         Me.LEVELTITLE.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'LeftInput
+        '
+        Me.LeftInput.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.LeftInput.Location = New System.Drawing.Point(307, 385)
+        Me.LeftInput.Margin = New System.Windows.Forms.Padding(4)
+        Me.LeftInput.Name = "LeftInput"
+        Me.LeftInput.ReadOnly = True
+        Me.LeftInput.Size = New System.Drawing.Size(209, 34)
+        Me.LeftInput.TabIndex = 63
+        Me.LeftInput.Text = "Username"
+        Me.LeftInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'gameover
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -145,6 +158,7 @@ Partial Class gameover
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(800, 550)
+        Me.Controls.Add(Me.LeftInput)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox15)
         Me.Controls.Add(Me.PictureBox3)
@@ -174,4 +188,5 @@ Partial Class gameover
     Friend WithEvents LevelsLabel As Label
     Friend WithEvents ExitButton As Button
     Friend WithEvents LEVELTITLE As Label
+    Friend WithEvents LeftInput As TextBox
 End Class

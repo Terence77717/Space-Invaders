@@ -28,4 +28,8 @@
         Label1.Text = "Score " + Str(Form2.score)
 
     End Sub
+
+    Private Sub LeftInput_TextChanged(sender As Object, e As EventArgs) Handles LeftInput.TextChanged
+
+    End Sub
 End Class
