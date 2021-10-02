@@ -11,7 +11,7 @@ Public Class home
 
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles LeaderboardLabel.Click
         Me.Hide()
-        levels.Show()
+        leaderboard.Show()
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click

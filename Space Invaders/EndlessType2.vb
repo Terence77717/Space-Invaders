@@ -22,8 +22,10 @@ Public Class EndlessType2
     'variable setting
     Dim numofshots As Integer = 5
     Dim projArray(numofshots) As PictureBox 'an array of bullets (5 picture boxes)
+    Dim secondProjArray(numofshots) As PictureBox
     Dim projNum As Integer = 0
     Dim projOnScreen(numofshots) As Boolean
+    Dim secondProjOnScreen(numofshots) As Boolean
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
     'enemies
@@ -58,8 +60,7 @@ Public Class EndlessType2
     Public score As Integer = 0
     Public powerupLength As Integer = 0
     Public powerupmax As Integer = 0
-    Public playerName As String
-    Public timetaken As Integer
+    Public timetaken As String
     Public stpw As Stopwatch = Stopwatch.StartNew()
     Public Function checkpowerup()
         If normalAttack = True Then ' no powerups
@@ -118,7 +119,7 @@ Public Class EndlessType2
         tmrpowerup.Stop()
         tmrrandomiser.Stop()
         stpw.Stop()
-        timetaken = 50
+        timetaken = timeElapsedLB.Text
         If gamewon = "won" Then
             gameover.Show()
         End If
@@ -163,6 +164,18 @@ Public Class EndlessType2
             projOnScreen(i) = False
         Next
     End Sub
+    Public Sub createSecondProj(number)
+        For i = 0 To number - 1
+            Dim projectile As New PictureBox 'create projectile
+            projectile.Size = New Size(7, 20)
+            projectile.BackColor = Color.White
+            projectile.BringToFront()
+            Me.Controls.Add(projectile) 'adds picture to form, prevents crashes
+            secondProjArray(i) = projectile  'adds projectile to array
+            secondProjArray(i).Visible = False
+            secondProjOnScreen(i) = False
+        Next
+    End Sub
     Public Sub createEnemy(number)
         For i = 0 To number - 1
             Dim enemy As New PictureBox
@@ -177,35 +190,6 @@ Public Class EndlessType2
             enemyList(i).Visible = True
             enemyOnScreen.Add(True)
         Next
-    End Sub
-    Public Sub saveScore(score)
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Append)
-        PrintLine(1, "Name" & " " & score & " " & 50)
-        FileClose(1) ' adds score to scores.txt
-    End Sub
-
-    Public Sub updateHighScores()
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\scores.txt", OpenMode.Input)
-        Dim scores As New List(Of String())
-        While Not EOF(1) ' while not at end of file
-            Dim line As String() = LineInput(1).Split(" ")
-            Dim value As Double
-            Double.TryParse(line(1), value)
-            scores.Add({playerName, Str(value), timetaken}) ' makes list of scores
-        End While
-        FileClose(1)
-
-        FileOpen(2, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Output)
-        scores = scores.OrderByDescending(Function(X) Int(X(1))).ToList
-
-        For i As Integer = 0 To 9
-            Try
-                PrintLine(2, "Name" & scores(i)(1) & " " & 50)
-            Catch ex As Exception
-                Exit For
-            End Try
-        Next
-        FileClose(2)
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Dim count As Integer = 1
@@ -226,7 +210,6 @@ Public Class EndlessType2
                 pause.Show()
                 stpw.Stop()
             Case Settings.KeyShoot 'shooting
-
                 shooting = True
                 For i = 0 To numofshots - 1
                     If projOnScreen(i) = True Then
@@ -238,7 +221,15 @@ Public Class EndlessType2
                     projOnScreen(projNum) = True
                     projArray(projNum).Visible = True
                     projArray(projNum).Top = player.Top
-                    projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2) 'projectile comes out of the middle of player
+                    If doubleAttack = True Then
+                        secondProjOnScreen(projNum) = True
+                        secondProjArray(projNum).Visible = True
+                        secondProjArray(projNum).Top = player.Top
+                        projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width + 10)
+                        secondProjArray(projNum).Left = player.Left + (player.Width / 2) - (secondProjArray(projNum).Width - 10)
+                    Else
+                        projArray(projNum).Left = player.Left + (player.Width / 2) - (projArray(projNum).Width / 2) 'projectile comes out of the middle of player
+                    End If
                     projNum += 1
                     If projNum = numofshots Then
                         projNum = 0
@@ -312,6 +303,7 @@ Public Class EndlessType2
         End Select
 
         createProj(numofshots)
+        createSecondProj(numofshots)
         stpw.Reset()
         stpw.Start()
 
@@ -326,17 +318,7 @@ Public Class EndlessType2
                         powerupscreen.Visible = False
                         projArray(i).Visible = False
                         projOnScreen(i) = False
-                        If randomselect = 1 Or randomselect = 4 Then
-                            doubleAttack = True
-                            currentpowerupimage.Image = My.Resources.doublepowerup
-                        ElseIf randomselect = 2 Or randomselect = 5 Then
-                            freezeAttack = True
-                            currentpowerupimage.Image = My.Resources.freezepowerup
-                        Else
-                            healHeart = True
-                            currentpowerupimage.Image = My.Resources.healpowerup
-                        End If
-                        currentpowerupimage.Visible = True
+                        activatePowerup()
                     ElseIf projArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
                         'LIVESLB.Text = enemyList.Count
                         'enemyArray = enemyArray.Skip(j).ToArray
@@ -351,22 +333,7 @@ Public Class EndlessType2
                         enemyListPosition.RemoveAt(j)
                         My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
                         If enemyList.Count = 0 Then
-                            tmrenemy.Stop()
-                            currentwave = currentwave + 1
-                            If currentwave >= levellength Then
-                                enemySpeed = enemySpeed * 0.9
-                                currentwave = 0
-                            End If
-                            wavesCompleted = wavesCompleted + 1
-                            WaveLB.Text = "WAVE <" + Str(wavesCompleted + 1) + " >"
-                            modulefunc.spawnround(levelwaves(currentwave))
-
-                            enemyList = modulefunc.enemywave
-                            enemyListPosition = modulefunc.enemywaveposition
-                            enemyOnScreen = modulefunc.enemyOnScreen
-                            maxEnemyNum = enemyList.Count
-                            Debug.WriteLine(enemyList(0))
-                            tmrenemy.Start()
+                            newWave()
                         End If
                         's
                         Exit For
@@ -378,6 +345,72 @@ Public Class EndlessType2
                 projOnScreen(i) = False
             End If
         Next
+
+        If doubleAttack = True Then
+            For i = 0 To numofshots - 1
+                If secondProjOnScreen(i) = True Then
+                    For j = 0 To maxEnemyNum - 1
+                        If secondProjArray(i).Bounds.IntersectsWith(powerupscreen.Bounds) And powerupscreen.Visible = True Then
+                            powerupscreen.Visible = False
+                            secondProjArray(i).Visible = False
+                            secondProjOnScreen(i) = False
+                            activatePowerup()
+                        ElseIf secondProjArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
+                            maxEnemyNum = maxEnemyNum - 1
+                            score = score + 20
+                            ScoreLB.Text = "SCORE <" + Str(score) + " >"
+                            secondProjArray(i).Visible = False
+                            secondProjOnScreen(i) = False
+                            enemyOnScreen(j) = False
+                            enemyList(j).Visible = False
+                            enemyList.RemoveAt(j)
+                            enemyListPosition.RemoveAt(j)
+                            My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
+                            If enemyList.Count = 0 Then
+                                newWave()
+                            End If
+                            's
+                            Exit For
+                        End If
+                    Next
+                    secondProjArray(i).Top -= 15
+                End If
+                If secondProjArray(i).Top <= -15 Then
+                    secondProjOnScreen(i) = False
+                End If
+            Next
+        End If
+    End Sub
+    Public Sub activatePowerup()
+        If randomselect = 1 Or randomselect = 4 Then
+            doubleAttack = True
+            currentpowerupimage.Image = My.Resources.doublepowerup
+        ElseIf randomselect = 2 Or randomselect = 5 Then
+            freezeAttack = True
+            currentpowerupimage.Image = My.Resources.freezepowerup
+        Else
+            healHeart = True
+            currentpowerupimage.Image = My.Resources.healpowerup
+        End If
+        currentpowerupimage.Visible = True
+    End Sub
+    Public Sub newWave()
+        tmrenemy.Stop()
+        currentwave = currentwave + 1
+        If currentwave >= levellength Then
+            enemySpeed = enemySpeed * 0.9
+            currentwave = 0
+        End If
+        wavesCompleted = wavesCompleted + 1
+        WaveLB.Text = "WAVE <" + Str(wavesCompleted + 1) + " >"
+        modulefunc.spawnround(levelwaves(currentwave))
+
+        enemyList = modulefunc.enemywave
+        enemyListPosition = modulefunc.enemywaveposition
+        enemyOnScreen = modulefunc.enemyOnScreen
+        maxEnemyNum = enemyList.Count
+        Debug.WriteLine(enemyList(0))
+        tmrenemy.Start()
     End Sub
 
     'Movement controls, stops the movement when key is lifted
@@ -553,9 +586,7 @@ Public Class EndlessType2
         If enemyList.Count > 0 Then
             If enemyList(maxEnemyNum - 1).Top > (Me.Height - 2 * player.Height) Then
                 gamewon = "lost"
-                saveScore(score)
                 gameoverfunc()
-                timetaken = 50
 
             Else
                 enemyMoveDirection()
