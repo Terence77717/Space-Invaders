@@ -17,4 +17,7 @@
         home.Show()
     End Sub
 
+    Private Sub mothershipLB_Click(sender As Object, e As EventArgs) Handles mothershipLB.Click
+
+    End Sub
 End Class
