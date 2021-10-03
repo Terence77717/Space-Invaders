@@ -36,11 +36,6 @@
                 Me.Close()
         End Select
     End Sub
-    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
-        Me.Close()
-        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
-        home.Show()
-    End Sub
 
     Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
         My.Computer.Audio.Stop()
@@ -59,8 +54,14 @@
         LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
         LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        SettingsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        Homelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         SCORELABEL.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub HomeLabel_Click(sender As Object, e As EventArgs) Handles Homelabel.Click
+        EndlessType2.Close()
+        home.Show()
+        Me.Hide()
     End Sub
 End Class

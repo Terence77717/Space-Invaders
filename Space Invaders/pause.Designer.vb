@@ -26,7 +26,7 @@ Partial Class pause
         Me.LEVELTITLE = New System.Windows.Forms.Label()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.playlabel = New System.Windows.Forms.Label()
-        Me.SettingsLabel = New System.Windows.Forms.Label()
+        Me.Homelabel = New System.Windows.Forms.Label()
         Me.LevelsLabel = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -102,19 +102,19 @@ Partial Class pause
         Me.playlabel.TabIndex = 37
         Me.playlabel.Text = "RESUME"
         '
-        'SettingsLabel
+        'Homelabel
         '
-        Me.SettingsLabel.AutoSize = True
-        Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(286, 245)
-        Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(253, 45)
-        Me.SettingsLabel.TabIndex = 35
-        Me.SettingsLabel.Text = "HOME SCREEN"
+        Me.Homelabel.AutoSize = True
+        Me.Homelabel.BackColor = System.Drawing.Color.Transparent
+        Me.Homelabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Homelabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Homelabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.Homelabel.Location = New System.Drawing.Point(286, 245)
+        Me.Homelabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Homelabel.Name = "Homelabel"
+        Me.Homelabel.Size = New System.Drawing.Size(253, 45)
+        Me.Homelabel.TabIndex = 35
+        Me.Homelabel.Text = "HOME SCREEN"
         '
         'LevelsLabel
         '
@@ -150,6 +150,7 @@ Partial Class pause
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 40
         Me.PictureBox3.TabStop = False
+        Me.PictureBox3.Visible = False
         '
         'PictureBox4
         '
@@ -292,6 +293,7 @@ Partial Class pause
         Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox15.TabIndex = 53
         Me.PictureBox15.TabStop = False
+        Me.PictureBox15.Visible = False
         '
         'SCORELABEL
         '
@@ -331,7 +333,7 @@ Partial Class pause
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.playlabel)
-        Me.Controls.Add(Me.SettingsLabel)
+        Me.Controls.Add(Me.Homelabel)
         Me.Controls.Add(Me.LevelsLabel)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.LEVELTITLE)
@@ -364,7 +366,7 @@ Partial Class pause
     Friend WithEvents LEVELTITLE As Label
     Friend WithEvents ExitButton As Button
     Friend WithEvents playlabel As Label
-    Friend WithEvents SettingsLabel As Label
+    Friend WithEvents Homelabel As Label
     Friend WithEvents LevelsLabel As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox

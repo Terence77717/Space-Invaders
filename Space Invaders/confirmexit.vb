@@ -10,7 +10,7 @@
         Leave.Location = New Size(46, 259)
         Stay.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
         Leave.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
-        TITLEHOME.Location = New Size(117, 82)
+        TITLEHOME.Location = New Size(90, 82)
         TITLEHOME.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
     End Sub
     '''Private Sub frm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint

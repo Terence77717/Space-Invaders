@@ -31,10 +31,8 @@
     End Sub
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
         'form2 is play
-        Form2.Close()
-        Form2.Show()
+        EndlessType2.hide()
         Me.Close()
-        EndlessType2.Hide()
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -45,7 +43,7 @@
     End Sub
     Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
         Me.Close()
-        confirmexit.Show()
+        home.Show()
         EndlessType2.Hide()
     End Sub
 
