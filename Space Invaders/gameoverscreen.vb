@@ -3,7 +3,7 @@
 
     Public Sub saveScore(score)
         FileOpen(1, Application.StartupPath + "scores.txt", OpenMode.Append)
-        PrintLine(1, playerName & "," & score & "," & EndlessType2.timetaken.Trim() & "," & EndlessType2.wavesCompleted)
+        PrintLine(1, playerName & "," & score & "," & EndlessType2.timetaken.Trim() & "," & Str(EndlessType2.wavesCompleted + 1).Trim())
         FileClose(1) ' adds score to scores.txt
     End Sub
     Public Sub updateHighScores()
@@ -13,7 +13,7 @@
             Dim line As String() = LineInput(1).Split(New Char() {","c})
             Dim value As Double
             Double.TryParse(line(1), value)
-            scores.Add({line(0), Str(value), line(2)}) ' makes list of scores
+            scores.Add({line(0), Str(value), line(2), line(3)}) ' makes list of scores
         End While
         FileClose(1)
 

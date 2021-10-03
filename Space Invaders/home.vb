@@ -2,8 +2,6 @@
 Public Class home
     Public endlessunlocked As Boolean = False
     Public Levelselected As Integer = 0
-    Public levelwaves As List(Of Integer)
-    Public playercolour As String
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Hide()
         confirmexit.Show()
@@ -54,7 +52,6 @@ Public Class home
     End Sub
 
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
-        Levelselected = 0
         'My.Computer.Audio.Stop()
         Me.Hide()
         presettings.Show()

@@ -1,6 +1,7 @@
 ﻿Public Class presettings
     Dim colourselected As String
     Dim pickedup As Boolean = False
+    Public playercolour As String
     Private Sub presettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
@@ -142,7 +143,7 @@
         If colourselected = "" Then
             colourselected = "Green"
         End If
-        home.playercolour = colourselected
+        playercolour = colourselected
         My.Computer.Audio.Stop()
         Me.Hide()
         EndlessType2.Show()

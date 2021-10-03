@@ -10,9 +10,9 @@ Public Class EndlessType2
     End Sub
 
     'importing for level automatic generation
-    Dim endlessunlocked As Boolean = home.endlessunlocked
+    ' Dim endlessunlocked As Boolean = home.endlessunlocked
     Dim Levelselected As Integer = home.Levelselected
-    Dim playerColour = home.playercolour
+    Dim playerColour = presettings.playercolour
     Dim levelwaves As List(Of Integer)
     Dim levellength As Integer
     Dim currentwave As Integer = 0
@@ -127,6 +127,7 @@ Public Class EndlessType2
         tmrShoot.Stop()
         tmrpowerup.Stop()
         tmrrandomiser.Stop()
+        tmrEnemyShoot.Stop()
         stpw.Stop()
         timetaken = timeElapsedLB.Text
         If gamewon = "won" Then
@@ -230,8 +231,9 @@ Public Class EndlessType2
                 tmrShoot.Stop()
                 tmrpowerup.Stop()
                 tmrrandomiser.Stop()
-                pause.Show()
+                tmrEnemyShoot.Stop()
                 stpw.Stop()
+                pause.Show()
             Case Settings.KeyShoot 'shooting
                 shooting = True
                 For i = 0 To numofshots - 1
@@ -269,11 +271,11 @@ Public Class EndlessType2
         'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
 
         'waves spawning
-        modulefunc.spawnlevel(Levelselected)
+        modulefunc.spawnlevel(0)
         levelwaves = modulefunc.roundused
         levellength = levelwaves.Count - 1
         Debug.WriteLine(levellength)
-        modulefunc.spawnround(levelwaves(0))
+        modulefunc.spawnround(levelwaves(levelselected))
 
         enemyList = modulefunc.enemywave
         enemyListPosition = modulefunc.enemywaveposition

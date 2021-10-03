@@ -22,9 +22,8 @@ Partial Class leaderboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblLeaderboard = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -45,7 +44,7 @@ Partial Class leaderboard
         Me.num8 = New System.Windows.Forms.Label()
         Me.num9 = New System.Windows.Forms.Label()
         Me.num10 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
+        Me.lblScore = New System.Windows.Forms.Label()
         Me.score1 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -60,7 +59,7 @@ Partial Class leaderboard
         Me.score8 = New System.Windows.Forms.Label()
         Me.score9 = New System.Windows.Forms.Label()
         Me.score10 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
+        Me.lblTime = New System.Windows.Forms.Label()
         Me.time1 = New System.Windows.Forms.Label()
         Me.time2 = New System.Windows.Forms.Label()
         Me.time3 = New System.Windows.Forms.Label()
@@ -71,40 +70,42 @@ Partial Class leaderboard
         Me.time8 = New System.Windows.Forms.Label()
         Me.time9 = New System.Windows.Forms.Label()
         Me.time10 = New System.Windows.Forms.Label()
+        Me.lblWave = New System.Windows.Forms.Label()
+        Me.wave10 = New System.Windows.Forms.Label()
+        Me.wave9 = New System.Windows.Forms.Label()
+        Me.wave8 = New System.Windows.Forms.Label()
+        Me.wave7 = New System.Windows.Forms.Label()
+        Me.wave6 = New System.Windows.Forms.Label()
+        Me.wave5 = New System.Windows.Forms.Label()
+        Me.wave4 = New System.Windows.Forms.Label()
+        Me.wave3 = New System.Windows.Forms.Label()
+        Me.wave2 = New System.Windows.Forms.Label()
+        Me.wave1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblLeaderboard
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(33, 33)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(247, 54)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Leaderboard"
+        Me.lblLeaderboard.AutoSize = True
+        Me.lblLeaderboard.BackColor = System.Drawing.Color.Black
+        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblLeaderboard.ForeColor = System.Drawing.Color.White
+        Me.lblLeaderboard.Location = New System.Drawing.Point(33, 33)
+        Me.lblLeaderboard.Name = "lblLeaderboard"
+        Me.lblLeaderboard.Size = New System.Drawing.Size(247, 54)
+        Me.lblLeaderboard.TabIndex = 0
+        Me.lblLeaderboard.Text = "Leaderboard"
         '
-        'Label2
+        'lblName
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(638, 291)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 25)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Label2"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Black
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(33, 84)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 48)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Name:"
+        Me.lblName.AutoSize = True
+        Me.lblName.BackColor = System.Drawing.Color.Black
+        Me.lblName.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblName.ForeColor = System.Drawing.Color.White
+        Me.lblName.Location = New System.Drawing.Point(33, 84)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(123, 48)
+        Me.lblName.TabIndex = 2
+        Me.lblName.Text = "Name:"
         '
         'Label4
         '
@@ -346,17 +347,17 @@ Partial Class leaderboard
         Me.num10.TabIndex = 22
         Me.num10.Text = "x"
         '
-        'Label24
+        'lblScore
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.BackColor = System.Drawing.Color.Black
-        Me.Label24.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(533, 84)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(117, 48)
-        Me.Label24.TabIndex = 23
-        Me.Label24.Text = "Score:"
+        Me.lblScore.AutoSize = True
+        Me.lblScore.BackColor = System.Drawing.Color.Black
+        Me.lblScore.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblScore.ForeColor = System.Drawing.Color.White
+        Me.lblScore.Location = New System.Drawing.Point(647, 84)
+        Me.lblScore.Name = "lblScore"
+        Me.lblScore.Size = New System.Drawing.Size(117, 48)
+        Me.lblScore.TabIndex = 23
+        Me.lblScore.Text = "Score:"
         '
         'score1
         '
@@ -364,7 +365,7 @@ Partial Class leaderboard
         Me.score1.BackColor = System.Drawing.Color.Black
         Me.score1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score1.ForeColor = System.Drawing.Color.White
-        Me.score1.Location = New System.Drawing.Point(558, 141)
+        Me.score1.Location = New System.Drawing.Point(669, 141)
         Me.score1.Name = "score1"
         Me.score1.Size = New System.Drawing.Size(32, 41)
         Me.score1.TabIndex = 24
@@ -424,7 +425,7 @@ Partial Class leaderboard
         Me.score2.BackColor = System.Drawing.Color.Black
         Me.score2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score2.ForeColor = System.Drawing.Color.White
-        Me.score2.Location = New System.Drawing.Point(558, 192)
+        Me.score2.Location = New System.Drawing.Point(669, 192)
         Me.score2.Name = "score2"
         Me.score2.Size = New System.Drawing.Size(32, 41)
         Me.score2.TabIndex = 25
@@ -436,7 +437,7 @@ Partial Class leaderboard
         Me.score3.BackColor = System.Drawing.Color.Black
         Me.score3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score3.ForeColor = System.Drawing.Color.White
-        Me.score3.Location = New System.Drawing.Point(558, 246)
+        Me.score3.Location = New System.Drawing.Point(669, 246)
         Me.score3.Name = "score3"
         Me.score3.Size = New System.Drawing.Size(32, 41)
         Me.score3.TabIndex = 26
@@ -448,7 +449,7 @@ Partial Class leaderboard
         Me.score4.BackColor = System.Drawing.Color.Black
         Me.score4.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score4.ForeColor = System.Drawing.Color.White
-        Me.score4.Location = New System.Drawing.Point(558, 297)
+        Me.score4.Location = New System.Drawing.Point(669, 297)
         Me.score4.Name = "score4"
         Me.score4.Size = New System.Drawing.Size(32, 41)
         Me.score4.TabIndex = 27
@@ -460,7 +461,7 @@ Partial Class leaderboard
         Me.score5.BackColor = System.Drawing.Color.Black
         Me.score5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score5.ForeColor = System.Drawing.Color.White
-        Me.score5.Location = New System.Drawing.Point(558, 351)
+        Me.score5.Location = New System.Drawing.Point(669, 351)
         Me.score5.Name = "score5"
         Me.score5.Size = New System.Drawing.Size(32, 41)
         Me.score5.TabIndex = 28
@@ -472,7 +473,7 @@ Partial Class leaderboard
         Me.score6.BackColor = System.Drawing.Color.Black
         Me.score6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score6.ForeColor = System.Drawing.Color.White
-        Me.score6.Location = New System.Drawing.Point(558, 407)
+        Me.score6.Location = New System.Drawing.Point(669, 407)
         Me.score6.Name = "score6"
         Me.score6.Size = New System.Drawing.Size(32, 41)
         Me.score6.TabIndex = 29
@@ -484,7 +485,7 @@ Partial Class leaderboard
         Me.score7.BackColor = System.Drawing.Color.Black
         Me.score7.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score7.ForeColor = System.Drawing.Color.White
-        Me.score7.Location = New System.Drawing.Point(558, 464)
+        Me.score7.Location = New System.Drawing.Point(669, 464)
         Me.score7.Name = "score7"
         Me.score7.Size = New System.Drawing.Size(32, 41)
         Me.score7.TabIndex = 30
@@ -496,7 +497,7 @@ Partial Class leaderboard
         Me.score8.BackColor = System.Drawing.Color.Black
         Me.score8.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score8.ForeColor = System.Drawing.Color.White
-        Me.score8.Location = New System.Drawing.Point(558, 517)
+        Me.score8.Location = New System.Drawing.Point(669, 517)
         Me.score8.Name = "score8"
         Me.score8.Size = New System.Drawing.Size(32, 41)
         Me.score8.TabIndex = 31
@@ -508,7 +509,7 @@ Partial Class leaderboard
         Me.score9.BackColor = System.Drawing.Color.Black
         Me.score9.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score9.ForeColor = System.Drawing.Color.White
-        Me.score9.Location = New System.Drawing.Point(558, 571)
+        Me.score9.Location = New System.Drawing.Point(669, 571)
         Me.score9.Name = "score9"
         Me.score9.Size = New System.Drawing.Size(32, 41)
         Me.score9.TabIndex = 32
@@ -520,23 +521,23 @@ Partial Class leaderboard
         Me.score10.BackColor = System.Drawing.Color.Black
         Me.score10.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.score10.ForeColor = System.Drawing.Color.White
-        Me.score10.Location = New System.Drawing.Point(558, 621)
+        Me.score10.Location = New System.Drawing.Point(669, 621)
         Me.score10.Name = "score10"
         Me.score10.Size = New System.Drawing.Size(32, 41)
         Me.score10.TabIndex = 33
         Me.score10.Text = "x"
         '
-        'Label29
+        'lblTime
         '
-        Me.Label29.AutoSize = True
-        Me.Label29.BackColor = System.Drawing.Color.Black
-        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label29.ForeColor = System.Drawing.Color.White
-        Me.Label29.Location = New System.Drawing.Point(932, 84)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(106, 48)
-        Me.Label29.TabIndex = 34
-        Me.Label29.Text = "Time:"
+        Me.lblTime.AutoSize = True
+        Me.lblTime.BackColor = System.Drawing.Color.Black
+        Me.lblTime.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblTime.ForeColor = System.Drawing.Color.White
+        Me.lblTime.Location = New System.Drawing.Point(946, 84)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(106, 48)
+        Me.lblTime.TabIndex = 34
+        Me.lblTime.Text = "Time:"
         '
         'time1
         '
@@ -658,12 +659,155 @@ Partial Class leaderboard
         Me.time10.TabIndex = 44
         Me.time10.Text = "x"
         '
+        'lblWave
+        '
+        Me.lblWave.AutoSize = True
+        Me.lblWave.BackColor = System.Drawing.Color.Black
+        Me.lblWave.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblWave.ForeColor = System.Drawing.Color.White
+        Me.lblWave.Location = New System.Drawing.Point(358, 84)
+        Me.lblWave.Name = "lblWave"
+        Me.lblWave.Size = New System.Drawing.Size(115, 48)
+        Me.lblWave.TabIndex = 45
+        Me.lblWave.Text = "Wave:"
+        '
+        'wave10
+        '
+        Me.wave10.AutoSize = True
+        Me.wave10.BackColor = System.Drawing.Color.Black
+        Me.wave10.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave10.ForeColor = System.Drawing.Color.White
+        Me.wave10.Location = New System.Drawing.Point(382, 621)
+        Me.wave10.Name = "wave10"
+        Me.wave10.Size = New System.Drawing.Size(32, 41)
+        Me.wave10.TabIndex = 55
+        Me.wave10.Text = "x"
+        '
+        'wave9
+        '
+        Me.wave9.AutoSize = True
+        Me.wave9.BackColor = System.Drawing.Color.Black
+        Me.wave9.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave9.ForeColor = System.Drawing.Color.White
+        Me.wave9.Location = New System.Drawing.Point(382, 571)
+        Me.wave9.Name = "wave9"
+        Me.wave9.Size = New System.Drawing.Size(32, 41)
+        Me.wave9.TabIndex = 54
+        Me.wave9.Text = "x"
+        '
+        'wave8
+        '
+        Me.wave8.AutoSize = True
+        Me.wave8.BackColor = System.Drawing.Color.Black
+        Me.wave8.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave8.ForeColor = System.Drawing.Color.White
+        Me.wave8.Location = New System.Drawing.Point(382, 517)
+        Me.wave8.Name = "wave8"
+        Me.wave8.Size = New System.Drawing.Size(32, 41)
+        Me.wave8.TabIndex = 53
+        Me.wave8.Text = "x"
+        '
+        'wave7
+        '
+        Me.wave7.AutoSize = True
+        Me.wave7.BackColor = System.Drawing.Color.Black
+        Me.wave7.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave7.ForeColor = System.Drawing.Color.White
+        Me.wave7.Location = New System.Drawing.Point(382, 464)
+        Me.wave7.Name = "wave7"
+        Me.wave7.Size = New System.Drawing.Size(32, 41)
+        Me.wave7.TabIndex = 52
+        Me.wave7.Text = "x"
+        '
+        'wave6
+        '
+        Me.wave6.AutoSize = True
+        Me.wave6.BackColor = System.Drawing.Color.Black
+        Me.wave6.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave6.ForeColor = System.Drawing.Color.White
+        Me.wave6.Location = New System.Drawing.Point(382, 407)
+        Me.wave6.Name = "wave6"
+        Me.wave6.Size = New System.Drawing.Size(32, 41)
+        Me.wave6.TabIndex = 51
+        Me.wave6.Text = "x"
+        '
+        'wave5
+        '
+        Me.wave5.AutoSize = True
+        Me.wave5.BackColor = System.Drawing.Color.Black
+        Me.wave5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave5.ForeColor = System.Drawing.Color.White
+        Me.wave5.Location = New System.Drawing.Point(382, 351)
+        Me.wave5.Name = "wave5"
+        Me.wave5.Size = New System.Drawing.Size(32, 41)
+        Me.wave5.TabIndex = 50
+        Me.wave5.Text = "x"
+        '
+        'wave4
+        '
+        Me.wave4.AutoSize = True
+        Me.wave4.BackColor = System.Drawing.Color.Black
+        Me.wave4.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave4.ForeColor = System.Drawing.Color.White
+        Me.wave4.Location = New System.Drawing.Point(382, 297)
+        Me.wave4.Name = "wave4"
+        Me.wave4.Size = New System.Drawing.Size(32, 41)
+        Me.wave4.TabIndex = 49
+        Me.wave4.Text = "x"
+        '
+        'wave3
+        '
+        Me.wave3.AutoSize = True
+        Me.wave3.BackColor = System.Drawing.Color.Black
+        Me.wave3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave3.ForeColor = System.Drawing.Color.White
+        Me.wave3.Location = New System.Drawing.Point(382, 246)
+        Me.wave3.Name = "wave3"
+        Me.wave3.Size = New System.Drawing.Size(32, 41)
+        Me.wave3.TabIndex = 48
+        Me.wave3.Text = "x"
+        '
+        'wave2
+        '
+        Me.wave2.AutoSize = True
+        Me.wave2.BackColor = System.Drawing.Color.Black
+        Me.wave2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave2.ForeColor = System.Drawing.Color.White
+        Me.wave2.Location = New System.Drawing.Point(382, 192)
+        Me.wave2.Name = "wave2"
+        Me.wave2.Size = New System.Drawing.Size(32, 41)
+        Me.wave2.TabIndex = 47
+        Me.wave2.Text = "x"
+        '
+        'wave1
+        '
+        Me.wave1.AutoSize = True
+        Me.wave1.BackColor = System.Drawing.Color.Black
+        Me.wave1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.wave1.ForeColor = System.Drawing.Color.White
+        Me.wave1.Location = New System.Drawing.Point(382, 141)
+        Me.wave1.Name = "wave1"
+        Me.wave1.Size = New System.Drawing.Size(32, 41)
+        Me.wave1.TabIndex = 46
+        Me.wave1.Text = "x"
+        '
         'leaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1178, 700)
+        Me.Controls.Add(Me.wave10)
+        Me.Controls.Add(Me.wave9)
+        Me.Controls.Add(Me.wave8)
+        Me.Controls.Add(Me.wave7)
+        Me.Controls.Add(Me.wave6)
+        Me.Controls.Add(Me.wave5)
+        Me.Controls.Add(Me.wave4)
+        Me.Controls.Add(Me.wave3)
+        Me.Controls.Add(Me.wave2)
+        Me.Controls.Add(Me.wave1)
+        Me.Controls.Add(Me.lblWave)
         Me.Controls.Add(Me.time10)
         Me.Controls.Add(Me.time9)
         Me.Controls.Add(Me.time8)
@@ -674,7 +818,7 @@ Partial Class leaderboard
         Me.Controls.Add(Me.time3)
         Me.Controls.Add(Me.time2)
         Me.Controls.Add(Me.time1)
-        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.score10)
         Me.Controls.Add(Me.score9)
         Me.Controls.Add(Me.score8)
@@ -685,7 +829,7 @@ Partial Class leaderboard
         Me.Controls.Add(Me.score3)
         Me.Controls.Add(Me.score2)
         Me.Controls.Add(Me.score1)
-        Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.num10)
         Me.Controls.Add(Me.num9)
         Me.Controls.Add(Me.num8)
@@ -706,20 +850,19 @@ Partial Class leaderboard
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblName)
+        Me.Controls.Add(Me.lblLeaderboard)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "leaderboard"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Score:"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblLeaderboard As Label
+    Friend WithEvents lblName As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
@@ -740,7 +883,7 @@ Partial Class leaderboard
     Friend WithEvents num8 As Label
     Friend WithEvents num9 As Label
     Friend WithEvents num10 As Label
-    Friend WithEvents Label24 As Label
+    Friend WithEvents lblScore As Label
     Friend WithEvents score1 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
@@ -755,7 +898,7 @@ Partial Class leaderboard
     Friend WithEvents score8 As Label
     Friend WithEvents score9 As Label
     Friend WithEvents score10 As Label
-    Friend WithEvents Label29 As Label
+    Friend WithEvents lblTime As Label
     Friend WithEvents time1 As Label
     Friend WithEvents time2 As Label
     Friend WithEvents time3 As Label
@@ -766,4 +909,15 @@ Partial Class leaderboard
     Friend WithEvents time8 As Label
     Friend WithEvents time9 As Label
     Friend WithEvents time10 As Label
+    Friend WithEvents lblWave As Label
+    Friend WithEvents wave10 As Label
+    Friend WithEvents wave9 As Label
+    Friend WithEvents wave8 As Label
+    Friend WithEvents wave7 As Label
+    Friend WithEvents wave6 As Label
+    Friend WithEvents wave5 As Label
+    Friend WithEvents wave4 As Label
+    Friend WithEvents wave3 As Label
+    Friend WithEvents wave2 As Label
+    Friend WithEvents wave1 As Label
 End Class

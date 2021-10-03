@@ -1,11 +1,12 @@
 ﻿Public Class pause
-    Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
+    Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click ' resume
         'endlesstype2 is play
         EndlessType2.tmrenemy.Start()
         EndlessType2.tmrmove.Start()
         EndlessType2.tmrShoot.Start()
         EndlessType2.tmrpowerup.Start()
         EndlessType2.tmrrandomiser.Start()
+        EndlessType2.tmrEnemyShoot.Start()
         EndlessType2.stpw.Start()
         My.Computer.Audio.Stop()
         Me.Close()
@@ -18,9 +19,11 @@
         EndlessType2.tmrShoot.Start()
         EndlessType2.tmrpowerup.Start()
         EndlessType2.tmrrandomiser.Start()
+        EndlessType2.tmrEnemyShoot.Start()
         EndlessType2.stpw.Start()
         My.Computer.Audio.Stop()
         Me.Close()
+        home.Show()
     End Sub
     Private Sub pause_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
@@ -31,18 +34,21 @@
                 EndlessType2.tmrShoot.Start()
                 EndlessType2.tmrpowerup.Start()
                 EndlessType2.tmrrandomiser.Start()
+                EndlessType2.tmrEnemyShoot.Start()
                 EndlessType2.stpw.Start()
                 My.Computer.Audio.Stop()
                 Me.Close()
         End Select
     End Sub
-    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
+    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click ' go to home
+        EndlessType2.Close()
         Me.Close()
-        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
         home.Show()
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
+
     End Sub
 
-    Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
+    Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click ' restart
         My.Computer.Audio.Stop()
         EndlessType2.Close()
         EndlessType2.Show()
