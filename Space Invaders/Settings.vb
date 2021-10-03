@@ -8,39 +8,29 @@ Public Class Settings
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
-        Me.Size = New Size(1200, 800)
-        Back.Location = New Size(1144, 12)
+        Me.Size = New Size(800, 600)
+        Back.Location = New Size(741, 12)
         Back.Size = New Size(46, 46)
-        TitleLABEL.Location = New Size(487, 12)
+        TitleLABEL.Location = New Size(230, 12)
         TitleLABEL.Font = New Font(colFont.Families(0), 30.0, FontStyle.Regular)
-        MasterLabel.Location = New Size(229, 179)
-        MasterLabel.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
-        SFXLabel.Location = New Size(229, 311)
-        SFXLabel.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
-        KeyBindLabel.Location = New Size(229, 408)
-        KeyBindLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        LeftTitle.Location = New Size(287, 510)
+        LeftTitle.Location = New Size(188, 170)
         LeftTitle.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
-        RightLabel.Location = New Size(487, 510)
+        RightLabel.Location = New Size(528, 170)
         RightLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
-        PowerupLabel.Location = New Size(659, 510)
+        PowerupLabel.Location = New Size(143, 341)
         PowerupLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
-        ShootLabel.Location = New Size(833, 510)
+        ShootLabel.Location = New Size(475, 341)
         ShootLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
-        MasterSoundScroll.Location = New Size(229, 224)
-        SFXScroll.Location = New Size(229, 356)
-        LeftInput.Location = New Size(276, 562)
-        RightInput.Location = New Size(458, 562)
-        PowerupInput.Location = New Size(658, 562)
-        ShootInput.Location = New Size(839, 562)
-        MasterSoundScroll.Size = New Size(808, 25)
-        SFXScroll.Size = New Size(808, 25)
+        LeftInput.Location = New Size(147, 212)
+        RightInput.Location = New Size(487, 212)
+        PowerupInput.Location = New Size(147, 406)
+        ShootInput.Location = New Size(487, 406)
         LeftInput.Size = New Size(140, 23)
         RightInput.Size = New Size(140, 23)
         PowerupInput.Size = New Size(140, 23)
         ShootInput.Size = New Size(140, 23)
-        ResetKeys.Location = New Size(839, 631)
-        ResetKeys.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
+        ResetKeys.Location = New Size(310, 500)
+        ResetKeys.Font = New Font(colFont.Families(0), 14.0, FontStyle.Regular)
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
@@ -407,5 +397,9 @@ Public Class Settings
     End Sub
     Private Sub Label1_leave(sender As Object, e As EventArgs) Handles ResetKeys.MouseLeave
         ResetKeys.ForeColor = Color.White
+    End Sub
+
+    Private Sub PowerupLabel_Click(sender As Object, e As EventArgs) Handles PowerupLabel.Click
+
     End Sub
 End Class

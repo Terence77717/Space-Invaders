@@ -147,6 +147,12 @@
         Me.Hide()
         EndlessType2.Show()
     End Sub
+    Private Sub Label1_Hover(sender As Object, e As EventArgs) Handles startButton.MouseHover
+        startButton.ForeColor = Color.DarkGray
+    End Sub
+    Private Sub Label1_Leave(sender As Object, e As EventArgs) Handles startButton.MouseLeave
+        startButton.ForeColor = Color.White
+    End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
         Me.Hide()
