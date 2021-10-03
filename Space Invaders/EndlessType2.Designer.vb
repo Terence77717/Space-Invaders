@@ -40,6 +40,7 @@ Partial Class EndlessType2
         Me.tmrpowerupmove = New System.Windows.Forms.Timer(Me.components)
         Me.currentpowerupimage = New System.Windows.Forms.PictureBox()
         Me.timeElapsedLB = New System.Windows.Forms.Label()
+        Me.tmrEnemyShoot = New System.Windows.Forms.Timer(Me.components)
         CType(Me.player, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Heart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,10 +52,9 @@ Partial Class EndlessType2
         'player
         '
         Me.player.Image = CType(resources.GetObject("player.Image"), System.Drawing.Image)
-        Me.player.Location = New System.Drawing.Point(382, 420)
-        Me.player.Margin = New System.Windows.Forms.Padding(2)
+        Me.player.Location = New System.Drawing.Point(546, 700)
         Me.player.Name = "player"
-        Me.player.Size = New System.Drawing.Size(62, 29)
+        Me.player.Size = New System.Drawing.Size(89, 48)
         Me.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.player.TabIndex = 37
         Me.player.TabStop = False
@@ -68,9 +68,10 @@ Partial Class EndlessType2
         'Heart2
         '
         Me.Heart2.Image = CType(resources.GetObject("Heart2.Image"), System.Drawing.Image)
-        Me.Heart2.Location = New System.Drawing.Point(776, 10)
+        Me.Heart2.Location = New System.Drawing.Point(1109, 17)
+        Me.Heart2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart2.Name = "Heart2"
-        Me.Heart2.Size = New System.Drawing.Size(40, 40)
+        Me.Heart2.Size = New System.Drawing.Size(57, 67)
         Me.Heart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart2.TabIndex = 40
         Me.Heart2.TabStop = False
@@ -78,9 +79,10 @@ Partial Class EndlessType2
         'Heart3
         '
         Me.Heart3.Image = CType(resources.GetObject("Heart3.Image"), System.Drawing.Image)
-        Me.Heart3.Location = New System.Drawing.Point(811, 10)
+        Me.Heart3.Location = New System.Drawing.Point(1159, 17)
+        Me.Heart3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart3.Name = "Heart3"
-        Me.Heart3.Size = New System.Drawing.Size(40, 40)
+        Me.Heart3.Size = New System.Drawing.Size(57, 67)
         Me.Heart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart3.TabIndex = 39
         Me.Heart3.TabStop = False
@@ -88,9 +90,10 @@ Partial Class EndlessType2
         'Heart1
         '
         Me.Heart1.Image = CType(resources.GetObject("Heart1.Image"), System.Drawing.Image)
-        Me.Heart1.Location = New System.Drawing.Point(739, 10)
+        Me.Heart1.Location = New System.Drawing.Point(1056, 17)
+        Me.Heart1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Heart1.Name = "Heart1"
-        Me.Heart1.Size = New System.Drawing.Size(40, 40)
+        Me.Heart1.Size = New System.Drawing.Size(57, 67)
         Me.Heart1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Heart1.TabIndex = 38
         Me.Heart1.TabStop = False
@@ -105,9 +108,10 @@ Partial Class EndlessType2
         Me.ScoreLB.AutoSize = True
         Me.ScoreLB.BackColor = System.Drawing.Color.Black
         Me.ScoreLB.ForeColor = System.Drawing.Color.White
-        Me.ScoreLB.Location = New System.Drawing.Point(27, 35)
+        Me.ScoreLB.Location = New System.Drawing.Point(39, 58)
+        Me.ScoreLB.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ScoreLB.Name = "ScoreLB"
-        Me.ScoreLB.Size = New System.Drawing.Size(74, 15)
+        Me.ScoreLB.Size = New System.Drawing.Size(116, 25)
         Me.ScoreLB.TabIndex = 42
         Me.ScoreLB.Text = "SCORE < 0 >"
         '
@@ -117,9 +121,10 @@ Partial Class EndlessType2
         Me.CurrentPowerup.AutoSize = True
         Me.CurrentPowerup.BackColor = System.Drawing.Color.Black
         Me.CurrentPowerup.ForeColor = System.Drawing.Color.White
-        Me.CurrentPowerup.Location = New System.Drawing.Point(652, 35)
+        Me.CurrentPowerup.Location = New System.Drawing.Point(931, 58)
+        Me.CurrentPowerup.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.CurrentPowerup.Name = "CurrentPowerup"
-        Me.CurrentPowerup.Size = New System.Drawing.Size(35, 15)
+        Me.CurrentPowerup.Size = New System.Drawing.Size(55, 25)
         Me.CurrentPowerup.TabIndex = 41
         Me.CurrentPowerup.Text = "LIVES"
         '
@@ -137,9 +142,10 @@ Partial Class EndlessType2
         Me.WaveLB.AutoSize = True
         Me.WaveLB.BackColor = System.Drawing.Color.Black
         Me.WaveLB.ForeColor = System.Drawing.Color.White
-        Me.WaveLB.Location = New System.Drawing.Point(157, 35)
+        Me.WaveLB.Location = New System.Drawing.Point(224, 58)
+        Me.WaveLB.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.WaveLB.Name = "WaveLB"
-        Me.WaveLB.Size = New System.Drawing.Size(69, 15)
+        Me.WaveLB.Size = New System.Drawing.Size(108, 25)
         Me.WaveLB.TabIndex = 44
         Me.WaveLB.Text = "WAVE < 1 >"
         '
@@ -147,9 +153,10 @@ Partial Class EndlessType2
         '
         Me.powerupscreen.BackColor = System.Drawing.Color.Transparent
         Me.powerupscreen.Image = CType(resources.GetObject("powerupscreen.Image"), System.Drawing.Image)
-        Me.powerupscreen.Location = New System.Drawing.Point(392, 10)
+        Me.powerupscreen.Location = New System.Drawing.Point(560, 17)
+        Me.powerupscreen.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.powerupscreen.Name = "powerupscreen"
-        Me.powerupscreen.Size = New System.Drawing.Size(39, 40)
+        Me.powerupscreen.Size = New System.Drawing.Size(56, 67)
         Me.powerupscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.powerupscreen.TabIndex = 43
         Me.powerupscreen.TabStop = False
@@ -164,9 +171,10 @@ Partial Class EndlessType2
         '
         Me.currentpowerupimage.BackColor = System.Drawing.Color.Transparent
         Me.currentpowerupimage.Image = CType(resources.GetObject("currentpowerupimage.Image"), System.Drawing.Image)
-        Me.currentpowerupimage.Location = New System.Drawing.Point(607, 12)
+        Me.currentpowerupimage.Location = New System.Drawing.Point(867, 20)
+        Me.currentpowerupimage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.currentpowerupimage.Name = "currentpowerupimage"
-        Me.currentpowerupimage.Size = New System.Drawing.Size(39, 40)
+        Me.currentpowerupimage.Size = New System.Drawing.Size(56, 67)
         Me.currentpowerupimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.currentpowerupimage.TabIndex = 45
         Me.currentpowerupimage.TabStop = False
@@ -178,18 +186,19 @@ Partial Class EndlessType2
         Me.timeElapsedLB.AutoSize = True
         Me.timeElapsedLB.BackColor = System.Drawing.Color.Black
         Me.timeElapsedLB.ForeColor = System.Drawing.Color.White
-        Me.timeElapsedLB.Location = New System.Drawing.Point(276, 35)
+        Me.timeElapsedLB.Location = New System.Drawing.Point(394, 58)
+        Me.timeElapsedLB.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.timeElapsedLB.Name = "timeElapsedLB"
-        Me.timeElapsedLB.Size = New System.Drawing.Size(42, 15)
+        Me.timeElapsedLB.Size = New System.Drawing.Size(66, 25)
         Me.timeElapsedLB.TabIndex = 46
         Me.timeElapsedLB.Text = "TIME 0"
         '
         'EndlessType2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(878, 458)
+        Me.ClientSize = New System.Drawing.Size(1254, 763)
         Me.Controls.Add(Me.timeElapsedLB)
         Me.Controls.Add(Me.currentpowerupimage)
         Me.Controls.Add(Me.player)
@@ -204,6 +213,7 @@ Partial Class EndlessType2
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "EndlessType2"
         Me.Text = "EndlessType2"
         CType(Me.player, System.ComponentModel.ISupportInitialize).EndInit()
@@ -233,4 +243,5 @@ Partial Class EndlessType2
     Friend WithEvents tmrpowerupmove As Timer
     Friend WithEvents currentpowerupimage As PictureBox
     Friend WithEvents timeElapsedLB As Label
+    Friend WithEvents tmrEnemyShoot As Timer
 End Class

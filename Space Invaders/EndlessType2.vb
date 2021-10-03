@@ -29,7 +29,13 @@ Public Class EndlessType2
     Dim playerRight As Boolean = False
     Dim playerLeft As Boolean = False
     'enemies
+    Dim enemyProjSpeed As Integer = 15
     Dim maxEnemyNum As Integer
+    Dim enemyShots As Integer = 5
+    Dim enemyProjArray(enemyShots) As PictureBox
+    Dim enemyProjonScreen(enemyShots) As Boolean
+    Dim enemyPos As Integer
+    Dim enemyprojNum As Integer = 0 ' to prevent list from getting big
     'Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyList As New List(Of PictureBox)
     Dim enemyListPosition As New List(Of Integer)
@@ -152,11 +158,13 @@ Public Class EndlessType2
             enemyMoveRight = False
         End If
     End Function
+
+    Dim colour As String
     Public Sub createProj(number)
         For i = 0 To number - 1
             Dim projectile As New PictureBox 'create projectile
             projectile.Size = New Size(7, 20)
-            projectile.BackColor = Color.White
+            projectile.BackColor = ColorTranslator.FromHtml(colour)
             projectile.BringToFront()
             Me.Controls.Add(projectile) 'adds picture to form, prevents crashes
             projArray(i) = projectile  'adds projectile to array
@@ -168,7 +176,7 @@ Public Class EndlessType2
         For i = 0 To number - 1
             Dim projectile As New PictureBox 'create projectile
             projectile.Size = New Size(7, 20)
-            projectile.BackColor = Color.White
+            projectile.BackColor = ColorTranslator.FromHtml(colour)
             projectile.BringToFront()
             Me.Controls.Add(projectile) 'adds picture to form, prevents crashes
             secondProjArray(i) = projectile  'adds projectile to array
@@ -189,6 +197,18 @@ Public Class EndlessType2
             enemyList.Add(enemy)
             enemyList(i).Visible = True
             enemyOnScreen.Add(True)
+        Next
+    End Sub
+    Public Sub createEnemyProj(number)
+        For i = 0 To number - 1
+            Dim projectile As New PictureBox
+            projectile.Size = New Size(7, 20)
+            projectile.BackColor = Color.White
+            projectile.BringToFront()
+            Me.Controls.Add(projectile)
+            enemyProjArray(i) = projectile
+            enemyProjonScreen(i) = False
+            enemyProjArray(i).Visible = False
         Next
     End Sub
     Private Sub Form2_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
@@ -263,6 +283,7 @@ Public Class EndlessType2
         tmrShoot.Enabled = True
         tmrmove.Enabled = True
         tmrenemy.Enabled = True
+        tmrEnemyShoot.Enabled = True
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(88, 48)
@@ -291,19 +312,25 @@ Public Class EndlessType2
         ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
         WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
 
+
         Select Case playerColour
             Case "Green"
                 player.Image = My.Resources.playerGreen
+                colour = "#22cc00"
             Case "Red"
                 player.Image = My.Resources.playerRed
+                colour = "#ff0600"
             Case "Blue"
                 player.Image = My.Resources.playerBlue
+                colour = "#0800ff"
             Case "Orange"
                 player.Image = My.Resources.playerYellow
+                colour = "#ffe012"
         End Select
 
         createProj(numofshots)
         createSecondProj(numofshots)
+        createEnemyProj(5)
         stpw.Reset()
         stpw.Start()
 
@@ -380,6 +407,33 @@ Public Class EndlessType2
                 End If
             Next
         End If
+
+        For i = 0 To 4
+            If enemyProjonScreen(i) = True Then
+                If enemyProjArray(i).Bounds.IntersectsWith(player.Bounds) Then
+                    hearts -= 1
+                    enemyProjArray(i).Visible = False
+                    enemyProjonScreen(i) = False
+                    My.Computer.Audio.Play(My.Resources.playerHit, AudioPlayMode.Background)
+                End If
+                enemyProjArray(i).Top += enemyProjSpeed
+            End If
+            If enemyProjArray(i).Top >= Me.Height Then
+                enemyProjonScreen(i) = False
+            End If
+        Next
+
+        For i = 0 To numofshots - 1
+            For j = 0 To enemyShots - 1
+                If projArray(i).Bounds.IntersectsWith(enemyProjArray(j).Bounds) Then
+                    projArray(i).Visible = False
+                    enemyProjArray(j).Visible = False
+                    projOnScreen(i) = False
+                    enemyProjonScreen(j) = False
+                End If
+
+            Next
+        Next
     End Sub
     Public Sub activatePowerup()
         If randomselect = 1 Or randomselect = 4 Then
@@ -601,26 +655,6 @@ Public Class EndlessType2
             End If
         End If
         moveddown = False
-
-        'Debug.WriteLine(count)
-
-
-
-        'For i = 0 To maxEnemyNum - 1
-        '    enemyPosition = enemyArray(i).Top
-        '    enemyMoveDirection(i)
-        '    Debug.WriteLine(ticksOnBoundary)
-        '    If String.Compare(Str(enemyPosition), Str(enemyArray(i).Top)) = 0 Then
-        '        If enemyMoveRight = True Then
-        '            enemyArray(i).Left += 20
-        '        Else
-        '            enemyArray(i).Left -= 20
-        '        End If
-        '    Else
-        '        Exit For
-        '    End If
-        'Next
-        'ticksOnBoundary = 0
     End Sub
 
     Private Sub tmrpowerup_Tick(sender As Object, e As EventArgs) Handles tmrpowerup.Tick
@@ -632,4 +666,21 @@ Public Class EndlessType2
             normalAttack = True
         End If
     End Sub
+    Private Sub tmrEnemyShoot_Tick(sender As Object, e As EventArgs) Handles tmrEnemyShoot.Tick
+        tmrEnemyShoot.Interval = 1000
+        Dim ran As New Random
+        If tmrenemy.Enabled = True Then
+            enemyPos = ran.Next(0, enemyList.Count)
+        End If
+        enemyProjArray(enemyprojNum).Visible = True
+        enemyProjonScreen(enemyprojNum) = True
+        enemyProjArray(enemyprojNum).Left = enemyList(enemyPos).Left + (enemyList(enemyPos).Width / 2) - (enemyProjArray(enemyprojNum).Width / 2)
+        enemyProjArray(enemyprojNum).Top = enemyList(enemyPos).Top + enemyList(enemyPos).Height
+        enemyprojNum += 1
+        If enemyprojNum = 5 Then
+            enemyprojNum = 0
+        End If
+
+    End Sub
+
 End Class

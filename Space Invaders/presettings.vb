@@ -137,6 +137,9 @@
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles startButton.Click
+        If colourselected = "" Then
+            colourselected = "Green"
+        End If
         home.playercolour = colourselected
         My.Computer.Audio.Stop()
         Me.Hide()
