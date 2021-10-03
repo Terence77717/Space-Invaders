@@ -4,11 +4,11 @@ Public Class leaderboard
     Dim empty As Boolean = False
 
     Public Sub getHighestScores()
-        If File.ReadAllText("C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt").Length = 0 Then
+        If File.ReadAllText(Application.StartupPath + "highestscores.txt").Length = 0 Then
             empty = True
         End If
 
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Append)
+        FileOpen(1, Application.StartupPath + "highestscores.txt", OpenMode.Append)
         If empty = True Then
             For i As Integer = 0 To 9
                 PrintLine(1, "-" & "," & "-" & "," & "-")
@@ -16,7 +16,7 @@ Public Class leaderboard
         End If
         FileClose(1)
 
-        FileOpen(1, "C:\Users\shahe\OneDrive - NSW Department of Education\Desktop\highestscores.txt", OpenMode.Input)
+        FileOpen(1, Application.StartupPath + "highestscores.txt", OpenMode.Input)
         While Not EOF(1)
             Dim line As String() = LineInput(1).Split(",")
             highestscores.Add({line(0), line(1), line(2)})

@@ -29,13 +29,10 @@ Partial Class Help
         Me.infoLB = New System.Windows.Forms.Label()
         Me.MothershipPIC = New System.Windows.Forms.PictureBox()
         Me.alienPIC = New System.Windows.Forms.PictureBox()
-        Me.alien2PIC = New System.Windows.Forms.PictureBox()
         Me.mothershipLB = New System.Windows.Forms.Label()
         Me.alienLB = New System.Windows.Forms.Label()
-        Me.alien2LB = New System.Windows.Forms.Label()
         CType(Me.MothershipPIC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.alienPIC, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.alien2PIC, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TitleLABEL
@@ -71,11 +68,11 @@ Partial Class Help
         Me.CoprightLB.AutoSize = True
         Me.CoprightLB.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CoprightLB.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.CoprightLB.Location = New System.Drawing.Point(131, 527)
+        Me.CoprightLB.Location = New System.Drawing.Point(220, 524)
         Me.CoprightLB.Name = "CoprightLB"
-        Me.CoprightLB.Size = New System.Drawing.Size(529, 32)
+        Me.CoprightLB.Size = New System.Drawing.Size(280, 32)
         Me.CoprightLB.TabIndex = 16
-        Me.CoprightLB.Text = "Copyright 2021 NO FUN (Terence and Samin)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.CoprightLB.Text = "Copyright 2021 No Fun"
         '
         'infoLB
         '
@@ -92,7 +89,7 @@ Partial Class Help
         'MothershipPIC
         '
         Me.MothershipPIC.Image = CType(resources.GetObject("MothershipPIC.Image"), System.Drawing.Image)
-        Me.MothershipPIC.Location = New System.Drawing.Point(232, 266)
+        Me.MothershipPIC.Location = New System.Drawing.Point(231, 296)
         Me.MothershipPIC.Name = "MothershipPIC"
         Me.MothershipPIC.Size = New System.Drawing.Size(101, 60)
         Me.MothershipPIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -102,29 +99,19 @@ Partial Class Help
         'alienPIC
         '
         Me.alienPIC.Image = CType(resources.GetObject("alienPIC.Image"), System.Drawing.Image)
-        Me.alienPIC.Location = New System.Drawing.Point(232, 332)
+        Me.alienPIC.Location = New System.Drawing.Point(231, 362)
         Me.alienPIC.Name = "alienPIC"
         Me.alienPIC.Size = New System.Drawing.Size(101, 73)
         Me.alienPIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.alienPIC.TabIndex = 19
         Me.alienPIC.TabStop = False
         '
-        'alien2PIC
-        '
-        Me.alien2PIC.Image = CType(resources.GetObject("alien2PIC.Image"), System.Drawing.Image)
-        Me.alien2PIC.Location = New System.Drawing.Point(232, 411)
-        Me.alien2PIC.Name = "alien2PIC"
-        Me.alien2PIC.Size = New System.Drawing.Size(101, 80)
-        Me.alien2PIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.alien2PIC.TabIndex = 20
-        Me.alien2PIC.TabStop = False
-        '
         'mothershipLB
         '
         Me.mothershipLB.AutoSize = True
         Me.mothershipLB.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.mothershipLB.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.mothershipLB.Location = New System.Drawing.Point(350, 288)
+        Me.mothershipLB.Location = New System.Drawing.Point(349, 318)
         Me.mothershipLB.Name = "mothershipLB"
         Me.mothershipLB.Size = New System.Drawing.Size(229, 21)
         Me.mothershipLB.TabIndex = 21
@@ -136,24 +123,12 @@ Partial Class Help
         Me.alienLB.AutoSize = True
         Me.alienLB.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.alienLB.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.alienLB.Location = New System.Drawing.Point(350, 355)
+        Me.alienLB.Location = New System.Drawing.Point(349, 385)
         Me.alienLB.Name = "alienLB"
         Me.alienLB.Size = New System.Drawing.Size(126, 21)
         Me.alienLB.TabIndex = 22
         Me.alienLB.Text = "Alien (10 points)"
         Me.alienLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'alien2LB
-        '
-        Me.alien2LB.AutoSize = True
-        Me.alien2LB.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.alien2LB.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.alien2LB.Location = New System.Drawing.Point(350, 439)
-        Me.alien2LB.Name = "alien2LB"
-        Me.alien2LB.Size = New System.Drawing.Size(200, 21)
-        Me.alien2LB.TabIndex = 23
-        Me.alien2LB.Text = "Shooting Alien (20 points)"
-        Me.alien2LB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Help
         '
@@ -162,10 +137,8 @@ Partial Class Help
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(800, 600)
-        Me.Controls.Add(Me.alien2LB)
         Me.Controls.Add(Me.alienLB)
         Me.Controls.Add(Me.mothershipLB)
-        Me.Controls.Add(Me.alien2PIC)
         Me.Controls.Add(Me.alienPIC)
         Me.Controls.Add(Me.MothershipPIC)
         Me.Controls.Add(Me.infoLB)
@@ -179,7 +152,6 @@ Partial Class Help
         Me.Text = "Help"
         CType(Me.MothershipPIC, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.alienPIC, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.alien2PIC, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -191,8 +163,6 @@ Partial Class Help
     Friend WithEvents infoLB As Label
     Friend WithEvents MothershipPIC As PictureBox
     Friend WithEvents alienPIC As PictureBox
-    Friend WithEvents alien2PIC As PictureBox
     Friend WithEvents mothershipLB As Label
     Friend WithEvents alienLB As Label
-    Friend WithEvents alien2LB As Label
 End Class

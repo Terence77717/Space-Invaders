@@ -38,7 +38,8 @@
     End Sub
     Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
         Me.Close()
-        confirmexit.Show()
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
+        home.Show()
     End Sub
 
     Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
@@ -53,6 +54,13 @@
     End Sub
 
     Private Sub pause_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
+        LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
+        LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        SettingsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        SCORELABEL.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 End Class

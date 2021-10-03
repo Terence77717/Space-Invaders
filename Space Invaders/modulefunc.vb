@@ -76,18 +76,31 @@
                 For i = 0 To amount - 1
                     enemywaveposition.Add(i)
                     Dim enemy As New PictureBox
-                    enemy.Size = New Size(125, 50)
+                    enemy.Size = New Size(50, 50)
                     enemy.BackgroundImageLayout = ImageLayout.Stretch
-                    enemy.BackgroundImage = My.Resources.mothership
-                    If i < 10 Then
-                        leftposition = i
+                    enemy.BackgroundImage = My.Resources.alien
+                    If i = 0 Then
+                        enemy = New PictureBox
+                        enemy.Size = New Size(125, 50)
+                        enemy.BackgroundImageLayout = ImageLayout.Stretch
+                        enemy.BackgroundImage = My.Resources.mothership
+                        leftposition = 4
                         enemy.Top = 100
-                    ElseIf i < 20 Then
-                        leftposition = i - 10
-                        enemy.Top = 150
-                    ElseIf i < 30 Then
-                        leftposition = i - 20
+                    ElseIf i < 11 Then
+                        leftposition = i - 1
                         enemy.Top = 200
+                    ElseIf i < 21 Then
+                        leftposition = i - 11
+                        enemy.Top = 250
+                    ElseIf i < 31 Then
+                        leftposition = i - 21
+                        enemy.Top = 300
+                    ElseIf i < 41 Then
+                        leftposition = i - 31
+                        enemy.Top = 350
+                    ElseIf i < 51 Then
+                        leftposition = i - 41
+                        enemy.Top = 400
                     End If
                     enemy.Left = leftposition * 70 + 50
                     enemy.BringToFront()
@@ -104,7 +117,7 @@
         roundused = New List(Of Integer)
         Select Case level
             Case 0 ' endless mode
-                roundused.AddRange({2, 3, 8, 9, 9, 7})
+                roundused.AddRange({3, 8, 7, 9, 9, 10})
             Case 1
                 roundused.AddRange({1, 1, 7})
             Case 2
@@ -145,11 +158,13 @@
             Case 6
                 enemytype(2, 30)
             Case 7
-                enemytype(3, 1) 'mothership
+                enemytype(3, 31) 'mothership
             Case 8
                 enemytype(1, 40)
             Case 9
                 enemytype(1, 50)
+            Case 10
+                enemytype(3, 41) 'mothership
         End Select
     End Function
 End Module

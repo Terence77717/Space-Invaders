@@ -23,7 +23,7 @@ Partial Class gameover
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gameover))
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.scorelabel = New System.Windows.Forms.Label()
         Me.PictureBox15 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.playlabel = New System.Windows.Forms.Label()
@@ -36,19 +36,19 @@ Partial Class gameover
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'scorelabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(307, 318)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(209, 46)
-        Me.Label1.TabIndex = 62
-        Me.Label1.Text = "SCORE: 0000"
+        Me.scorelabel.AutoSize = True
+        Me.scorelabel.BackColor = System.Drawing.Color.Transparent
+        Me.scorelabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.scorelabel.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.scorelabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.scorelabel.Location = New System.Drawing.Point(327, 318)
+        Me.scorelabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.scorelabel.Name = "scorelabel"
+        Me.scorelabel.Size = New System.Drawing.Size(155, 46)
+        Me.scorelabel.TabIndex = 62
+        Me.scorelabel.Text = "SCORE: 0"
         '
         'PictureBox15
         '
@@ -78,7 +78,7 @@ Partial Class gameover
         Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.playlabel.Location = New System.Drawing.Point(307, 157)
+        Me.playlabel.Location = New System.Drawing.Point(312, 157)
         Me.playlabel.Name = "playlabel"
         Me.playlabel.Size = New System.Drawing.Size(213, 45)
         Me.playlabel.TabIndex = 59
@@ -91,7 +91,7 @@ Partial Class gameover
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(317, 248)
+        Me.SettingsLabel.Location = New System.Drawing.Point(321, 248)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
         Me.SettingsLabel.Size = New System.Drawing.Size(195, 45)
@@ -105,12 +105,12 @@ Partial Class gameover
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.LevelsLabel.Location = New System.Drawing.Point(343, 202)
+        Me.LevelsLabel.Location = New System.Drawing.Point(291, 202)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(131, 45)
+        Me.LevelsLabel.Size = New System.Drawing.Size(257, 45)
         Me.LevelsLabel.TabIndex = 57
-        Me.LevelsLabel.Text = "LEVELS"
+        Me.LevelsLabel.Text = "LEADERBOARD"
         '
         'ExitButton
         '
@@ -145,7 +145,6 @@ Partial Class gameover
         Me.LeftInput.Location = New System.Drawing.Point(307, 385)
         Me.LeftInput.Margin = New System.Windows.Forms.Padding(4)
         Me.LeftInput.Name = "LeftInput"
-        Me.LeftInput.ReadOnly = True
         Me.LeftInput.Size = New System.Drawing.Size(209, 34)
         Me.LeftInput.TabIndex = 63
         Me.LeftInput.Text = "Username"
@@ -159,7 +158,7 @@ Partial Class gameover
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(800, 550)
         Me.Controls.Add(Me.LeftInput)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.scorelabel)
         Me.Controls.Add(Me.PictureBox15)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.playlabel)
@@ -180,7 +179,7 @@ Partial Class gameover
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents scorelabel As Label
     Friend WithEvents PictureBox15 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents playlabel As Label

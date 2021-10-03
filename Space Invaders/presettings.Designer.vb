@@ -119,13 +119,12 @@ Partial Class presettings
         '
         Me.startButton.AutoSize = True
         Me.startButton.BackColor = System.Drawing.Color.Transparent
-        Me.startButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.startButton.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.startButton.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.startButton.Location = New System.Drawing.Point(945, 449)
         Me.startButton.Name = "startButton"
-        Me.startButton.Size = New System.Drawing.Size(114, 48)
+        Me.startButton.Size = New System.Drawing.Size(112, 46)
         Me.startButton.TabIndex = 43
         Me.startButton.Text = "START"
         Me.startButton.TextAlign = System.Drawing.ContentAlignment.TopCenter

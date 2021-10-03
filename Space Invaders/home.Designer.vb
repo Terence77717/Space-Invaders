@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class home
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class home
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.ExitButton = New System.Windows.Forms.Button()
@@ -62,7 +62,7 @@ Partial Class home
         Me.TITLELABEL.Size = New System.Drawing.Size(340, 62)
         Me.TITLELABEL.TabIndex = 21
         Me.TITLELABEL.Text = "Space Invaders"
-        Me.TITLELABEL.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.TITLELABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LeaderboardLabel
         '
@@ -77,6 +77,7 @@ Partial Class home
         Me.LeaderboardLabel.Size = New System.Drawing.Size(257, 45)
         Me.LeaderboardLabel.TabIndex = 22
         Me.LeaderboardLabel.Text = "LEADERBOARD"
+        Me.LeaderboardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SettingsLabel
         '
@@ -91,6 +92,7 @@ Partial Class home
         Me.SettingsLabel.Size = New System.Drawing.Size(174, 45)
         Me.SettingsLabel.TabIndex = 23
         Me.SettingsLabel.Text = "SETTINGS"
+        Me.SettingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'HelpLabel
         '
@@ -105,6 +107,7 @@ Partial Class home
         Me.HelpLabel.Size = New System.Drawing.Size(100, 45)
         Me.HelpLabel.TabIndex = 24
         Me.HelpLabel.Text = "HELP"
+        Me.HelpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
         '
@@ -152,6 +155,7 @@ Partial Class home
         Me.playlabel.Size = New System.Drawing.Size(99, 45)
         Me.playlabel.TabIndex = 28
         Me.playlabel.Text = "PLAY"
+        Me.playlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'home
         '

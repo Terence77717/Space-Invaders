@@ -16,7 +16,7 @@ Public Class EndlessType2
     Dim levelwaves As List(Of Integer)
     Dim levellength As Integer
     Dim currentwave As Integer = 0
-    Dim wavesCompleted As Integer = 0
+    Public wavesCompleted As Integer = 0
     Dim enemySpeed As Integer = 500
     Dim playerShootSpeed As Integer = 60
     'variable setting
@@ -36,6 +36,7 @@ Public Class EndlessType2
     Dim enemyProjonScreen(enemyShots) As Boolean
     Dim enemyPos As Integer
     Dim enemyprojNum As Integer = 0 ' to prevent list from getting big
+    Dim originalenemyhit As Boolean = False
     'Dim enemyArray(maxEnemyNum) As PictureBox
     Dim enemyList As New List(Of PictureBox)
     Dim enemyListPosition As New List(Of Integer)
@@ -52,6 +53,7 @@ Public Class EndlessType2
     'powerups | attack powerups last 10 seconds
     Dim normalAttack As Boolean = True
     Dim doubleAttack As Boolean = False
+    Dim doubleattackinventory As Boolean = False
     Dim freezeAttack As Boolean = False
     Dim healHeart As Boolean = False
     Dim backupPowerup As String = ""
@@ -72,8 +74,9 @@ Public Class EndlessType2
         If normalAttack = True Then ' no powerups
             'return like a out of ammo sound effect
             Debug.WriteLine("normal attack")
-        ElseIf doubleAttack = True Then
+        ElseIf doubleAttackinventory = True Then
             tmrpowerup.Enabled = True
+            doubleAttack = True
             tmrpowerup.Start()
             currentpowerupimage.Visible = False
             powerupmax = 10
@@ -82,7 +85,7 @@ Public Class EndlessType2
             tmrpowerup.Enabled = True
             tmrpowerup.Start()
             currentpowerupimage.Visible = False
-            powerupmax = 3
+            powerupmax = 2
             tmrenemy.Stop()
             Debug.WriteLine("freez attack")
         ElseIf healHeart = True Then
@@ -260,7 +263,8 @@ Public Class EndlessType2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Dim pfc As New PrivateFontCollection()
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         'Apfc.AddFontFile("C:\Path To\PALETX3.ttf")
         'label1.Font = New Font(pfc.Families(0), 16, FontStyle.Regular)
 
@@ -291,15 +295,15 @@ Public Class EndlessType2
         tmrenemy.Interval = enemySpeed
         'createEnemy(maxEnemyNum)
 
-        Heart1.Location = New Point(850, 20)
-        Heart2.Location = New Point(887, 20)
-        Heart3.Location = New Point(924, 20)
+        Heart1.Location = New Point(850, 14)
+        Heart2.Location = New Point(887, 14)
+        Heart3.Location = New Point(924, 14)
         Heart1.Size = New Size(40, 40)
         Heart2.Size = New Size(40, 40)
         Heart3.Size = New Size(40, 40)
 
         timeElapsedLB.Location = New Point(500, 17)
-        timeElapsedLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        timeElapsedLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
         currentpowerupimage.Location = New Point(680, 20)
         currentpowerupimage.Size = New Size(60, 60)
         powerupscreen.Image = My.Resources.doublepowerup
@@ -308,9 +312,9 @@ Public Class EndlessType2
         CurrentPowerup.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
         WaveLB.Location = New Point(300, 17)
-        CurrentPowerup.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
-        ScoreLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
-        WaveLB.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
+        CurrentPowerup.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
+        ScoreLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
+        WaveLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
 
 
         Select Case playerColour
@@ -350,21 +354,30 @@ Public Class EndlessType2
                         'LIVESLB.Text = enemyList.Count
                         'enemyArray = enemyArray.Skip(j).ToArray
                         maxEnemyNum = maxEnemyNum - 1
+
+                        If levelwaves(currentwave) = 7 Or levelwaves(currentwave) = 10 Then
+                            If originalenemyhit = False And j = 0 Then
+                                score = score + 80
+                            End If
+                        End If
+                        If j = 0 Then
+                            originalenemyhit = True
+                        End If
                         score = score + 20
                         ScoreLB.Text = "SCORE <" + Str(score) + " >"
-                        projArray(i).Visible = False
-                        projOnScreen(i) = False
-                        enemyOnScreen(j) = False ' add item here to delete enemy image
-                        enemyList(j).Visible = False
-                        enemyList.RemoveAt(j)
-                        enemyListPosition.RemoveAt(j)
-                        My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
-                        If enemyList.Count = 0 Then
-                            newWave()
+                            projArray(i).Visible = False
+                            projOnScreen(i) = False
+                            enemyOnScreen(j) = False ' add item here to delete enemy image
+                            enemyList(j).Visible = False
+                            enemyList.RemoveAt(j)
+                            enemyListPosition.RemoveAt(j)
+                            My.Computer.Audio.Play(My.Resources.enemyHit, AudioPlayMode.Background)
+                            If enemyList.Count = 0 Then
+                                newWave()
+                            End If
+                            's
+                            Exit For
                         End If
-                        's
-                        Exit For
-                    End If
                 Next
                 projArray(i).Top -= 15
             End If
@@ -384,6 +397,15 @@ Public Class EndlessType2
                             activatePowerup()
                         ElseIf secondProjArray(i).Bounds.IntersectsWith(enemyList(j).Bounds) Then
                             maxEnemyNum = maxEnemyNum - 1
+
+                            If levelwaves(currentwave) = 7 Or levelwaves(currentwave) = 10 Then
+                                If originalenemyhit = False And j = 0 Then
+                                    score = score + 80
+                                End If
+                            End If
+                            If j = 0 Then
+                                originalenemyhit = True
+                            End If
                             score = score + 20
                             ScoreLB.Text = "SCORE <" + Str(score) + " >"
                             secondProjArray(i).Visible = False
@@ -411,7 +433,7 @@ Public Class EndlessType2
         For i = 0 To 4
             If enemyProjonScreen(i) = True Then
                 If enemyProjArray(i).Bounds.IntersectsWith(player.Bounds) Then
-                    hearts -= 1
+                    checkhearts()
                     enemyProjArray(i).Visible = False
                     enemyProjonScreen(i) = False
                     My.Computer.Audio.Play(My.Resources.playerHit, AudioPlayMode.Background)
@@ -437,7 +459,7 @@ Public Class EndlessType2
     End Sub
     Public Sub activatePowerup()
         If randomselect = 1 Or randomselect = 4 Then
-            doubleAttack = True
+            doubleAttackInventory = True
             currentpowerupimage.Image = My.Resources.doublepowerup
         ElseIf randomselect = 2 Or randomselect = 5 Then
             freezeAttack = True
@@ -463,6 +485,7 @@ Public Class EndlessType2
         enemyListPosition = modulefunc.enemywaveposition
         enemyOnScreen = modulefunc.enemyOnScreen
         maxEnemyNum = enemyList.Count
+        originalenemyhit = False
         Debug.WriteLine(enemyList(0))
         tmrenemy.Start()
     End Sub
@@ -663,11 +686,15 @@ Public Class EndlessType2
             powerupLength = 0
             tmrpowerup.Stop()
             tmrenemy.Start()
+            doubleAttack = False
+            doubleattackinventory = False
+            freezeAttack = False
+            healHeart = False
             normalAttack = True
         End If
     End Sub
     Private Sub tmrEnemyShoot_Tick(sender As Object, e As EventArgs) Handles tmrEnemyShoot.Tick
-        tmrEnemyShoot.Interval = 1000
+        tmrEnemyShoot.Interval = 2000
         Dim ran As New Random
         If tmrenemy.Enabled = True Then
             enemyPos = ran.Next(0, enemyList.Count)

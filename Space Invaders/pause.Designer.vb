@@ -43,7 +43,7 @@ Partial Class pause
         Me.PictureBox13 = New System.Windows.Forms.PictureBox()
         Me.PictureBox14 = New System.Windows.Forms.PictureBox()
         Me.PictureBox15 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SCORELABEL = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +96,7 @@ Partial Class pause
         Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.playlabel.Location = New System.Drawing.Point(321, 155)
+        Me.playlabel.Location = New System.Drawing.Point(324, 155)
         Me.playlabel.Name = "playlabel"
         Me.playlabel.Size = New System.Drawing.Size(153, 45)
         Me.playlabel.TabIndex = 37
@@ -109,7 +109,7 @@ Partial Class pause
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(278, 245)
+        Me.SettingsLabel.Location = New System.Drawing.Point(286, 245)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
         Me.SettingsLabel.Size = New System.Drawing.Size(253, 45)
@@ -293,19 +293,19 @@ Partial Class pause
         Me.PictureBox15.TabIndex = 53
         Me.PictureBox15.TabStop = False
         '
-        'Label1
+        'SCORELABEL
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(292, 355)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(155, 46)
-        Me.Label1.TabIndex = 54
-        Me.Label1.Text = "SCORE: 0"
+        Me.SCORELABEL.AutoSize = True
+        Me.SCORELABEL.BackColor = System.Drawing.Color.Transparent
+        Me.SCORELABEL.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SCORELABEL.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.SCORELABEL.ForeColor = System.Drawing.SystemColors.Control
+        Me.SCORELABEL.Location = New System.Drawing.Point(322, 356)
+        Me.SCORELABEL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.SCORELABEL.Name = "SCORELABEL"
+        Me.SCORELABEL.Size = New System.Drawing.Size(155, 46)
+        Me.SCORELABEL.TabIndex = 54
+        Me.SCORELABEL.Text = "SCORE: 0"
         '
         'pause
         '
@@ -314,7 +314,7 @@ Partial Class pause
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(800, 550)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.SCORELABEL)
         Me.Controls.Add(Me.PictureBox15)
         Me.Controls.Add(Me.PictureBox14)
         Me.Controls.Add(Me.PictureBox13)
@@ -382,4 +382,5 @@ Partial Class pause
     Friend WithEvents PictureBox14 As PictureBox
     Friend WithEvents PictureBox15 As PictureBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents SCORELABEL As Label
 End Class

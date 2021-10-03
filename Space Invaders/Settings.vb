@@ -1,29 +1,32 @@
 ﻿Imports Microsoft.DirectX.AudioVideoPlayback
+Imports System.Runtime.InteropServices
 Public Class Settings
     Public KeyLeft As Integer = 65
     Public KeyRight As Integer = 83
     Public KeyShoot As Integer = 32
     Public KeyPowerUp As Integer = 88 'System.Text.Encoding.ASCII.GetBytes(ShootInput.Text)
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         Me.Size = New Size(1200, 800)
         Back.Location = New Size(1144, 12)
         Back.Size = New Size(46, 46)
         TitleLABEL.Location = New Size(487, 12)
-        TitleLABEL.Font = New Font("Segoe UI", 30.0, FontStyle.Regular)
+        TitleLABEL.Font = New Font(colFont.Families(0), 30.0, FontStyle.Regular)
         MasterLabel.Location = New Size(229, 179)
-        MasterLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        MasterLabel.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         SFXLabel.Location = New Size(229, 311)
-        SFXLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        SFXLabel.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         KeyBindLabel.Location = New Size(229, 408)
-        KeyBindLabel.Font = New Font("Segoe UI", 20.0, FontStyle.Regular)
-        LeftTitle.Location = New Size(317, 510)
-        LeftTitle.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        KeyBindLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        LeftTitle.Location = New Size(287, 510)
+        LeftTitle.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         RightLabel.Location = New Size(487, 510)
-        RightLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        RightLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         PowerupLabel.Location = New Size(659, 510)
-        PowerupLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        PowerupLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         ShootLabel.Location = New Size(833, 510)
-        ShootLabel.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        ShootLabel.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         MasterSoundScroll.Location = New Size(229, 224)
         SFXScroll.Location = New Size(229, 356)
         LeftInput.Location = New Size(276, 562)
@@ -37,7 +40,7 @@ Public Class Settings
         PowerupInput.Size = New Size(140, 23)
         ShootInput.Size = New Size(140, 23)
         ResetKeys.Location = New Size(839, 631)
-        ResetKeys.Font = New Font("Segoe UI", 15.0, FontStyle.Regular)
+        ResetKeys.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
@@ -405,5 +408,4 @@ Public Class Settings
     Private Sub Label1_leave(sender As Object, e As EventArgs) Handles ResetKeys.MouseLeave
         ResetKeys.ForeColor = Color.White
     End Sub
-
 End Class

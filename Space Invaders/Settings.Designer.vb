@@ -232,14 +232,13 @@ Partial Class Settings
         '
         Me.ResetKeys.AutoSize = True
         Me.ResetKeys.BackColor = System.Drawing.Color.Transparent
-        Me.ResetKeys.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.ResetKeys.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ResetKeys.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ResetKeys.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ResetKeys.Location = New System.Drawing.Point(839, 631)
         Me.ResetKeys.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ResetKeys.Name = "ResetKeys"
-        Me.ResetKeys.Size = New System.Drawing.Size(149, 30)
+        Me.ResetKeys.Size = New System.Drawing.Size(147, 28)
         Me.ResetKeys.TabIndex = 15
         Me.ResetKeys.Text = "Reset Key Binds"
         '

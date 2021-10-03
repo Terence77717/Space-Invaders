@@ -1,15 +1,17 @@
 ﻿Public Class confirmexit
     Private Sub confirmexit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         Me.CenterToScreen()
         Me.Size = New Size(800, 500)
         MoonImage.Location = New Size(234, 336)
         MoonImage.Size = New Size(312, 248)
         Stay.Location = New Size(591, 259)
         Leave.Location = New Size(46, 259)
-        Stay.Font = New Font("Microsoft Sans Serif", 24.0, FontStyle.Bold)
-        Leave.Font = New Font("Microsoft Sans Serif", 24.0, FontStyle.Bold)
+        Stay.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
+        Leave.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
         TITLEHOME.Location = New Size(117, 82)
-        TITLEHOME.Font = New Font("Tempus Sans ITC", 24.0, FontStyle.Bold)
+        TITLEHOME.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
     End Sub
     '''Private Sub frm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
     '''    ControlPaint.DrawBorder(e.Graphics, Me.ClientRectangle, Color.Black, ButtonBorderStyle.Outset)

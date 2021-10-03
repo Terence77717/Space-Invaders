@@ -26,7 +26,7 @@ Public Class home
 
     Private Sub home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
-        'colFont.AddFontFile(Application.StartupPath + "space-invaders.ttf")
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         'Debug.WriteLine(Application.StartupPath)
         Me.Size = New Size(1200, 800)
         PictureBox3.Location = New Size(-43, 667)
@@ -35,19 +35,21 @@ Public Class home
         PictureBox2.Size = New Size(242, 257)
         PictureBox1.Location = New Size(112, 68)
         PictureBox3.Size = New Size(1317, 576)
-        TITLELABEL.Location = New Size(407, 33)
-        'TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
-        SettingsLabel.Location = New Size(500, 367)
-        SettingsLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
-        TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
-        HelpLabel.Location = New Size(534, 435)
-        HelpLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
-        LeaderboardLabel.Location = New Size(460, 300)
-        LeaderboardLabel.Font = New Font("Segoe UI", 25.0, FontStyle.Bold)
+        TITLELABEL.Location = New Size(367, 33)
+
+        TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
+        SettingsLabel.Location = New Size(470, 367)
+        SettingsLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
+        'TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
+        HelpLabel.Location = New Size(515, 435)
+        HelpLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
+        LeaderboardLabel.Location = New Size(430, 300)
+        LeaderboardLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
         ExitButton.Location = New Size(1138, 12)
         ExitButton.Size = New Size(50, 50)
-        playlabel.Location = New Size(536, 241)
+        playlabel.Location = New Size(516, 241)
         playlabel.Size = New Size(82, 48)
+        playlabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
         My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 

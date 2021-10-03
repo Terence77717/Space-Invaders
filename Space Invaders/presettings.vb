@@ -2,9 +2,11 @@
     Dim colourselected As String
     Dim pickedup As Boolean = False
     Private Sub presettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         Me.Size = New Size(1200, 800)
-        TITLELABEL.Location = New Size(350, 23)
-        TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
+        TITLELABEL.Location = New Size(300, 23)
+        TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(183, 100)
@@ -21,7 +23,7 @@
         paintOrange.Top = 100
         paintOrange.Size = New Size(100, 100)
         startButton.Location = New Size(900, 390)
-        startButton.Font = New Font("Segoe UI", 25.0, FontStyle.Regular)
+        startButton.Font = New Font(colFont.Families(0), 25.0, FontStyle.Regular)
     End Sub
 
     'Green
