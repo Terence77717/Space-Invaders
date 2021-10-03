@@ -119,6 +119,7 @@ Partial Class home
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'PictureBox2
         '
@@ -130,6 +131,7 @@ Partial Class home
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 26
         Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
         '
         'PictureBox3
         '
@@ -141,6 +143,7 @@ Partial Class home
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 27
         Me.PictureBox3.TabStop = False
+        Me.PictureBox3.Visible = False
         '
         'playlabel
         '

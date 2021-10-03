@@ -113,9 +113,9 @@ Partial Class Help
         Me.mothershipLB.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.mothershipLB.Location = New System.Drawing.Point(349, 318)
         Me.mothershipLB.Name = "mothershipLB"
-        Me.mothershipLB.Size = New System.Drawing.Size(229, 21)
+        Me.mothershipLB.Size = New System.Drawing.Size(183, 21)
         Me.mothershipLB.TabIndex = 21
-        Me.mothershipLB.Text = "Mothership (50 points per hit)"
+        Me.mothershipLB.Text = "Mothership (100 points)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.mothershipLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'alienLB

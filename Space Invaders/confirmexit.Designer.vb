@@ -62,7 +62,7 @@ Partial Class confirmexit
         Me.TITLEHOME.BackColor = System.Drawing.Color.Transparent
         Me.TITLEHOME.Font = New System.Drawing.Font("Tempus Sans ITC", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.TITLEHOME.ForeColor = System.Drawing.Color.Silver
-        Me.TITLEHOME.Location = New System.Drawing.Point(117, 82)
+        Me.TITLEHOME.Location = New System.Drawing.Point(95, 86)
         Me.TITLEHOME.Name = "TITLEHOME"
         Me.TITLEHOME.Size = New System.Drawing.Size(577, 84)
         Me.TITLEHOME.TabIndex = 9

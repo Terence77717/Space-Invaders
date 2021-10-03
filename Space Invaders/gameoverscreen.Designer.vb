@@ -59,6 +59,7 @@ Partial Class gameover
         Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox15.TabIndex = 61
         Me.PictureBox15.TabStop = False
+        Me.PictureBox15.Visible = False
         '
         'PictureBox3
         '
@@ -69,6 +70,7 @@ Partial Class gameover
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 60
         Me.PictureBox3.TabStop = False
+        Me.PictureBox3.Visible = False
         '
         'playlabel
         '
