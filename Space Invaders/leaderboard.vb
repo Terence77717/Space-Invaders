@@ -148,7 +148,7 @@ Public Class leaderboard
 
     Private Sub backBtn_Click(sender As Object, e As EventArgs) Handles backBtn.Click
         'Application.Restart()
-        Me.Hide()
+        Me.Close()
         home.Show()
     End Sub
 End Class
