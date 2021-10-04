@@ -391,6 +391,10 @@ Public Class Settings
         KeyRight = 83
         KeyShoot = 32
         KeyPowerUp = 88
+        ShootInput.Text = "SPACE BAR"
+        LeftInput.Text = "A"
+        RightInput.Text = "S"
+        PowerupInput.Text = "X"
     End Sub
     Private Sub Label1_hover(sender As Object, e As EventArgs) Handles ResetKeys.MouseHover
         ResetKeys.ForeColor = Color.DarkGray

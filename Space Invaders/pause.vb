@@ -55,16 +55,14 @@
         'playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         'Homelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         'SCORELABEL.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        SCORELABEL.Text = "Score " + Str(EndlessType2.score)
         My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 
     Private Sub HomeLabel_Click(sender As Object, e As EventArgs) Handles Homelabel.Click
         EndlessType2.Close()
         home.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
-    Private Sub LEVELTITLE_Click(sender As Object, e As EventArgs) Handles LEVELTITLE.Click
-
-    End Sub
 End Class

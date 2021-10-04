@@ -43,7 +43,7 @@ Partial Class gameover
         Me.scorelabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.scorelabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.scorelabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.scorelabel.Location = New System.Drawing.Point(327, 318)
+        Me.scorelabel.Location = New System.Drawing.Point(319, 318)
         Me.scorelabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.scorelabel.Name = "scorelabel"
         Me.scorelabel.Size = New System.Drawing.Size(179, 44)
@@ -80,7 +80,7 @@ Partial Class gameover
         Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.playlabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.playlabel.Location = New System.Drawing.Point(312, 157)
+        Me.playlabel.Location = New System.Drawing.Point(304, 157)
         Me.playlabel.Name = "playlabel"
         Me.playlabel.Size = New System.Drawing.Size(235, 44)
         Me.playlabel.TabIndex = 59
@@ -93,12 +93,12 @@ Partial Class gameover
         Me.SettingsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SettingsLabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.SettingsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.SettingsLabel.Location = New System.Drawing.Point(321, 248)
+        Me.SettingsLabel.Location = New System.Drawing.Point(290, 246)
         Me.SettingsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(211, 44)
+        Me.SettingsLabel.Size = New System.Drawing.Size(267, 44)
         Me.SettingsLabel.TabIndex = 58
-        Me.SettingsLabel.Text = "EXIT GAME"
+        Me.SettingsLabel.Text = "HOME SCREEN"
         '
         'LevelsLabel
         '
@@ -107,7 +107,7 @@ Partial Class gameover
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LevelsLabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.LevelsLabel.Location = New System.Drawing.Point(291, 202)
+        Me.LevelsLabel.Location = New System.Drawing.Point(283, 202)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
         Me.LevelsLabel.Size = New System.Drawing.Size(283, 44)
@@ -134,7 +134,7 @@ Partial Class gameover
         Me.LEVELTITLE.BackColor = System.Drawing.Color.Transparent
         Me.LEVELTITLE.Font = New System.Drawing.Font("Space Invaders", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LEVELTITLE.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.LEVELTITLE.Location = New System.Drawing.Point(283, 23)
+        Me.LEVELTITLE.Location = New System.Drawing.Point(280, 23)
         Me.LEVELTITLE.Name = "LEVELTITLE"
         Me.LEVELTITLE.Size = New System.Drawing.Size(283, 55)
         Me.LEVELTITLE.TabIndex = 55
@@ -146,6 +146,7 @@ Partial Class gameover
         Me.LeftInput.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LeftInput.Location = New System.Drawing.Point(307, 385)
         Me.LeftInput.Margin = New System.Windows.Forms.Padding(4)
+        Me.LeftInput.MaxLength = 12
         Me.LeftInput.Name = "LeftInput"
         Me.LeftInput.Size = New System.Drawing.Size(209, 34)
         Me.LeftInput.TabIndex = 63

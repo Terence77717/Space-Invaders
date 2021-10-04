@@ -39,11 +39,13 @@
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         'form2 is play
         Me.Close()
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
         home.Show()
     End Sub
     Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click 'exit
-        'Me.Close()
-        'home.Show()
+        Me.Close()
+        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
+        home.Show()
         'EndlessType2.Hide()
     End Sub
 
@@ -54,6 +56,7 @@
 
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
+        My.Computer.Audio.Play(My.Resources.gameOver, AudioPlayMode.BackgroundLoop)
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         'LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
         'LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
@@ -63,8 +66,8 @@
         'LeftInput.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         Me.Size = New Size(800, 550)
         Me.CenterToScreen()
-        scorelabel.Text = "Score " + Str(Form2.score)
-
+        scorelabel.Text = "Score " + Str(EndlessType2.score)
+        LeftInput.MaxLength = 15
     End Sub
 
     Private Sub MyBase_Closing(sender As Object, e As EventArgs) Handles MyBase.FormClosing

@@ -23,12 +23,18 @@
                         leftposition = i
                         enemy.Top = 100
                     ElseIf i < 20 Then
+                        enemy.Size = New Size(50, 50)
+                        enemy.BackgroundImageLayout = ImageLayout.Stretch
+                        enemy.BackgroundImage = My.Resources.alien2
                         leftposition = i - 10
                         enemy.Top = 150
                     ElseIf i < 30 Then
                         leftposition = i - 20
                         enemy.Top = 200
                     ElseIf i < 40 Then
+                        enemy.Size = New Size(50, 50)
+                        enemy.BackgroundImageLayout = ImageLayout.Stretch
+                        enemy.BackgroundImage = My.Resources.alien2
                         leftposition = i - 30
                         enemy.Top = 250
                     ElseIf i < 50 Then

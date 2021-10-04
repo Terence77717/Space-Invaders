@@ -84,8 +84,9 @@ Public Class EndlessType2
         ElseIf freezeAttack = True Then
             tmrpowerup.Enabled = True
             tmrpowerup.Start()
+            tmrEnemyShoot.Stop()
             currentpowerupimage.Visible = False
-            powerupmax = 2
+            powerupmax = 3
             tmrenemy.Stop()
             Debug.WriteLine("freez attack")
         ElseIf healHeart = True Then
@@ -438,9 +439,11 @@ Public Class EndlessType2
                     checkhearts()
                     enemyProjArray(i).Visible = False
                     enemyProjonScreen(i) = False
-                    My.Computer.Audio.Play(My.Resources.playerHit, AudioPlayMode.Background)
+                    If hearts > 0 Then
+                        My.Computer.Audio.Play(My.Resources.playerHit, AudioPlayMode.Background)
+                    End If
                 End If
-                enemyProjArray(i).Top += enemyProjSpeed
+                    enemyProjArray(i).Top += enemyProjSpeed
             End If
             If enemyProjArray(i).Top >= Me.Height Then
                 enemyProjonScreen(i) = False
@@ -688,6 +691,7 @@ Public Class EndlessType2
             powerupLength = 0
             tmrpowerup.Stop()
             tmrenemy.Start()
+            tmrEnemyShoot.Start()
             doubleAttack = False
             doubleattackinventory = False
             freezeAttack = False
