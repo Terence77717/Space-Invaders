@@ -692,6 +692,14 @@ Public Class EndlessType2
             tmrpowerup.Stop()
             tmrenemy.Start()
             tmrEnemyShoot.Start()
+            'For i = 0 To enemyShots - 1
+            '    If secondProjOnScreen(i) = True Then
+            '        doubleAttack = True
+            '        Exit For
+            '    ElseIf i = enemyShots - 1 Then
+            '        doubleAttack = False
+            '    End If
+            'Next
             doubleAttack = False
             doubleattackinventory = False
             freezeAttack = False
