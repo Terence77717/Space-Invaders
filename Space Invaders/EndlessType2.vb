@@ -537,7 +537,7 @@ Public Class EndlessType2
         End If
     End Sub
 
-    Dim powerupTime As Integer = 2000 'set to 0
+    Dim powerupTime As Integer = 0 'set to 0
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
         Dim timedisplayed As String = ""
         Dim temporaryvar As Integer
