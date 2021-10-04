@@ -42,11 +42,11 @@ Partial Class presettings
         '
         Me.TITLELABEL.AutoSize = True
         Me.TITLELABEL.BackColor = System.Drawing.Color.Transparent
-        Me.TITLELABEL.Font = New System.Drawing.Font("Segoe UI", 35.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TITLELABEL.Font = New System.Drawing.Font("Space Invaders", 35.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TITLELABEL.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.TITLELABEL.Location = New System.Drawing.Point(353, 9)
+        Me.TITLELABEL.Location = New System.Drawing.Point(315, 30)
         Me.TITLELABEL.Name = "TITLELABEL"
-        Me.TITLELABEL.Size = New System.Drawing.Size(531, 62)
+        Me.TITLELABEL.Size = New System.Drawing.Size(612, 65)
         Me.TITLELABEL.TabIndex = 22
         Me.TITLELABEL.Text = "CHOOSE YOUR COLOUR"
         Me.TITLELABEL.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -120,11 +120,11 @@ Partial Class presettings
         Me.startButton.AutoSize = True
         Me.startButton.BackColor = System.Drawing.Color.Transparent
         Me.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.startButton.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.startButton.Font = New System.Drawing.Font("Space Invaders", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.startButton.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.startButton.Location = New System.Drawing.Point(945, 449)
         Me.startButton.Name = "startButton"
-        Me.startButton.Size = New System.Drawing.Size(112, 46)
+        Me.startButton.Size = New System.Drawing.Size(145, 45)
         Me.startButton.TabIndex = 43
         Me.startButton.Text = "START"
         Me.startButton.TextAlign = System.Drawing.ContentAlignment.TopCenter

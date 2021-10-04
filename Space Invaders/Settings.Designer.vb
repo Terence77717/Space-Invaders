@@ -40,12 +40,12 @@ Partial Class Settings
         '
         Me.TitleLABEL.AutoSize = True
         Me.TitleLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.TitleLABEL.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TitleLABEL.Font = New System.Drawing.Font("Space Invaders", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TitleLABEL.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TitleLABEL.Location = New System.Drawing.Point(261, 13)
+        Me.TitleLABEL.Location = New System.Drawing.Point(197, 13)
         Me.TitleLABEL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.TitleLABEL.Name = "TitleLABEL"
-        Me.TitleLABEL.Size = New System.Drawing.Size(280, 54)
+        Me.TitleLABEL.Size = New System.Drawing.Size(384, 55)
         Me.TitleLABEL.TabIndex = 0
         Me.TitleLABEL.Text = "Game Settings"
         '
@@ -53,12 +53,12 @@ Partial Class Settings
         '
         Me.LeftTitle.AutoSize = True
         Me.LeftTitle.BackColor = System.Drawing.Color.Transparent
-        Me.LeftTitle.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.LeftTitle.Font = New System.Drawing.Font("Space Invaders", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LeftTitle.ForeColor = System.Drawing.SystemColors.Control
-        Me.LeftTitle.Location = New System.Drawing.Point(188, 170)
+        Me.LeftTitle.Location = New System.Drawing.Point(147, 170)
         Me.LeftTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LeftTitle.Name = "LeftTitle"
-        Me.LeftTitle.Size = New System.Drawing.Size(44, 28)
+        Me.LeftTitle.Size = New System.Drawing.Size(72, 28)
         Me.LeftTitle.TabIndex = 6
         Me.LeftTitle.Text = "Left"
         '
@@ -66,12 +66,12 @@ Partial Class Settings
         '
         Me.RightLabel.AutoSize = True
         Me.RightLabel.BackColor = System.Drawing.Color.Transparent
-        Me.RightLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.RightLabel.Font = New System.Drawing.Font("Space Invaders", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RightLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.RightLabel.Location = New System.Drawing.Point(528, 170)
+        Me.RightLabel.Location = New System.Drawing.Point(487, 170)
         Me.RightLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.RightLabel.Name = "RightLabel"
-        Me.RightLabel.Size = New System.Drawing.Size(59, 28)
+        Me.RightLabel.Size = New System.Drawing.Size(82, 28)
         Me.RightLabel.TabIndex = 7
         Me.RightLabel.Text = "Right"
         '
@@ -79,12 +79,12 @@ Partial Class Settings
         '
         Me.PowerupLabel.AutoSize = True
         Me.PowerupLabel.BackColor = System.Drawing.Color.Transparent
-        Me.PowerupLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.PowerupLabel.Font = New System.Drawing.Font("Space Invaders", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.PowerupLabel.ForeColor = System.Drawing.Color.Transparent
         Me.PowerupLabel.Location = New System.Drawing.Point(143, 341)
         Me.PowerupLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.PowerupLabel.Name = "PowerupLabel"
-        Me.PowerupLabel.Size = New System.Drawing.Size(125, 28)
+        Me.PowerupLabel.Size = New System.Drawing.Size(167, 28)
         Me.PowerupLabel.TabIndex = 8
         Me.PowerupLabel.Text = "Use Powerup"
         '
@@ -92,12 +92,12 @@ Partial Class Settings
         '
         Me.ShootLabel.AutoSize = True
         Me.ShootLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ShootLabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ShootLabel.Font = New System.Drawing.Font("Space Invaders", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ShootLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.ShootLabel.Location = New System.Drawing.Point(475, 341)
         Me.ShootLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ShootLabel.Name = "ShootLabel"
-        Me.ShootLabel.Size = New System.Drawing.Size(152, 28)
+        Me.ShootLabel.Size = New System.Drawing.Size(237, 28)
         Me.ShootLabel.TabIndex = 9
         Me.ShootLabel.Text = "Shoot projectile"
         '
@@ -170,12 +170,12 @@ Partial Class Settings
         Me.ResetKeys.BackColor = System.Drawing.Color.Transparent
         Me.ResetKeys.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ResetKeys.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ResetKeys.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ResetKeys.Font = New System.Drawing.Font("Space Invaders", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ResetKeys.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ResetKeys.Location = New System.Drawing.Point(320, 507)
         Me.ResetKeys.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ResetKeys.Name = "ResetKeys"
-        Me.ResetKeys.Size = New System.Drawing.Size(149, 30)
+        Me.ResetKeys.Size = New System.Drawing.Size(214, 30)
         Me.ResetKeys.TabIndex = 15
         Me.ResetKeys.Text = "Reset Key Binds"
         Me.ResetKeys.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

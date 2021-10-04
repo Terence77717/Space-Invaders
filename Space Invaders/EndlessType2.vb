@@ -314,9 +314,9 @@ Public Class EndlessType2
         CurrentPowerup.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
         WaveLB.Location = New Point(300, 17)
-        CurrentPowerup.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
-        ScoreLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
-        WaveLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
+        'CurrentPowerup.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
+        'ScoreLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
+        'WaveLB.Font = New Font(colFont.Families(0), 18.0, FontStyle.Regular)
 
 
         Select Case playerColour
