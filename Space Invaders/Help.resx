@@ -274,11 +274,12 @@
 </value>
   </data>
   <data name="infoLB.Text" xml:space="preserve">
-    <value>Space Invaders is a retro 1980s game that revolves around a fixed shooter who 
-shoots lasers vertically above at aliens. The fixed player moves horizontally and 
-is required to avoid alien fire and prevent them from reaching the base line.
-Basic controls include A and S to move and SPACE to shoot. These controls can
-be changed in the settings page. 
+    <value>Space Invaders is a retro 1980s game that revolves around a fixed 
+shooter who shoots lasers vertically above at aliens. The fixed player 
+moves horizontally and is required to avoid alien fire and prevent 
+them from reaching the base line. Basic controls include A and S to 
+move and SPACE to shoot. These controls can be changed in the 
+settings page. 
 
 </value>
   </data>

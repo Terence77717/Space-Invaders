@@ -39,12 +39,12 @@ Partial Class Help
         '
         Me.TitleLABEL.AutoSize = True
         Me.TitleLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.TitleLABEL.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TitleLABEL.Font = New System.Drawing.Font("Space Invaders", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TitleLABEL.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TitleLABEL.Location = New System.Drawing.Point(220, 24)
+        Me.TitleLABEL.Location = New System.Drawing.Point(202, 24)
         Me.TitleLABEL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.TitleLABEL.Name = "TitleLABEL"
-        Me.TitleLABEL.Size = New System.Drawing.Size(331, 54)
+        Me.TitleLABEL.Size = New System.Drawing.Size(394, 55)
         Me.TitleLABEL.TabIndex = 1
         Me.TitleLABEL.Text = "HELP AND GUIDE"
         '
@@ -66,25 +66,24 @@ Partial Class Help
         'CoprightLB
         '
         Me.CoprightLB.AutoSize = True
-        Me.CoprightLB.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CoprightLB.Font = New System.Drawing.Font("Space Invaders", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CoprightLB.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.CoprightLB.Location = New System.Drawing.Point(220, 524)
         Me.CoprightLB.Name = "CoprightLB"
-        Me.CoprightLB.Size = New System.Drawing.Size(280, 32)
+        Me.CoprightLB.Size = New System.Drawing.Size(366, 33)
         Me.CoprightLB.TabIndex = 16
         Me.CoprightLB.Text = "Copyright 2021 No Fun"
         '
         'infoLB
         '
         Me.infoLB.AutoSize = True
-        Me.infoLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.infoLB.Font = New System.Drawing.Font("Space Invaders", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.infoLB.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.infoLB.Location = New System.Drawing.Point(120, 114)
+        Me.infoLB.Location = New System.Drawing.Point(36, 116)
         Me.infoLB.Name = "infoLB"
-        Me.infoLB.Size = New System.Drawing.Size(560, 126)
+        Me.infoLB.Size = New System.Drawing.Size(754, 154)
         Me.infoLB.TabIndex = 17
         Me.infoLB.Text = resources.GetString("infoLB.Text")
-        Me.infoLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'MothershipPIC
         '
@@ -109,11 +108,11 @@ Partial Class Help
         'mothershipLB
         '
         Me.mothershipLB.AutoSize = True
-        Me.mothershipLB.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.mothershipLB.Font = New System.Drawing.Font("Space Invaders", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.mothershipLB.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.mothershipLB.Location = New System.Drawing.Point(349, 318)
         Me.mothershipLB.Name = "mothershipLB"
-        Me.mothershipLB.Size = New System.Drawing.Size(183, 21)
+        Me.mothershipLB.Size = New System.Drawing.Size(273, 22)
         Me.mothershipLB.TabIndex = 21
         Me.mothershipLB.Text = "Mothership (100 points)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.mothershipLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -121,11 +120,11 @@ Partial Class Help
         'alienLB
         '
         Me.alienLB.AutoSize = True
-        Me.alienLB.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.alienLB.Font = New System.Drawing.Font("Space Invaders", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.alienLB.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.alienLB.Location = New System.Drawing.Point(349, 385)
         Me.alienLB.Name = "alienLB"
-        Me.alienLB.Size = New System.Drawing.Size(126, 21)
+        Me.alienLB.Size = New System.Drawing.Size(195, 22)
         Me.alienLB.TabIndex = 22
         Me.alienLB.Text = "Alien (10 points)"
         Me.alienLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
