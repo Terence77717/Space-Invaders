@@ -38,7 +38,7 @@ Public Class home
         SettingsLabel.Location = New Size(475, 417)
         SettingsLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
         'TITLELABEL.Font = New Font("Segoe UI", 35.0, FontStyle.Regular)
-        HelpLabel.Location = New Size(520, 485)
+        HelpLabel.Location = New Size(525, 485)
         HelpLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
         LeaderboardLabel.Location = New Size(430, 350)
         LeaderboardLabel.Font = New Font(colFont.Families(0), 25.0, FontStyle.Bold)
