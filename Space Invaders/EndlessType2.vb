@@ -53,7 +53,7 @@ Public Class EndlessType2
     'powerups | attack powerups last 10 seconds
     Dim normalAttack As Boolean = True
     Dim doubleAttack As Boolean = False
-    Dim doubleattackinventory As Boolean = False
+    Dim doubleattackinventory As Boolean = True
     Dim freezeAttack As Boolean = False
     Dim healHeart As Boolean = False
     Dim backupPowerup As String = ""
