@@ -133,7 +133,8 @@ Public Class leaderboard
         Label12.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         Label13.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         backBtn.BackgroundImage = My.Resources.BACK1
-        backBtn.BackgroundImageLayout = ImageLayout.Stretch
+        backBtn.BackgroundImageLayout = ImageLayout.Zoom
+        backBtn.Size = New Size(46, 46)
 
 
 
@@ -148,6 +149,6 @@ Public Class leaderboard
 
     Private Sub backBtn_Click(sender As Object, e As EventArgs) Handles backBtn.Click
         Me.Hide()
-        Settings.Show()
+        home.Show()
     End Sub
 End Class
