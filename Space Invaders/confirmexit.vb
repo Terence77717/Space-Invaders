@@ -8,10 +8,10 @@
         MoonImage.Size = New Size(312, 248)
         Stay.Location = New Size(591, 259)
         Leave.Location = New Size(46, 259)
-        Stay.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
-        Leave.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
+        'Stay.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
+        'Leave.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
         TITLEHOME.Location = New Size(90, 82)
-        TITLEHOME.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
+        'TITLEHOME.Font = New Font(colFont.Families(0), 24.0, FontStyle.Bold)
     End Sub
     '''Private Sub frm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
     '''    ControlPaint.DrawBorder(e.Graphics, Me.ClientRectangle, Color.Black, ButtonBorderStyle.Outset)

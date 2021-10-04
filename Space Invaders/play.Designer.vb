@@ -96,10 +96,11 @@ Partial Class Form2
         Me.LIVESLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
         Me.LIVESLB.AutoSize = True
         Me.LIVESLB.BackColor = System.Drawing.Color.Black
+        Me.LIVESLB.Font = New System.Drawing.Font("Space Invaders", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LIVESLB.ForeColor = System.Drawing.Color.White
         Me.LIVESLB.Location = New System.Drawing.Point(671, 37)
         Me.LIVESLB.Name = "LIVESLB"
-        Me.LIVESLB.Size = New System.Drawing.Size(35, 15)
+        Me.LIVESLB.Size = New System.Drawing.Size(50, 17)
         Me.LIVESLB.TabIndex = 33
         Me.LIVESLB.Text = "LIVES"
         '
@@ -108,10 +109,11 @@ Partial Class Form2
         Me.ScoreLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
         Me.ScoreLB.AutoSize = True
         Me.ScoreLB.BackColor = System.Drawing.Color.Black
+        Me.ScoreLB.Font = New System.Drawing.Font("Space Invaders", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ScoreLB.ForeColor = System.Drawing.Color.White
         Me.ScoreLB.Location = New System.Drawing.Point(46, 37)
         Me.ScoreLB.Name = "ScoreLB"
-        Me.ScoreLB.Size = New System.Drawing.Size(74, 15)
+        Me.ScoreLB.Size = New System.Drawing.Size(87, 17)
         Me.ScoreLB.TabIndex = 34
         Me.ScoreLB.Text = "SCORE < 0 >"
         '
@@ -137,10 +139,11 @@ Partial Class Form2
         Me.WaveLB.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton
         Me.WaveLB.AutoSize = True
         Me.WaveLB.BackColor = System.Drawing.Color.Black
+        Me.WaveLB.Font = New System.Drawing.Font("Space Invaders", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.WaveLB.ForeColor = System.Drawing.Color.White
         Me.WaveLB.Location = New System.Drawing.Point(110, 37)
         Me.WaveLB.Name = "WaveLB"
-        Me.WaveLB.Size = New System.Drawing.Size(69, 15)
+        Me.WaveLB.Size = New System.Drawing.Size(75, 17)
         Me.WaveLB.TabIndex = 36
         Me.WaveLB.Text = "WAVE < 1 >"
         '

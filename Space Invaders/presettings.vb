@@ -7,7 +7,7 @@
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         Me.Size = New Size(1200, 800)
         TITLELABEL.Location = New Size(300, 23)
-        TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
+        'TITLELABEL.Font = New Font(colFont.Families(0), 35.0, FontStyle.Regular)
         player.Left = Me.Width / 2 - player.Width / 2
         player.Top = Me.Height - 2 * player.Height
         player.Size = New Size(183, 100)
@@ -24,7 +24,7 @@
         paintOrange.Top = 100
         paintOrange.Size = New Size(100, 100)
         startButton.Location = New Size(900, 390)
-        startButton.Font = New Font(colFont.Families(0), 25.0, FontStyle.Regular)
+        'startButton.Font = New Font(colFont.Families(0), 25.0, FontStyle.Regular)
     End Sub
 
     'Green

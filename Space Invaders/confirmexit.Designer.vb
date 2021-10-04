@@ -35,11 +35,11 @@ Partial Class confirmexit
         Me.Stay.AutoSize = True
         Me.Stay.BackColor = System.Drawing.Color.Transparent
         Me.Stay.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Stay.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Stay.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Stay.ForeColor = System.Drawing.Color.Tomato
         Me.Stay.Location = New System.Drawing.Point(591, 259)
         Me.Stay.Name = "Stay"
-        Me.Stay.Size = New System.Drawing.Size(167, 37)
+        Me.Stay.Size = New System.Drawing.Size(178, 44)
         Me.Stay.TabIndex = 8
         Me.Stay.Text = "NO STAY"
         '
@@ -48,11 +48,11 @@ Partial Class confirmexit
         Me.Leave.AutoSize = True
         Me.Leave.BackColor = System.Drawing.Color.Transparent
         Me.Leave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Leave.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Leave.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Leave.ForeColor = System.Drawing.Color.MediumAquamarine
         Me.Leave.Location = New System.Drawing.Point(46, 259)
         Me.Leave.Name = "Leave"
-        Me.Leave.Size = New System.Drawing.Size(174, 37)
+        Me.Leave.Size = New System.Drawing.Size(195, 44)
         Me.Leave.TabIndex = 7
         Me.Leave.Text = "YES QUIT"
         '
@@ -60,11 +60,11 @@ Partial Class confirmexit
         '
         Me.TITLEHOME.AutoSize = True
         Me.TITLEHOME.BackColor = System.Drawing.Color.Transparent
-        Me.TITLEHOME.Font = New System.Drawing.Font("Tempus Sans ITC", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TITLEHOME.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.TITLEHOME.ForeColor = System.Drawing.Color.Silver
         Me.TITLEHOME.Location = New System.Drawing.Point(95, 86)
         Me.TITLEHOME.Name = "TITLEHOME"
-        Me.TITLEHOME.Size = New System.Drawing.Size(577, 84)
+        Me.TITLEHOME.Size = New System.Drawing.Size(640, 88)
         Me.TITLEHOME.TabIndex = 9
         Me.TITLEHOME.Text = "ARE YOU SURE YOU WANT TO QUIT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '

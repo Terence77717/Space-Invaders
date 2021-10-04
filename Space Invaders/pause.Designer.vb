@@ -65,11 +65,11 @@ Partial Class pause
         '
         Me.LEVELTITLE.AutoSize = True
         Me.LEVELTITLE.BackColor = System.Drawing.Color.Transparent
-        Me.LEVELTITLE.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.LEVELTITLE.Font = New System.Drawing.Font("Space Invaders", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LEVELTITLE.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.LEVELTITLE.Location = New System.Drawing.Point(249, 26)
+        Me.LEVELTITLE.Location = New System.Drawing.Point(239, 23)
         Me.LEVELTITLE.Name = "LEVELTITLE"
-        Me.LEVELTITLE.Size = New System.Drawing.Size(303, 54)
+        Me.LEVELTITLE.Size = New System.Drawing.Size(376, 55)
         Me.LEVELTITLE.TabIndex = 22
         Me.LEVELTITLE.Text = "PAUSE SCREEN"
         Me.LEVELTITLE.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -94,11 +94,11 @@ Partial Class pause
         Me.playlabel.BackColor = System.Drawing.Color.Transparent
         Me.playlabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.playlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.playlabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.playlabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.playlabel.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.playlabel.Location = New System.Drawing.Point(324, 155)
+        Me.playlabel.Location = New System.Drawing.Point(329, 156)
         Me.playlabel.Name = "playlabel"
-        Me.playlabel.Size = New System.Drawing.Size(153, 45)
+        Me.playlabel.Size = New System.Drawing.Size(163, 44)
         Me.playlabel.TabIndex = 37
         Me.playlabel.Text = "RESUME"
         '
@@ -107,12 +107,12 @@ Partial Class pause
         Me.Homelabel.AutoSize = True
         Me.Homelabel.BackColor = System.Drawing.Color.Transparent
         Me.Homelabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Homelabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Homelabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Homelabel.ForeColor = System.Drawing.SystemColors.Control
         Me.Homelabel.Location = New System.Drawing.Point(286, 245)
         Me.Homelabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Homelabel.Name = "Homelabel"
-        Me.Homelabel.Size = New System.Drawing.Size(253, 45)
+        Me.Homelabel.Size = New System.Drawing.Size(267, 44)
         Me.Homelabel.TabIndex = 35
         Me.Homelabel.Text = "HOME SCREEN"
         '
@@ -121,12 +121,12 @@ Partial Class pause
         Me.LevelsLabel.AutoSize = True
         Me.LevelsLabel.BackColor = System.Drawing.Color.Transparent
         Me.LevelsLabel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LevelsLabel.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.LevelsLabel.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.LevelsLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.LevelsLabel.Location = New System.Drawing.Point(321, 200)
         Me.LevelsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LevelsLabel.Name = "LevelsLabel"
-        Me.LevelsLabel.Size = New System.Drawing.Size(159, 45)
+        Me.LevelsLabel.Size = New System.Drawing.Size(187, 44)
         Me.LevelsLabel.TabIndex = 34
         Me.LevelsLabel.Text = "RESTART"
         '
@@ -300,12 +300,12 @@ Partial Class pause
         Me.SCORELABEL.AutoSize = True
         Me.SCORELABEL.BackColor = System.Drawing.Color.Transparent
         Me.SCORELABEL.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SCORELABEL.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.SCORELABEL.Font = New System.Drawing.Font("Space Invaders", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.SCORELABEL.ForeColor = System.Drawing.SystemColors.Control
         Me.SCORELABEL.Location = New System.Drawing.Point(322, 356)
         Me.SCORELABEL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SCORELABEL.Name = "SCORELABEL"
-        Me.SCORELABEL.Size = New System.Drawing.Size(155, 46)
+        Me.SCORELABEL.Size = New System.Drawing.Size(179, 44)
         Me.SCORELABEL.TabIndex = 54
         Me.SCORELABEL.Text = "SCORE: 0"
         '

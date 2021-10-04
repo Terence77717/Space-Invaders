@@ -23,7 +23,6 @@
         EndlessType2.stpw.Start()
         My.Computer.Audio.Stop()
         Me.Close()
-        home.Show()
     End Sub
     Private Sub pause_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
@@ -45,21 +44,17 @@
         My.Computer.Audio.Stop()
         EndlessType2.Close()
         EndlessType2.Show()
-        Endless.Close()
-        Endless.Show()
-        EndlessType2.Close()
-        EndlessType2.Show()
         Me.Close()
     End Sub
 
     Private Sub pause_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
-        LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
-        LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        Homelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        SCORELABEL.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
+        'LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'Homelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'SCORELABEL.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
         My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
     End Sub
 
@@ -67,5 +62,9 @@
         EndlessType2.Close()
         home.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub LEVELTITLE_Click(sender As Object, e As EventArgs) Handles LEVELTITLE.Click
+
     End Sub
 End Class

@@ -29,46 +29,42 @@
         Next
         FileClose(2)
     End Sub
-    Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
+    Private Sub playlabesl_Click(sender As Object, e As EventArgs) Handles playlabel.Click
         'form2 is play
-        EndlessType2.Hide()
+        My.Computer.Audio.Stop()
         Me.Close()
+        EndlessType2.Show()
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         'form2 is play
-        home.Show()
-        EndlessType2.Close()
         Me.Close()
+        home.Show()
     End Sub
-    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
-        Me.Close()
-        home.Show()
-        EndlessType2.Hide()
+    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click 'exit
+        'Me.Close()
+        'home.Show()
+        'EndlessType2.Hide()
     End Sub
 
-    Private Sub LevelsLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click
+    Private Sub LevelsLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click 'leaderboard
         Me.Close()
         leaderboard.Show()
-        EndlessType2.Hide()
     End Sub
 
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
-        LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
-        LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        SettingsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        scorelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
-        LeftInput.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
+        'LEVELTITLE.Font = New Font(colFont.Families(0), 30.0, FontStyle.Bold)
+        'LevelsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'playlabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'SettingsLabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'scorelabel.Font = New Font(colFont.Families(0), 20.0, FontStyle.Regular)
+        'LeftInput.Font = New Font(colFont.Families(0), 12.0, FontStyle.Regular)
         Me.Size = New Size(800, 550)
         Me.CenterToScreen()
         scorelabel.Text = "Score " + Str(Form2.score)
 
-    End Sub
-
-    Private Sub LeftInput_TextChanged(sender As Object, e As EventArgs) Handles LeftInput.TextChanged
     End Sub
 
     Private Sub MyBase_Closing(sender As Object, e As EventArgs) Handles MyBase.FormClosing

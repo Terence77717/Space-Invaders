@@ -13,11 +13,8 @@
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
+        'Application.Restart()
         Me.Close()
         home.Show()
-    End Sub
-
-    Private Sub mothershipLB_Click(sender As Object, e As EventArgs) Handles mothershipLB.Click
-
     End Sub
 End Class
