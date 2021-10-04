@@ -132,6 +132,10 @@ Public Class leaderboard
         Label11.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         Label12.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
         Label13.Font = New Font(colFont.Families(0), 15.0, FontStyle.Regular)
+        backBtn.BackgroundImage = My.Resources.BACK1
+        backBtn.BackgroundImageLayout = ImageLayout.Stretch
+
+
 
         Me.BackgroundImage = My.Resources.help_background
         Me.BackgroundImageLayout = ImageLayout.Stretch
@@ -140,5 +144,10 @@ Public Class leaderboard
         getscores(highestscores)
         getTimes(highestscores)
         getWaves(highestscores)
+    End Sub
+
+    Private Sub backBtn_Click(sender As Object, e As EventArgs) Handles backBtn.Click
+        Me.Hide()
+        Settings.Show()
     End Sub
 End Class

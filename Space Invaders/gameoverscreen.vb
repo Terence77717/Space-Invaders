@@ -31,7 +31,7 @@
     End Sub
     Private Sub playlabel_Click(sender As Object, e As EventArgs) Handles playlabel.Click
         'form2 is play
-        EndlessType2.hide()
+        EndlessType2.Hide()
         Me.Close()
     End Sub
 

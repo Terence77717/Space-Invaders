@@ -40,11 +40,6 @@
                 Me.Close()
         End Select
     End Sub
-    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
-        Me.Close()
-        My.Computer.Audio.Play(My.Resources.music1, AudioPlayMode.BackgroundLoop)
-        home.Show()
-    End Sub
 
     Private Sub RestartLevelLabel_Click(sender As Object, e As EventArgs) Handles LevelsLabel.Click ' restart
         My.Computer.Audio.Stop()

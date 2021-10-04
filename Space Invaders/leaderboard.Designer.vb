@@ -81,6 +81,8 @@ Partial Class leaderboard
         Me.wave3 = New System.Windows.Forms.Label()
         Me.wave2 = New System.Windows.Forms.Label()
         Me.wave1 = New System.Windows.Forms.Label()
+        Me.backBtn = New System.Windows.Forms.PictureBox()
+        CType(Me.backBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblLeaderboard
@@ -791,12 +793,21 @@ Partial Class leaderboard
         Me.wave1.TabIndex = 46
         Me.wave1.Text = "x"
         '
+        'backBtn
+        '
+        Me.backBtn.Location = New System.Drawing.Point(1106, 13)
+        Me.backBtn.Name = "backBtn"
+        Me.backBtn.Size = New System.Drawing.Size(64, 48)
+        Me.backBtn.TabIndex = 56
+        Me.backBtn.TabStop = False
+        '
         'leaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1178, 700)
+        Me.Controls.Add(Me.backBtn)
         Me.Controls.Add(Me.wave10)
         Me.Controls.Add(Me.wave9)
         Me.Controls.Add(Me.wave8)
@@ -856,6 +867,7 @@ Partial Class leaderboard
         Me.Name = "leaderboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Score:"
+        CType(Me.backBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -920,4 +932,5 @@ Partial Class leaderboard
     Friend WithEvents wave3 As Label
     Friend WithEvents wave2 As Label
     Friend WithEvents wave1 As Label
+    Friend WithEvents backBtn As PictureBox
 End Class
