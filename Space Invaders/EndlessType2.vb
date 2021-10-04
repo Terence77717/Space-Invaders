@@ -84,7 +84,7 @@ Public Class EndlessType2
             tmrpowerup.Start()
             tmrEnemyShoot.Stop()
             currentpowerupimage.Visible = False
-            powerupmax = 3
+            powerupmax = 2
             tmrenemy.Stop()
             Debug.WriteLine("freez attack")
             normalAttack = True
