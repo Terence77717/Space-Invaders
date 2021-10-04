@@ -795,6 +795,7 @@ Partial Class leaderboard
         '
         'backBtn
         '
+        Me.backBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.backBtn.Location = New System.Drawing.Point(1106, 13)
         Me.backBtn.Name = "backBtn"
         Me.backBtn.Size = New System.Drawing.Size(64, 48)
