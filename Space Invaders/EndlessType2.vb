@@ -89,18 +89,20 @@ Public Class EndlessType2
             Debug.WriteLine("freez attack")
             normalAttack = True
         ElseIf healHeart = True Then
-            hearts = hearts + 1
-            currentpowerupimage.Visible = False
-            Debug.WriteLine("heal attack")
-            If hearts = 3 Then ' if there is 3 heart left
-                Heart3.Image = My.Resources.fullheart
-            ElseIf hearts = 2 Then ' if there is 2 heart left
-                Heart2.Image = My.Resources.fullheart
-            Else ' 1 heart left and the player got hit so game over
-                Heart1.Image = My.Resources.fullheart
+            If hearts < 3 Then
+                hearts = hearts + 1
             End If
-            normalAttack = True
-        End If
+            currentpowerupimage.Visible = False
+                Debug.WriteLine("heal attack")
+                If hearts = 3 Then ' if there is 3 heart left
+                    Heart3.Image = My.Resources.fullheart
+                ElseIf hearts = 2 Then ' if there is 2 heart left
+                    Heart2.Image = My.Resources.fullheart
+                Else ' 1 heart left and the player got hit so game over
+                    Heart1.Image = My.Resources.fullheart
+                End If
+                normalAttack = True
+            End If
     End Function
 
     Public Function checkhearts() 'add sound effect for getting hit
@@ -293,7 +295,7 @@ Public Class EndlessType2
         levelwaves = modulefunc.roundused
         levellength = levelwaves.Count - 1
         Debug.WriteLine(levellength)
-        modulefunc.spawnround(levelwaves(levelselected))
+        modulefunc.spawnround(levelwaves(Levelselected))
 
         enemyList = modulefunc.enemywave
         enemyListPosition = modulefunc.enemywaveposition
@@ -535,7 +537,7 @@ Public Class EndlessType2
         End If
     End Sub
 
-    Dim powerupTime As Integer = 0
+    Dim powerupTime As Integer = 2000 'set to 0
     Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
         Dim timedisplayed As String = ""
         Dim temporaryvar As Integer
@@ -718,7 +720,7 @@ Public Class EndlessType2
         End If
     End Sub
     Private Sub tmrEnemyShoot_Tick(sender As Object, e As EventArgs) Handles tmrEnemyShoot.Tick
-        tmrEnemyShoot.Interval = 2000
+        tmrEnemyShoot.Interval = 1750
         Dim ran As New Random
         If tmrenemy.Enabled = True Then
             enemyPos = ran.Next(0, enemyList.Count)
