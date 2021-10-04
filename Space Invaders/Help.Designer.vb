@@ -124,9 +124,9 @@ Partial Class Help
         Me.alienLB.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.alienLB.Location = New System.Drawing.Point(349, 385)
         Me.alienLB.Name = "alienLB"
-        Me.alienLB.Size = New System.Drawing.Size(195, 22)
+        Me.alienLB.Size = New System.Drawing.Size(199, 22)
         Me.alienLB.TabIndex = 22
-        Me.alienLB.Text = "Alien (10 points)"
+        Me.alienLB.Text = "Alien (20 points)"
         Me.alienLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Help
