@@ -93,16 +93,16 @@ Public Class EndlessType2
                 hearts = hearts + 1
             End If
             currentpowerupimage.Visible = False
-                Debug.WriteLine("heal attack")
-                If hearts = 3 Then ' if there is 3 heart left
-                    Heart3.Image = My.Resources.fullheart
-                ElseIf hearts = 2 Then ' if there is 2 heart left
-                    Heart2.Image = My.Resources.fullheart
-                Else ' 1 heart left and the player got hit so game over
-                    Heart1.Image = My.Resources.fullheart
-                End If
-                normalAttack = True
+            Debug.WriteLine("heal attack")
+            If hearts = 3 Then ' if there is 3 heart left
+                Heart3.Image = My.Resources.fullheart
+            ElseIf hearts = 2 Then ' if there is 2 heart left
+                Heart2.Image = My.Resources.fullheart
+            Else ' 1 heart left and the player got hit so game over
+                Heart1.Image = My.Resources.fullheart
             End If
+            normalAttack = True
+        End If
     End Function
 
     Public Function checkhearts() 'add sound effect for getting hit
@@ -285,6 +285,7 @@ Public Class EndlessType2
 
     'Player's sprite, these set out the location and turns the timers on for shooting.
     Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Dim random As New Random
         Dim colFont = New System.Drawing.Text.PrivateFontCollection
         colFont.AddFontFile((Application.StartupPath + "space_invaders.ttf"))
         'Apfc.AddFontFile("C:\Path To\PALETX3.ttf")
@@ -329,7 +330,7 @@ Public Class EndlessType2
         currentpowerupimage.Location = New Point(680, 20)
         currentpowerupimage.Size = New Size(60, 60)
         powerupscreen.Image = My.Resources.doublepowerup
-        powerupscreen.Location = New Point(450, 370)
+        powerupscreen.Location = New Point(random.Next(0, Me.Width - 100), random.Next(0, Me.Height - 100)) '450, 370
         powerupscreen.Size = New Size(60, 60)
         CurrentPowerup.Location = New Point(760, 17)
         ScoreLB.Location = New Point(50, 17)
@@ -594,8 +595,17 @@ Public Class EndlessType2
     Dim DirectionPowerUpMove As Integer = 1 '1 up 2 right 3 down 4 left
     Dim directionOld = 0
     Dim directionMoveAmount = 0
-    Dim directionAdd = 0
+    Dim directionAdd = 0    
     Private Sub tmrpowerupmove_Tick(sender As Object, e As EventArgs) Handles tmrpowerupmove.Tick
+        Dim random As New Random
+        For i = 0 To enemyList.Count - 1
+            If powerupscreen.Bounds.IntersectsWith(enemyList(i).Bounds) Then
+                While powerupscreen.Bounds.IntersectsWith(enemyList(i).Bounds)
+                    powerupscreen.Top = random.Next(0, Me.Height - player.Height)
+                    powerupscreen.Left = random.Next(0, Me.Width - powerupscreen.Width)
+                End While
+            End If
+        Next
         tmrmove.Interval = 500
         Dim length As Integer
         If directionMoveAmount = 0 Then
