@@ -483,7 +483,7 @@ Public Class EndlessType2
             End If
         Next
     End Sub
-    Public Sub activatePowerup()
+    Public Sub activatePowerup() 'When run, changes the inventory image and changes the boolean for the powerups
         If randomselect = 1 Or randomselect = 4 Then
             doubleattackinventory = True
             currentpowerupimage.Image = My.Resources.doublepowerup
@@ -538,8 +538,8 @@ Public Class EndlessType2
         End If
     End Sub
 
-    Dim powerupTime As Integer = 0 'set to 0
-    Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick ' randomly making a powerup and selecting a random powerup
+    Dim powerupTime As Integer = 0 'This is the variable used to time how long the powerup stays visible
+    Private Sub tmrrandomiser_Tick(sender As Object, e As EventArgs) Handles tmrrandomiser.Tick
         Dim timedisplayed As String = ""
         Dim temporaryvar As Integer
         If (stpw.Elapsed.TotalMilliseconds / 1000) > 3600 Then
@@ -553,20 +553,18 @@ Public Class EndlessType2
         temporaryvar = Math.Floor(((stpw.Elapsed.TotalMilliseconds / 1000) Mod 60))
         timedisplayed = timedisplayed + Str(temporaryvar) + "S"
         timeElapsedLB.Text = timedisplayed
-
         If powerupTime >= 2000 Then
-            powerupscreen.Visible = False
+            powerupscreen.Visible = False 'Makes sure that the ico
             Randomize()
             poweruprandom = Int((6 * Rnd()) + 1)
             If poweruprandom >= 5 Then
                 randomcount += 1
             End If
-
-            If randomcount = 20 Then 'set 200
-                randomselect = Int((6 * Rnd()) + 1)
+            If randomcount = 20 Then ' This is a second variable used to calculate when the powerup is generated
+                randomselect = Int((6 * Rnd()) + 1) 'Select the powerup out of 3 types: Heal, Freeze, Double Attack
                 Select Case randomselect
                     Case 1
-                        powerupscreen.Image = My.Resources.doublepowerup
+                        powerupscreen.Image = My.Resources.doublepowerup 'Changes the image of the inventory icon
                     Case 2
                         powerupscreen.Image = My.Resources.freezepowerup
                     Case 3
@@ -578,21 +576,20 @@ Public Class EndlessType2
                     Case 6
                         powerupscreen.Image = My.Resources.healpowerup
                 End Select
-                powerupscreen.Visible = True
+                powerupscreen.Visible = True 'Enables the icon to be viewed and resets the variables
                 randomcount = 0
                 powerupTime = 0
             End If
         Else
-            If powerupTime = 500 Then
-                powerupscreen.Visible = False
+            If powerupTime = 500 Then 'The powerup will only stay visible for this amount of time.
+                powerupscreen.Visible = False 'Once time has passed, the powerup will disappear
             End If
-            powerupTime = powerupTime + 1
+            powerupTime = powerupTime + 1 'This variable used used to increase the counter
         End If
         tmrmove.Interval = 10
-
     End Sub
 
-    Dim DirectionPowerUpMove As Integer = 1 '1 up 2 right 3 down 4 left
+    Dim DirectionPowerUpMove As Integer = 1 '1 up 2 right 3 down 0 left
     Dim directionOld = 0
     Dim directionMoveAmount = 0
     Dim directionAdd = 0    
@@ -608,26 +605,24 @@ Public Class EndlessType2
         Next
         tmrmove.Interval = 500
         Dim length As Integer
-        If directionMoveAmount = 0 Then
+        If directionMoveAmount = 0 Then 'If the direction has not been set, the direction is set
             While directionOld = directionAdd
-                directionMoveAmount = Int(Rnd() * 3) + 2
-                directionAdd = Int(Rnd() * 2) - 1
+                directionMoveAmount = Int(Rnd() * 3) + 2 'this is to calculate the distance
+                directionAdd = Int(Rnd() * 2) - 1 'This generates the direction either left or up
             End While
-            directionOld = directionAdd
+            directionOld = directionAdd 'sets the direction used as above
         Else
-            directionMoveAmount = directionMoveAmount - 1
-            'If directionAdd = 0 Then
-            '    directionAdd = Int(Rnd() * 1) - 1
-            'Else
-            '    directionAdd = Int(Rnd() * 2) - 1
-            'End If
+            directionMoveAmount = directionMoveAmount - 1 'decreases the direction moved by 1
+            'as the following code will run the movement commands
         End If
-        length = Int(Rnd() * 40) + 1
-        DirectionPowerUpMove = (DirectionPowerUpMove + directionAdd) Mod 4
+        length = Int(Rnd() * 40) + 1 'the distance between 1 and 40 is then calculated
+        DirectionPowerUpMove = (DirectionPowerUpMove + directionAdd) Mod 4 'Calculates the
+        'direction the powerup is allowed to move 
         If DirectionPowerUpMove < 0 Then
-            DirectionPowerUpMove = 4 + DirectionPowerUpMove
+            DirectionPowerUpMove = 4 + DirectionPowerUpMove 'cases to make sure it is in the range
+            'of 0 and 4 - which each stand for the direction down, right, bottom, left (clockwise)
         End If
-        Select Case DirectionPowerUpMove
+        Select Case DirectionPowerUpMove 'adjusts the location
             Case 0
                 powerupscreen.Top = powerupscreen.Top - length
             Case 1
@@ -637,7 +632,7 @@ Public Class EndlessType2
             Case 3
                 powerupscreen.Left = powerupscreen.Left - length
         End Select
-        If powerupscreen.Left > 980 Then
+        If powerupscreen.Left > 980 Then 'boundaries of the form so it doesnt exceed
             powerupscreen.Left = powerupscreen.Left - 60
         ElseIf powerupscreen.Left < 10 Then
             powerupscreen.Left = powerupscreen.Left + 60

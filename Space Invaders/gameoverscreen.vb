@@ -67,7 +67,7 @@
         Me.Size = New Size(800, 550)
         Me.CenterToScreen()
         scorelabel.Text = "Score " + Str(EndlessType2.score)
-        LeftInput.MaxLength = 15
+        LeftInput.MaxLength = 12
     End Sub
 
     Private Sub MyBase_Closing(sender As Object, e As EventArgs) Handles MyBase.FormClosing
